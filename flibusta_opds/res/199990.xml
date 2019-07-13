@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/terms/" xmlns:os="http://a9.com/-/spec/opensearch/1.1/" xmlns:opds="http://opds-spec.org/2010/catalog"> <id>tag:author:199990:sequences:</id>
+ <title>Книжные серии Кузнецов Константин Николаевич</title>
+ <updated>2019-03-28T11:55:23+01:00</updated>
+ <icon>/favicon.ico</icon>
+ <link href="/opds-opensearch.xml" rel="search" type="application/opensearchdescription+xml" />
+ <link href="/opds/search?searchTerm={searchTerms}" rel="search" type="application/atom+xml" />
+ <link href="/opds" rel="start" type="application/atom+xml;profile=opds-catalog" />
+ <entry> <updated>2019-03-28T11:55:23+01:00</updated>
+ <id>tag:author:199990:sequence:57018</id>
+ <title>Сто килограммов для прогресса</title>
+ <content type="text">2 книги в серии</content>
+ <link href="/opds/authorsequence/199990/57018" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+</feed>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/terms/" xmlns:os="http://a9.com/-/spec/opensearch/1.1/" xmlns:opds="http://opds-spec.org/2010/catalog"> <id>tag:author:179957:sequenceless:</id>
+ <title>Книги без серий</title>
+ <updated>2019-03-25T03:41:21+01:00</updated>
+ <icon>/favicon.ico</icon>
+ <link href="/opds-opensearch.xml" rel="search" type="application/opensearchdescription+xml" />
+ <link href="/opds/search?searchTerm={searchTerms}" rel="search" type="application/atom+xml" />
+ <link href="/opds" rel="start" type="application/atom+xml;profile=opds-catalog" />
+ <entry> <updated>2019-03-25T03:41:21+01:00</updated>
+ <id>tag:book:427101</id>
+ <title>Записки террориста (в хорошем смысле слова)</title>
+ <author> <name>Фёдоров Виталий</name>
+ <uri>/a/179957</uri>
+</author>
+ <link href="/opds/author/179957" rel="related" type="application/atom+xml" title="Все книги автора Фёдоров Виталий" />
+ <category term="Биографии и Мемуары" label="Биографии и Мемуары" />
+ <category term="Проза о войне" label="Проза о войне" />
+ <category term="Самиздат, сетевая литература" label="Самиздат, сетевая литература" />
+ <dc:language>ru</dc:language>
+ <dc:format>fb2+zip</dc:format>
+ <content type="text/html">
+    &lt;p class=&quot;book&quot;&gt;Мемуары ополченца с позывным «Африка», заставшего самое начало Донбасской войны. Автор побывал в пекле под Ямполем, на месте крушения «Боинга» и успел стать свидетелем и участником множества других важных и интересных событий, о которых находчиво поведал в своей книге «Записки террориста».&lt;/p&gt;
+    &lt;p class=&quot;book&quot;&gt;Как всё начиналось? Как выглядят боевые действия глазами непосредственного участника из самой гущи сражений? Что чувствуешь, впервые убивая людей? Какие возникали проблемы, как и кто их решал в самом начале русского Восстания?&lt;/p&gt;
+    &lt;p class=&quot;book&quot;&gt;Обо всём этом в увлекательной и захватывающей форме читайте в книге «Записки террориста (в хорошем смысле слова)»&lt;/p&gt;
+    &lt;p class=&quot;book&quot;&gt;&lt;i&gt;&lt;b&gt;От редакции:&lt;/b&gt; Разумеется, наш формат — переиздание дореволюционных работ на историческую тематику. Однако, тот факт, что о Донбасской войне уже написана куча книг, большинство из которых являются либо откровенной выдумкой, либо пропагандистским ширпотребом, заставил нас взять на себя ответственность за издание в этой стезе чего-нибудь действительно стоящего и интересного. Чего-нибудь по-настоящему &lt;i&gt;«без купюр».&lt;/i&gt;&lt;/i&gt;&lt;/p&gt;
+    &lt;p class=&quot;book&quot;&gt;&lt;i&gt;Обещаем, что прочитанное не оставит Вас равнодушным и подарит стойкое чувство, что всё это Вы видели своими собственными глазами.&lt;/i&gt;&lt;/p&gt;
+   &lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 255 Kb&lt;br/&gt;Скачиваний: 3620&lt;br/&gt;</content>
+ <link href="/i/1/427101/cover.jpg" rel="http://opds-spec.org/image" type="image/jpeg" />
+ <link href="/i/1/427101/cover.jpg" rel="x-stanza-cover-image" type="image/jpeg" />
+ <link href="/i/1/427101/cover.jpg" rel="http://opds-spec.org/thumbnail" type="image/jpeg" />
+ <link href="/i/1/427101/cover.jpg" rel="x-stanza-cover-image-thumbnail" type="image/jpeg" />
+ <link href="/b/427101/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip" />
+ <link href="/b/427101/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip" />
+ <link href="/b/427101/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip" />
+ <link href="/b/427101/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip" />
+ <link href="/b/427101/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip" />
+ <link href="/b/427101/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook" />
+ <link href="/b/427101" rel="alternate" type="text/html" title="Книга на сайте" />
+</entry>
+ <entry> <updated>2019-03-25T03:41:21+01:00</updated>
+ <id>tag:book:447298</id>
+ <title>Записки террориста (в хорошем смысле слова) [иллюстрации, карты]</title>
+ <author> <name>Фёдоров Виталий</name>
+ <uri>/a/179957</uri>
+</author>
+ <link href="/opds/author/179957" rel="related" type="application/atom+xml" title="Все книги автора Фёдоров Виталий" />
+ <category term="Биографии и Мемуары" label="Биографии и Мемуары" />
+ <category term="Проза о войне" label="Проза о войне" />
+ <dc:language>ru</dc:language>
+ <dc:format>fb2+zip</dc:format>
+ <dc:issued>2015</dc:issued>
+ <content type="text/html">
+    &lt;p class=&quot;book&quot;&gt;От Редакции:&lt;/p&gt;
+    &lt;p class=&quot;book&quot;&gt;«Записки террориста (в хорошем смысле слова)» — непривычный формат литературы для нашего издательства. Однако тот факт, что о Донбасской войне уже написана куча книг, большинство из которых являются либо откровенной выдумкой, либо пропагандистским ширпотребом, заставил нас взять на себя ответственность за издание в этой стезе чего-нибудь действительно стоящего и интересного. Чего-нибудь по-настоящему «без купюр».&lt;/p&gt;
+    &lt;p class=&quot;book&quot;&gt;Предупреждаем сразу: содержание этой книги возмутит многих «патриотов» своей «неполиткорректностью», «политической нецелесообразностью» и уж слишком ироничным отношением ко всему и вся. Впрочем, нас мало заботит, кого и что может возмутить. Свобода слова незыблема, а сила — в правде.&lt;/p&gt;
+    &lt;p class=&quot;book&quot;&gt;&lt;i&gt;К сожалению, эти ценности разделяют далеко не все: крупнейшая украинская российская типография «Парето-Принт», у которой мы печатались до сего момента, в лице генерального директора публично отказала нам в печати этой книги из-за своих политических «принципов».&lt;/i&gt;&lt;/p&gt;
+    &lt;p class=&quot;book&quot;&gt;Стоит сказать, что редакция издательства и сама связана с происходящими на Донбассе событиями — мы неоднократно отправлялись в зону конфликта с гуманитарной помощью и видели всё изнутри, благодаря чему способны отличить правду от лжи и имеем право со знанием дела заявить, что «Записки террориста» — действительно отражают реалии этой войны. К слову, фотография для обложки книги сделана в Донецке нами же.&lt;/p&gt;
+    &lt;p class=&quot;book&quot;&gt;«Записки» не откроют тайны истории тем, кто внимательно следил за событиями в Донбассе или принимал в них участие (но откроют прелюбопытнейшие детали). Африка вообще не делает широких аналитических выводов и пишет, «как есть» и как думает, не чураясь свободных форм изложения и нецензурной лексики (без неё там никак, правда).&lt;/p&gt;
+    &lt;p class=&quot;book&quot;&gt;«Записками террориста» мы отдаём дань началу русского Восстания на Украине и всей Донбасской войне, не стараясь ни приукрасить, ни даже романтизировать эти события (хоть мы это и любим, так как, безусловно, являемся безнадёжными романтиками).&lt;/p&gt;
+    &lt;p class=&quot;book&quot;&gt;Обещаем, что прочитанное не оставит Вас равнодушным и подарит стойкое чувство, что всё это Вы видели своими собственными глазами.&lt;/p&gt;
+    &lt;p class=&quot;book&quot;&gt;Приятного чтения!&lt;/p&gt;
+    &lt;p class=&quot;book&quot;&gt;&lt;i&gt;Дмитрий Бастраков, главный редактор&lt;/i&gt;&lt;/p&gt;
+   &lt;br/&gt;Год издания: 2015&lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 4016 Kb&lt;br/&gt;Скачиваний: 6788&lt;br/&gt;</content>
+ <link href="/i/98/447298/cover.jpg" rel="http://opds-spec.org/image" type="image/jpeg" />
+ <link href="/i/98/447298/cover.jpg" rel="x-stanza-cover-image" type="image/jpeg" />
+ <link href="/i/98/447298/cover.jpg" rel="http://opds-spec.org/thumbnail" type="image/jpeg" />
+ <link href="/i/98/447298/cover.jpg" rel="x-stanza-cover-image-thumbnail" type="image/jpeg" />
+ <link href="/b/447298/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip" />
+ <link href="/b/447298/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip" />
+ <link href="/b/447298/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip" />
+ <link href="/b/447298/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip" />
+ <link href="/b/447298/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip" />
+ <link href="/b/447298/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook" />
+ <link href="/b/447298" rel="alternate" type="text/html" title="Книга на сайте" />
+</entry>
+ <entry> <updated>2019-03-25T03:41:21+01:00</updated>
+ <id>tag:book:459598</id>
+ <title>Записки Террориста: Киев 2016 [calibre 2.43.0]</title>
+ <author> <name>Фёдоров Виталий</name>
+ <uri>/a/179957</uri>
+</author>
+ <link href="/opds/author/179957" rel="related" type="application/atom+xml" title="Все книги автора Фёдоров Виталий" />
+ <category term="Неотсортированное" label="Неотсортированное" />
+ <dc:language>ru</dc:language>
+ <dc:format>fb2+zip</dc:format>
+ <dc:issued>2016</dc:issued>
+ <content type="text/html">Данная книга является художественным произведением,любые совпадения с реальными людьми, местами и событиями случайны. Автор не оправдывает терроризм и не призывает к нему, а, напротив, показывает разрушающее действие экстремистских идей на жизнь увлёкшегося ими человека.&lt;br/&gt;Год издания: 2016&lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 699 Kb&lt;br/&gt;Скачиваний: 2879&lt;br/&gt;</content>
+ <link href="/b/459598/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip" />
+ <link href="/b/459598/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip" />
+ <link href="/b/459598/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip" />
+ <link href="/b/459598/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip" />
+ <link href="/b/459598/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip" />
+ <link href="/b/459598/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook" />
+ <link href="/b/459598" rel="alternate" type="text/html" title="Книга на сайте" />
+</entry>
+</feed>

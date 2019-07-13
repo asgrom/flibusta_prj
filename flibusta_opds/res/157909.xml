@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/terms/" xmlns:os="http://a9.com/-/spec/opensearch/1.1/" xmlns:opds="http://opds-spec.org/2010/catalog"> <id>tag:author:157909:sequences:</id>
+ <title>Книжные серии Каменев Алекс</title>
+ <updated>2019-03-28T09:50:15+01:00</updated>
+ <icon>/favicon.ico</icon>
+ <link href="/opds-opensearch.xml" rel="search" type="application/opensearchdescription+xml" />
+ <link href="/opds/search?searchTerm={searchTerms}" rel="search" type="application/atom+xml" />
+ <link href="/opds" rel="start" type="application/atom+xml;profile=opds-catalog" />
+ <entry> <updated>2019-03-28T09:50:15+01:00</updated>
+ <id>tag:author:157909:sequence:50046</id>
+ <title>Fantasy-world</title>
+ <content type="text">1 книга в серии</content>
+ <link href="/opds/authorsequence/157909/50046" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-28T09:50:15+01:00</updated>
+ <id>tag:author:157909:sequence:53900</id>
+ <title>Анклав теней</title>
+ <content type="text">4 книги в серии</content>
+ <link href="/opds/authorsequence/157909/53900" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-28T09:50:15+01:00</updated>
+ <id>tag:author:157909:sequence:44360</id>
+ <title>Макс Вольф</title>
+ <content type="text">4 книги в серии</content>
+ <link href="/opds/authorsequence/157909/44360" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-28T09:50:15+01:00</updated>
+ <id>tag:author:157909:sequence:55619</id>
+ <title>Овелон</title>
+ <content type="text">1 книга в серии</content>
+ <link href="/opds/authorsequence/157909/55619" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-28T09:50:15+01:00</updated>
+ <id>tag:author:157909:sequence:32905</id>
+ <title>Пират</title>
+ <content type="text">2 книги в серии</content>
+ <link href="/opds/authorsequence/157909/32905" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-28T09:50:15+01:00</updated>
+ <id>tag:author:157909:sequence:27943</id>
+ <title>Современный фантастический боевик</title>
+ <content type="text">6 книг в серии</content>
+ <link href="/opds/authorsequence/157909/27943" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-28T09:50:15+01:00</updated>
+ <id>tag:author:157909:sequence:54505</id>
+ <title>Фэнтези-магия</title>
+ <content type="text">2 книги в серии</content>
+ <link href="/opds/authorsequence/157909/54505" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-28T09:50:15+01:00</updated>
+ <id>tag:author:157909:sequence:53896</id>
+ <title>Цитадели гордыни</title>
+ <content type="text">2 книги в серии</content>
+ <link href="/opds/authorsequence/157909/53896" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-28T09:50:15+01:00</updated>
+ <id>tag:author:157909:sequence:48360</id>
+ <title>Чужие звёзды</title>
+ <content type="text">2 книги в серии</content>
+ <link href="/opds/authorsequence/157909/48360" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+</feed>

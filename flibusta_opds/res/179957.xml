@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/terms/" xmlns:os="http://a9.com/-/spec/opensearch/1.1/" xmlns:opds="http://opds-spec.org/2010/catalog"> <id>tag:author:179957</id>
+ <title>Книги автора Фёдоров Виталий</title>
+ <updated>2019-03-25T03:38:42+01:00</updated>
+ <icon>/favicon.ico</icon>
+ <link href="/opds-opensearch.xml" rel="search" type="application/opensearchdescription+xml" />
+ <link href="/opds/search?searchTerm={searchTerms}" rel="search" type="application/atom+xml" />
+ <link href="/opds" rel="start" type="application/atom+xml;profile=opds-catalog" />
+ <entry> <updated>2019-03-25T03:38:42+01:00</updated>
+ <id>tag:author:bio:179957</id>
+ <title>Об авторе</title>
+ <link href="/ia/90/349790/fedorov_vitaliy_afrika.png" rel="http://opds-spec.org/image" type="image/png" />
+ <link href="/ia/90/349790/fedorov_vitaliy_afrika.png" rel="x-stanza-cover-image" type="image/png" />
+ <link href="/ia/90/349790/fedorov_vitaliy_afrika.png" rel="http://opds-spec.org/image/thumbnail" type="image/png" />
+ <link href="/ia/90/349790/fedorov_vitaliy_afrika.png" rel="x-stanza-cover-image-thumbnail" type="image/png" />
+ <content type="text/html">&lt;img src=&quot;/ia/90/349790/fedorov_vitaliy_afrika.png&quot; align=left style=&quot;border:5px solid #ededed; margin: 12px;&quot;&gt;&lt;p&gt;Виталий «Африка» Федоров о себе: человек извилистой судьбы, идеалист, циник, расист, русский националист, любитель книг, вина, вкусной еды, пива и путешествий.&lt;br /&gt;
+В 2014 году (май-октябрь) ездил в Новороссию, повоевать и вообще, о чём потом написал книгу &quot;Записки террориста&quot;.&lt;br /&gt;
+Блог в ЖЖ - &lt;a href=&quot;http://afrika-sl.livejournal.com&quot;&gt;http://afrika-sl.livejournal.com&lt;/a&gt;&lt;br /&gt;
+Личный сайт - &lt;a href=&quot;http://www.afrika14.com&quot;&gt;http://www.afrika14.com&lt;/a&gt;&lt;/p&gt;
+</content>
+ <link href="/a/179957" rel="alternate" type="text/html" title="Страница автора на сайте" />
+ <link href="/a/179957" rel="http://opds-spec.org/acquisition" type="text/html" title="Страница автора на сайте" />
+ <link href="/opds/authorsequences/179957" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора по сериям" />
+ <link href="/opds/authorsequenceless/179957" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора вне серий" />
+</entry>
+ <entry> <updated>2019-03-25T03:38:42+01:00</updated>
+ <id>tag:author:179957:sequences</id>
+ <title>Книги по сериям</title>
+ <link href="/opds/authorsequences/179957" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-25T03:38:42+01:00</updated>
+ <id>tag:author:179957:sequenceless</id>
+ <title>Книги вне серий</title>
+ <link href="/opds/author/179957/authorsequenceless" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-25T03:38:42+01:00</updated>
+ <id>tag:author:179957:alphabet</id>
+ <title>Книги по алфавиту</title>
+ <link href="/opds/author/179957/alphabet" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-25T03:38:42+01:00</updated>
+ <id>tag:author:179957:time</id>
+ <title>Книги по дате поступления</title>
+ <link href="/opds/author/179957/time" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+</feed>

@@ -1,0 +1,505 @@
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/terms/" xmlns:os="http://a9.com/-/spec/opensearch/1.1/" xmlns:opds="http://opds-spec.org/2010/catalog"> <id>tag:author:1012:sequenceless:</id>
+    <title>Книги без серий</title>
+    <updated>2019-03-25T04:33:09+01:00</updated>
+    <icon>/favicon.ico</icon>
+    <link href="http://testsite.alex.org/res/search_results_2.xml" rel="next"/><link href="http://testsite.alex.org/res/new.xml" rel="up"/><link href="https://flibusta.herokuapp.com/opds-opensearch.xml" rel="search" type="application/opensearchdescription+xml"/>
+    <link href="https://flibusta.herokuapp.com/opds/search?searchTerm={searchTerms}" rel="search" type="application/atom+xml"/>
+    <link href="https://flibusta.herokuapp.com/opds" rel="start" type="application/atom+xml;profile=opds-catalog"/>
+    <entry> <updated>2019-03-25T04:33:11+01:00</updated>
+        <id>tag:book:104819</id>
+        <title>Анатомический жених</title>
+        <author> <name>Беляев Александр Романович</name>
+            <uri>/a/1012</uri>
+        </author>
+        <link href="https://flibusta.herokuapp.com/opds/author/1012" rel="related" type="application/atom+xml" title="Все книги автора Беляев Александр Романович"/>
+        <category term="Научная Фантастика" label="Научная Фантастика"/>
+        <dc:language>ru</dc:language>
+        <dc:format>fb2+zip</dc:format>
+        <dc:issued>1964</dc:issued>
+        <content type="text/html">
+            &lt;p class=book&gt;Рассказ «Анатомический жених», последнее печатное произведение А. Беляева, был написан в 1940 году. Впоследствии по его мотивам А. Беляев создал сценарий «Когда погаснет свет», к сожалению не доведённый до экрана.&lt;/p&gt;
+            &lt;br/&gt;Год издания: 1964&lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 81 Kb&lt;br/&gt;Скачиваний: 6763&lt;br/&gt;</content>
+        <link href="https://flibusta.herokuapp.com/i/19/104819/cover.jpg" rel="http://opds-spec.org/image" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/19/104819/cover.jpg" rel="x-stanza-cover-image" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/19/104819/cover.jpg" rel="http://opds-spec.org/thumbnail" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/19/104819/cover.jpg" rel="x-stanza-cover-image-thumbnail" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/b/104819/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/104819/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/104819/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/104819/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/104819/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/104819/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook"/>
+        <link href="https://flibusta.herokuapp.com/b/104819" rel="alternate" type="text/html" title="Книга на сайте"/>
+    </entry>
+    <entry> <updated>2019-03-25T04:33:11+01:00</updated>
+        <id>tag:book:102619</id>
+        <title>Ариэль</title>
+        <author> <name>Беляев Александр Романович</name>
+            <uri>/a/1012</uri>
+        </author>
+        <link href="https://flibusta.herokuapp.com/opds/author/1012" rel="related" type="application/atom+xml" title="Все книги автора Беляев Александр Романович"/>
+        <category term="Научная Фантастика" label="Научная Фантастика"/>
+        <dc:language>ru</dc:language>
+        <dc:format>fb2+zip</dc:format>
+        <dc:issued>1957</dc:issued>
+        <content type="text/html">
+            &lt;p class=book&gt;Александр Беляев (1884–1942) — один из основоположников жанра научной фантастики в нашей стране. Прикованный к постели, писатель жил в изумительном мире, созданном его воображением. Силой своей фантазии он рисовал будущее, предвосхищая возможность дальнейших открытий и новых достижений.&lt;/p&gt;
+            &lt;p class=book&gt;В романе «Ариэль» главный герой приобретает способность летать. Этот чудесный дар едва не делает его орудием шайки преступников.&lt;/p&gt;
+            &lt;br/&gt;Год издания: 1957&lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 856 Kb&lt;br/&gt;Скачиваний: 11659&lt;br/&gt;</content>
+        <link href="https://flibusta.herokuapp.com/i/19/102619/cover.jpg" rel="http://opds-spec.org/image" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/19/102619/cover.jpg" rel="x-stanza-cover-image" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/19/102619/cover.jpg" rel="http://opds-spec.org/thumbnail" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/19/102619/cover.jpg" rel="x-stanza-cover-image-thumbnail" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/b/102619/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/102619/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/102619/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/102619/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/102619/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/102619/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook"/>
+        <link href="https://flibusta.herokuapp.com/b/102619" rel="alternate" type="text/html" title="Книга на сайте"/>
+    </entry>
+    <entry> <updated>2019-03-25T04:33:11+01:00</updated>
+        <id>tag:book:142942</id>
+        <title>Ариэль</title>
+        <author> <name>Беляев Александр Романович</name>
+            <uri>/a/1012</uri>
+        </author>
+        <link href="https://flibusta.herokuapp.com/opds/author/1012" rel="related" type="application/atom+xml" title="Все книги автора Беляев Александр Романович"/>
+        <category term="Научная Фантастика" label="Научная Фантастика"/>
+        <dc:language>ru</dc:language>
+        <dc:format>fb2+zip</dc:format>
+        <dc:issued>1987</dc:issued>
+        <content type="text/html">
+            &lt;p class=book&gt;«... «Погоня!» — с ужасом подумал Ариэль и повлек Шарада к роще. Но не так-то легко было пробиться сквозь густую толпу, а сагибы были уже совсем близко. Они смотрели по сторонам, словно выискивали кого-то.&lt;/p&gt;
+            &lt;p class=book&gt;Ариэль схватил Шарада и взлетел на воздух.&lt;/p&gt;
+            &lt;p class=book&gt;Взрыв адской машины не произвел бы в толпе большего переполоха. Весь базар словно слился, как одно существо, в едином крике удивления и ужаса. Многие попадали на землю, прикрывая голову плащами и руками. ... » &lt;/p&gt;
+            &lt;br/&gt;Год издания: 1987&lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 748 Kb&lt;br/&gt;Скачиваний: 5198&lt;br/&gt;</content>
+        <link href="https://flibusta.herokuapp.com/i/42/142942/cover2.jpg" rel="http://opds-spec.org/image" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/42/142942/cover2.jpg" rel="x-stanza-cover-image" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/42/142942/cover2.jpg" rel="http://opds-spec.org/thumbnail" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/42/142942/cover2.jpg" rel="x-stanza-cover-image-thumbnail" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/b/142942/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/142942/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/142942/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/142942/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/142942/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/142942/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook"/>
+        <link href="https://flibusta.herokuapp.com/b/142942" rel="alternate" type="text/html" title="Книга на сайте"/>
+    </entry>
+    <entry> <updated>2019-03-25T04:33:11+01:00</updated>
+        <id>tag:book:94886</id>
+        <title>Белый дикарь</title>
+        <author> <name>Беляев Александр Романович</name>
+            <uri>/a/1012</uri>
+        </author>
+        <link href="https://flibusta.herokuapp.com/opds/author/1012" rel="related" type="application/atom+xml" title="Все книги автора Беляев Александр Романович"/>
+        <category term="Научная Фантастика" label="Научная Фантастика"/>
+        <dc:language>ru</dc:language>
+        <dc:format>fb2+zip</dc:format>
+        <dc:issued>1926</dc:issued>
+        <content type="text/html">«Белый дикарь» — приключенческий рассказ Александра Беляева о легендарном человекообразном гоминоиде, одно из первых произведений писателя. Впервые опубликован в 1926 году.&lt;br/&gt;Год издания: 1926&lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 55 Kb&lt;br/&gt;Скачиваний: 4487&lt;br/&gt;</content>
+        <link href="https://flibusta.herokuapp.com/b/94886/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/94886/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/94886/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/94886/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/94886/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/94886/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook"/>
+        <link href="https://flibusta.herokuapp.com/b/94886" rel="alternate" type="text/html" title="Книга на сайте"/>
+    </entry>
+    <entry> <updated>2019-03-25T04:33:11+01:00</updated>
+        <id>tag:book:422069</id>
+        <title>Берлин в 1925 году</title>
+        <author> <name>Беляев Александр Романович</name>
+            <uri>/a/1012</uri>
+        </author>
+        <link href="https://flibusta.herokuapp.com/opds/author/1012" rel="related" type="application/atom+xml" title="Все книги автора Беляев Александр Романович"/>
+        <category term="Научная Фантастика" label="Научная Фантастика"/>
+        <dc:language>ru</dc:language>
+        <dc:format>fb2+zip</dc:format>
+        <dc:issued>1915</dc:issued>
+        <content type="text/html">
+            &lt;p class="book"&gt;&lt;i&gt;Журналист, попавший в Берлин, после окончания первой мировой войны, встречается с механизацией всего общества и попадает на тайное собрание реваншистов.&lt;/i&gt;&lt;/p&gt;
+            &lt;p class="book"&gt;&lt;i&gt;© &lt;a  l:href = "http://www.fantlab.ru/user4735"&gt;Kons&lt;/a&gt;&lt;/i&gt;&lt;/p&gt;
+            &lt;p class="book"&gt;&lt;i&gt;Опубликовано 25 декабря 1915 года в газете «Приазовский край» № 340, стр. 5-6.&lt;/i&gt;&lt;/p&gt;
+            &lt;br/&gt;Год издания: 1915&lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 17 Kb&lt;br/&gt;Скачиваний: 535&lt;br/&gt;</content>
+        <link href="https://flibusta.herokuapp.com/b/422069/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/422069/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/422069/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/422069/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/422069/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/422069/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook"/>
+        <link href="https://flibusta.herokuapp.com/b/422069" rel="alternate" type="text/html" title="Книга на сайте"/>
+    </entry>
+    <entry> <updated>2019-03-25T04:33:11+01:00</updated>
+        <id>tag:book:94626</id>
+        <title>Борьба в эфире</title>
+        <author> <name>Беляев Александр Романович</name>
+            <uri>/a/1012</uri>
+        </author>
+        <link href="https://flibusta.herokuapp.com/opds/author/1012" rel="related" type="application/atom+xml" title="Все книги автора Беляев Александр Романович"/>
+        <category term="Научная Фантастика" label="Научная Фантастика"/>
+        <dc:language>ru</dc:language>
+        <dc:format>fb2+zip</dc:format>
+        <dc:issued>1928</dc:issued>
+        <content type="text/html">Год издания: 1928&lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 233 Kb&lt;br/&gt;Скачиваний: 24332&lt;br/&gt;</content>
+        <link href="https://flibusta.herokuapp.com/i/26/94626/cover.jpg" rel="http://opds-spec.org/image" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/26/94626/cover.jpg" rel="x-stanza-cover-image" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/26/94626/cover.jpg" rel="http://opds-spec.org/thumbnail" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/26/94626/cover.jpg" rel="x-stanza-cover-image-thumbnail" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/b/94626/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/94626/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/94626/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/94626/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/94626/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/94626/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook"/>
+        <link href="https://flibusta.herokuapp.com/b/94626" rel="alternate" type="text/html" title="Книга на сайте"/>
+    </entry>
+    <entry> <updated>2019-03-25T04:33:11+01:00</updated>
+        <id>tag:book:94646</id>
+        <title>В трубе</title>
+        <author> <name>Беляев Александр Романович</name>
+            <uri>/a/1012</uri>
+        </author>
+        <link href="https://flibusta.herokuapp.com/opds/author/1012" rel="related" type="application/atom+xml" title="Все книги автора Беляев Александр Романович"/>
+        <category term="Научная Фантастика" label="Научная Фантастика"/>
+        <dc:language>ru</dc:language>
+        <dc:format>fb2+zip</dc:format>
+        <dc:issued>1939</dc:issued>
+        <content type="text/html">Год издания: 1939&lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 72 Kb&lt;br/&gt;Скачиваний: 4043&lt;br/&gt;</content>
+        <link href="https://flibusta.herokuapp.com/i/46/94646/cover.jpg" rel="http://opds-spec.org/image" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/46/94646/cover.jpg" rel="x-stanza-cover-image" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/46/94646/cover.jpg" rel="http://opds-spec.org/thumbnail" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/46/94646/cover.jpg" rel="x-stanza-cover-image-thumbnail" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/b/94646/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/94646/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/94646/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/94646/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/94646/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/94646/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook"/>
+        <link href="https://flibusta.herokuapp.com/b/94646" rel="alternate" type="text/html" title="Книга на сайте"/>
+    </entry>
+    <entry> <updated>2019-03-25T04:33:11+01:00</updated>
+        <id>tag:book:378051</id>
+        <title>Верхом на Ветре</title>
+        <author> <name>Беляев Александр Романович</name>
+            <uri>/a/1012</uri>
+        </author>
+        <link href="https://flibusta.herokuapp.com/opds/author/1012" rel="related" type="application/atom+xml" title="Все книги автора Беляев Александр Романович"/>
+        <category term="Приключения" label="Приключения"/>
+        <dc:language>ru</dc:language>
+        <dc:format>fb2+zip</dc:format>
+        <dc:issued>1929</dc:issued>
+        <content type="text/html">Год издания: 1929&lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 204 Kb&lt;br/&gt;Скачиваний: 966&lt;br/&gt;</content>
+        <link href="https://flibusta.herokuapp.com/i/51/378051/cover.jpg" rel="http://opds-spec.org/image" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/51/378051/cover.jpg" rel="x-stanza-cover-image" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/51/378051/cover.jpg" rel="http://opds-spec.org/thumbnail" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/51/378051/cover.jpg" rel="x-stanza-cover-image-thumbnail" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/b/378051/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/378051/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/378051/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/378051/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/378051/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/378051/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook"/>
+        <link href="https://flibusta.herokuapp.com/b/378051" rel="alternate" type="text/html" title="Книга на сайте"/>
+    </entry>
+    <entry> <updated>2019-03-25T04:33:11+01:00</updated>
+        <id>tag:book:528200</id>
+        <title>Вечный хлеб</title>
+        <author> <name>Беляев Александр Романович</name>
+            <uri>/a/1012</uri>
+        </author>
+        <link href="https://flibusta.herokuapp.com/opds/author/1012" rel="related" type="application/atom+xml" title="Все книги автора Беляев Александр Романович"/>
+        <category term="Научная Фантастика" label="Научная Фантастика"/>
+        <dc:language>ru</dc:language>
+        <dc:format>fb2+zip</dc:format>
+        <dc:issued>1957</dc:issued>
+        <content type="text/html">Год издания: 1957&lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 392 Kb&lt;br/&gt;Скачиваний: 6879&lt;br/&gt;</content>
+        <link href="https://flibusta.herokuapp.com/i/0/528200/cover.jpg" rel="http://opds-spec.org/image" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/0/528200/cover.jpg" rel="x-stanza-cover-image" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/0/528200/cover.jpg" rel="http://opds-spec.org/thumbnail" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/0/528200/cover.jpg" rel="x-stanza-cover-image-thumbnail" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/b/528200/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/528200/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/528200/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/528200/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/528200/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/528200/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook"/>
+        <link href="https://flibusta.herokuapp.com/b/528200" rel="alternate" type="text/html" title="Книга на сайте"/>
+    </entry>
+    <entry> <updated>2019-03-25T04:33:11+01:00</updated>
+        <id>tag:book:94562</id>
+        <title>Вечный хлеб. Лаборатория Дубльвэ. Чудесное око. Рассказы</title>
+        <author> <name>Беляев Александр Романович</name>
+            <uri>/a/1012</uri>
+        </author>
+        <link href="https://flibusta.herokuapp.com/opds/author/1012" rel="related" type="application/atom+xml" title="Все книги автора Беляев Александр Романович"/>
+        <category term="Научная Фантастика" label="Научная Фантастика"/>
+        <dc:language>ru</dc:language>
+        <dc:format>fb2+zip</dc:format>
+        <dc:issued>2001</dc:issued>
+        <content type="text/html">
+            &lt;p class=book&gt;Сокровища океанских глубин, обнаруженные с помощью телекамеры, получение ядерной энергии и золота, тайна бессмертия… Сочетая детективные сюжеты с гениальной прозорливостью ученого, Беляев в своих произведениях не только предвосхищает многие открытия современной биологии, медицины, физики, но и предсказывает развитие науки будущего. Сборник знакомит с биологическим направлением в творчестве первого отечественного писателя-фантаста, малоизвестным широкому читателю. &lt;/p&gt;
+            &lt;br/&gt;Год издания: 2001&lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 1457 Kb&lt;br/&gt;Скачиваний: 5612&lt;br/&gt;</content>
+        <link href="https://flibusta.herokuapp.com/i/62/94562/cover.png" rel="http://opds-spec.org/image" type="image/png"/>
+        <link href="https://flibusta.herokuapp.com/i/62/94562/cover.png" rel="x-stanza-cover-image" type="image/png"/>
+        <link href="https://flibusta.herokuapp.com/i/62/94562/cover.png" rel="http://opds-spec.org/thumbnail" type="image/png"/>
+        <link href="https://flibusta.herokuapp.com/i/62/94562/cover.png" rel="x-stanza-cover-image-thumbnail" type="image/png"/>
+        <link href="https://flibusta.herokuapp.com/b/94562/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/94562/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/94562/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/94562/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/94562/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/94562/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook"/>
+        <link href="https://flibusta.herokuapp.com/b/94562" rel="alternate" type="text/html" title="Книга на сайте"/>
+    </entry>
+    <entry> <updated>2019-03-25T04:33:11+01:00</updated>
+        <id>tag:book:177013</id>
+        <title>Властелин Мира</title>
+        <author> <name>Беляев Александр Романович</name>
+            <uri>/a/1012</uri>
+        </author>
+        <link href="https://flibusta.herokuapp.com/opds/author/1012" rel="related" type="application/atom+xml" title="Все книги автора Беляев Александр Романович"/>
+        <category term="Научная Фантастика" label="Научная Фантастика"/>
+        <dc:language>ru</dc:language>
+        <dc:format>fb2+zip</dc:format>
+        <dc:issued>1957</dc:issued>
+        <content type="text/html">
+            &lt;p class=book&gt;«Властелин мира» — роман о проблемах телепатии, власти человека над миром и над самим собой. Герой романа — гениальный инженер-бионик Штирнер изобретает аппарат для передачи мысли на расстояние, и не просто передачи, а для зомбирования, гипноза и подавления воли…&lt;/p&gt;
+            &lt;p class=book&gt;Александр Беляев всегда оставался интереснейшим и оригинальным писателем именно потому, что ему удавалось сочетать остроту авантюрного сюжета, предвосхищение грядущих научных открытий и гуманистические традиции «высокой литературы».&lt;/p&gt;
+            &lt;br/&gt;Год издания: 1957&lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 1290 Kb&lt;br/&gt;Скачиваний: 13700&lt;br/&gt;</content>
+        <link href="https://flibusta.herokuapp.com/i/13/177013/cover.jpg" rel="http://opds-spec.org/image" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/13/177013/cover.jpg" rel="x-stanza-cover-image" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/13/177013/cover.jpg" rel="http://opds-spec.org/thumbnail" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/13/177013/cover.jpg" rel="x-stanza-cover-image-thumbnail" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/b/177013/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/177013/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/177013/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/177013/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/177013/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/177013/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook"/>
+        <link href="https://flibusta.herokuapp.com/b/177013" rel="alternate" type="text/html" title="Книга на сайте"/>
+    </entry>
+    <entry> <updated>2019-03-25T04:33:11+01:00</updated>
+        <id>tag:book:412266</id>
+        <title>Воздушный корабль</title>
+        <author> <name>Беляев Александр Романович</name>
+            <uri>/a/1012</uri>
+        </author>
+        <link href="https://flibusta.herokuapp.com/opds/author/1012" rel="related" type="application/atom+xml" title="Все книги автора Беляев Александр Романович"/>
+        <category term="Научная Фантастика" label="Научная Фантастика"/>
+        <category term="Советская классическая проза" label="Советская классическая проза"/>
+        <dc:language>ru</dc:language>
+        <dc:format>fb2+zip</dc:format>
+        <dc:issued>1964</dc:issued>
+        <content type="text/html">
+            &lt;p class="book"&gt;Александр Беляев – один из основоположников жанра научной фантастики в нашей стране. Прикованный к постели, писатель жил в изумительном мире, созданном его воображением. Силой своей фантазии он рисовал будущее, предвосхищая возможность дальнейших открытий и новых достижений. Из пятидесяти научных предвидений Беляева многие сбылись или принципиально осуществимы, и только три считаются ошибочными.&lt;/p&gt;
+            &lt;p class="book"&gt;Иллюстрации художника П. Луганского.&lt;/p&gt;
+            &lt;br/&gt;Год издания: 1964&lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 670 Kb&lt;br/&gt;Скачиваний: 6152&lt;br/&gt;</content>
+        <link href="https://flibusta.herokuapp.com/i/66/412266/cover.jpg" rel="http://opds-spec.org/image" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/66/412266/cover.jpg" rel="x-stanza-cover-image" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/66/412266/cover.jpg" rel="http://opds-spec.org/thumbnail" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/66/412266/cover.jpg" rel="x-stanza-cover-image-thumbnail" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/b/412266/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/412266/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/412266/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/412266/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/412266/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/412266/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook"/>
+        <link href="https://flibusta.herokuapp.com/b/412266" rel="alternate" type="text/html" title="Книга на сайте"/>
+    </entry>
+    <entry> <updated>2019-03-25T04:33:11+01:00</updated>
+        <id>tag:book:5852</id>
+        <title>ВЦБИД</title>
+        <author> <name>Беляев Александр Романович</name>
+            <uri>/a/1012</uri>
+        </author>
+        <link href="https://flibusta.herokuapp.com/opds/author/1012" rel="related" type="application/atom+xml" title="Все книги автора Беляев Александр Романович"/>
+        <category term="Научная Фантастика" label="Научная Фантастика"/>
+        <dc:language>ru</dc:language>
+        <dc:format>fb2+zip</dc:format>
+        <content type="text/html">Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 46 Kb&lt;br/&gt;Скачиваний: 4155&lt;br/&gt;</content>
+        <link href="https://flibusta.herokuapp.com/b/5852/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/5852/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/5852/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/5852/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/5852/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/5852/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook"/>
+        <link href="https://flibusta.herokuapp.com/b/5852" rel="alternate" type="text/html" title="Книга на сайте"/>
+    </entry>
+    <entry> <updated>2019-03-25T04:33:11+01:00</updated>
+        <id>tag:book:253443</id>
+        <title>Голова профессора Доуеля</title>
+        <author> <name>Беляев Александр Романович</name>
+            <uri>/a/1012</uri>
+        </author>
+        <link href="https://flibusta.herokuapp.com/opds/author/1012" rel="related" type="application/atom+xml" title="Все книги автора Беляев Александр Романович"/>
+        <category term="Научная Фантастика" label="Научная Фантастика"/>
+        <dc:language>uk</dc:language>
+        <dc:format>fb2+zip</dc:format>
+        <dc:issued>1957</dc:issued>
+        <content type="text/html">Возможна ли жизнь человеческого разума вне тела? И, если да, то что ждет этот разум под властью морально нечистоплотного человека? Ставя свои дерзкие эксперименты, профессор Доуэль и не предполагал, что однажды в роли подопытного животного окажется он сам, а его бывший ученик получит в полную собственность голову своего учителя, чтобы безнаказанно распоряжаться его гениальными мыслями.&lt;br/&gt;Перевод: Козаченко Владимир Иванович&lt;br/&gt;Год издания: 1957&lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: uk&lt;br/&gt;Размер: 3306 Kb&lt;br/&gt;Скачиваний: 3194&lt;br/&gt;</content>
+        <link href="https://flibusta.herokuapp.com/i/43/253443/cover.jpg" rel="http://opds-spec.org/image" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/43/253443/cover.jpg" rel="x-stanza-cover-image" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/43/253443/cover.jpg" rel="http://opds-spec.org/thumbnail" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/43/253443/cover.jpg" rel="x-stanza-cover-image-thumbnail" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/b/253443/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/253443/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/253443/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/253443/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/253443/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/253443/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook"/>
+        <link href="https://flibusta.herokuapp.com/b/253443" rel="alternate" type="text/html" title="Книга на сайте"/>
+    </entry>
+    <entry> <updated>2019-03-25T04:33:11+01:00</updated>
+        <id>tag:book:102618</id>
+        <title>Голова профессора Доуэля</title>
+        <author> <name>Беляев Александр Романович</name>
+            <uri>/a/1012</uri>
+        </author>
+        <link href="https://flibusta.herokuapp.com/opds/author/1012" rel="related" type="application/atom+xml" title="Все книги автора Беляев Александр Романович"/>
+        <category term="Научная Фантастика" label="Научная Фантастика"/>
+        <dc:language>ru</dc:language>
+        <dc:format>fb2+zip</dc:format>
+        <dc:issued>1957</dc:issued>
+        <content type="text/html">
+            &lt;p class=book&gt;Возможна ли жизнь человеческого разума вне тела? И, если да, то, что ждёт этот разум под властью морально нечистоплотного человека? Ставя свои дерзкие эксперименты, профессор Доуэль и не предполагал, что однажды в роли подопытного животного окажется он сам, а его бывший ученик получит в полную собственность голову своего учителя, чтобы безнаказанно распоряжаться его гениальными мыслями.&lt;/p&gt;
+            &lt;br/&gt;Год издания: 1957&lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 630 Kb&lt;br/&gt;Скачиваний: 20715&lt;br/&gt;</content>
+        <link href="https://flibusta.herokuapp.com/i/18/102618/cover.jpg" rel="http://opds-spec.org/image" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/18/102618/cover.jpg" rel="x-stanza-cover-image" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/18/102618/cover.jpg" rel="http://opds-spec.org/thumbnail" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/18/102618/cover.jpg" rel="x-stanza-cover-image-thumbnail" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/b/102618/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/102618/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/102618/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/102618/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/102618/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/102618/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook"/>
+        <link href="https://flibusta.herokuapp.com/b/102618" rel="alternate" type="text/html" title="Книга на сайте"/>
+    </entry>
+    <entry> <updated>2019-03-25T04:33:11+01:00</updated>
+        <id>tag:book:446449</id>
+        <title>Голова профессора Доуэля (Professor Dowell's Head) [параллельный перевод]</title>
+        <author> <name>Беляев Александр Романович</name>
+            <uri>/a/1012</uri>
+        </author>
+        <link href="https://flibusta.herokuapp.com/opds/author/1012" rel="related" type="application/atom+xml" title="Все книги автора Беляев Александр Романович"/>
+        <category term="Научная Фантастика" label="Научная Фантастика"/>
+        <category term="Языкознание, иностранные языки" label="Языкознание, иностранные языки"/>
+        <dc:language>ru</dc:language>
+        <dc:format>fb2+zip</dc:format>
+        <content type="text/html">
+            &lt;p class="book"&gt;Возможна ли жизнь человеческого разума вне тела? И, если да, то, что ждёт этот разум под властью морально нечистоплотного человека? Ставя свои дерзкие эксперименты, профессор Доуэль и не предполагал, что однажды в роли подопытного животного окажется он сам, а его бывший ученик получит в полную собственность голову своего учителя, чтобы безнаказанно распоряжаться его гениальными мыслями.&lt;/p&gt;
+            &lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 911 Kb&lt;br/&gt;Скачиваний: 696&lt;br/&gt;</content>
+        <link href="https://flibusta.herokuapp.com/b/446449/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/446449/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/446449/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/446449/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/446449/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/446449/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook"/>
+        <link href="https://flibusta.herokuapp.com/b/446449" rel="alternate" type="text/html" title="Книга на сайте"/>
+    </entry>
+    <entry> <updated>2019-03-25T04:33:11+01:00</updated>
+        <id>tag:book:476984</id>
+        <title>Голова профессора Доуэля. Человек-амфибия</title>
+        <author> <name>Беляев Александр Романович</name>
+            <uri>/a/1012</uri>
+        </author>
+        <link href="https://flibusta.herokuapp.com/opds/author/1012" rel="related" type="application/atom+xml" title="Все книги автора Беляев Александр Романович"/>
+        <category term="Научная Фантастика" label="Научная Фантастика"/>
+        <dc:language>ru</dc:language>
+        <dc:format>fb2+zip</dc:format>
+        <dc:issued>1985</dc:issued>
+        <content type="text/html">
+            &lt;p class="book"&gt;Александр Романович Беляев (1884 — 1942) — первый советский писатель, посвятивший всю свою творческую жизнь работе в жанре научной фантастики. Им создана целая серия увлекательных и оригинальных произведений, в занимательной форме популяризирующих интереснейшие вопросы науки и техники. В его книгах воплощены мечты о полетах в мировое пространство, о передаче мыслей на расстояние, об освоении Арктики, покорении морских глубин, овладений атомной энергией, о продлении человеческой жизни.&lt;/p&gt;
+            &lt;p class="book"&gt;В настоящую книгу вошли широкоизвестные произведения А. Беляева. «Голова профессора Доуэля» (1937) — о враче-преступнике, использовавшем в корыстных целях исследования и опыты талантливого ученого, и «Человек-амфибия» (1929) — о смелой попытке усовершенствовать природу человека, дать ему возможность освоить глубины океана.&lt;/p&gt;
+            &lt;br/&gt;Год издания: 1985&lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 1927 Kb&lt;br/&gt;Скачиваний: 619&lt;br/&gt;</content>
+        <link href="https://flibusta.herokuapp.com/i/84/476984/cover.jpg" rel="http://opds-spec.org/image" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/84/476984/cover.jpg" rel="x-stanza-cover-image" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/84/476984/cover.jpg" rel="http://opds-spec.org/thumbnail" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/84/476984/cover.jpg" rel="x-stanza-cover-image-thumbnail" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/b/476984/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/476984/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/476984/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/476984/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/476984/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/476984/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook"/>
+        <link href="https://flibusta.herokuapp.com/b/476984" rel="alternate" type="text/html" title="Книга на сайте"/>
+    </entry>
+    <entry> <updated>2019-03-25T04:33:11+01:00</updated>
+        <id>tag:book:378040</id>
+        <title>Город Победителя</title>
+        <author> <name>Беляев Александр Романович</name>
+            <uri>/a/1012</uri>
+        </author>
+        <link href="https://flibusta.herokuapp.com/opds/author/1012" rel="related" type="application/atom+xml" title="Все книги автора Беляев Александр Романович"/>
+        <category term="Малые литературные формы прозы: рассказы, эссе, новеллы, феерия" label="Малые литературные формы прозы: рассказы, эссе, новеллы, феерия"/>
+        <category term="Научная Фантастика" label="Научная Фантастика"/>
+        <dc:language>ru</dc:language>
+        <dc:format>fb2+zip</dc:format>
+        <dc:issued>1930</dc:issued>
+        <content type="text/html">
+            &lt;p class=book&gt;ОТ РЕДАКЦИИ Борьба за власть, чрезвычайное напряжение в эпоху гражданской войны, трудности восстановительного периода — позади. Победитель-пролетариат подошел к интереснейшему моменту послеоктябрьской истории человечества — творчеству новых социалистических форм жизни, реализации «утопий», воплощению в жизнь мечты о новой, светлой и радостной жизни. Новые социалистические города с их новым бытом — уже не отдаленная греза мечтателя. Архитектор-строитель уже чертит планы этих городов, уже готовы те кирпичи и цемент, на которых будут созданы социалистические города. Специальные комиссии обсуждают вопросы создания нового быта — Ведутся горячие споры в поисках наилучших форм. Творчество художника, литератора фантаста, может иметь настоящий момент большое значение. и не только пропагандистское: конкретно, практическое строительство социализма должно пройти «через опыт миллионов, когда они возьмутся за дело. Пусть литераторы и художники не всегда угадывают то, что будет, и даже ошибаются. Если хоть одна деталь «фантаста» войдет кирпичиком в общее строительство — произведение автора или художника будет оправдано. В настоящее время трудно, почти невозможно дать цельный фабульный роман, изображающий наш «завтрашний день», сейчас намечаются лишь общие контуры нового города и быта. Сейчас можно в литературе дать эскизы, наброски, наметки того, что будет.&lt;/p&gt;
+            &lt;br/&gt;Год издания: 1930&lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 341 Kb&lt;br/&gt;Скачиваний: 925&lt;br/&gt;</content>
+        <link href="https://flibusta.herokuapp.com/i/40/378040/cover.jpg" rel="http://opds-spec.org/image" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/40/378040/cover.jpg" rel="x-stanza-cover-image" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/40/378040/cover.jpg" rel="http://opds-spec.org/thumbnail" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/40/378040/cover.jpg" rel="x-stanza-cover-image-thumbnail" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/b/378040/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/378040/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/378040/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/378040/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/378040/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/378040/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook"/>
+        <link href="https://flibusta.herokuapp.com/b/378040" rel="alternate" type="text/html" title="Книга на сайте"/>
+    </entry>
+    <entry> <updated>2019-03-25T04:33:11+01:00</updated>
+        <id>tag:book:378030</id>
+        <title>Держи на запад!</title>
+        <author> <name>Беляев Александр Романович</name>
+            <uri>/a/1012</uri>
+        </author>
+        <link href="https://flibusta.herokuapp.com/opds/author/1012" rel="related" type="application/atom+xml" title="Все книги автора Беляев Александр Романович"/>
+        <category term="Научная Фантастика" label="Научная Фантастика"/>
+        <dc:language>ru</dc:language>
+        <dc:format>fb2+zip</dc:format>
+        <dc:issued>1986</dc:issued>
+        <content type="text/html">
+            &lt;p class=book&gt;Великий Ум, сверхгений, гордость человечества и его надежда, умирал. За свою долгую жизнь он подарил человечеству много открытий и изобретений. И вот теперь, когда Великий Ум был занят своим самым важным изобретением, врачи принесли печальную весть: конец приближается, и он не успеет окончить это изобретение, которое откроет новую эру в истории человечества. Узнав, что ему осталось жить не более месяца, Великий Ум решил побороться за свою жизнь. Для Великого Ума была приготовлена большая ракета, на которой он должен был лететь на запад до тех пор, пока не окончит своего труда. Как только скорость ракеты достигла скорости движения Земли, то время на ракете стало. А когда скорость увеличили, то произошло очень интересное событие…&lt;/p&gt;
+            &lt;br/&gt;Год издания: 1986&lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 155 Kb&lt;br/&gt;Скачиваний: 4240&lt;br/&gt;</content>
+        <link href="https://flibusta.herokuapp.com/i/30/378030/cover.jpg" rel="http://opds-spec.org/image" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/30/378030/cover.jpg" rel="x-stanza-cover-image" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/30/378030/cover.jpg" rel="http://opds-spec.org/thumbnail" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/30/378030/cover.jpg" rel="x-stanza-cover-image-thumbnail" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/b/378030/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/378030/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/378030/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/378030/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/378030/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/378030/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook"/>
+        <link href="https://flibusta.herokuapp.com/b/378030" rel="alternate" type="text/html" title="Книга на сайте"/>
+    </entry>
+    <entry> <updated>2019-03-25T04:33:11+01:00</updated>
+        <id>tag:book:94695</id>
+        <title>Заочный инженер</title>
+        <author> <name>Беляев Александр Романович</name>
+            <uri>/a/1012</uri>
+        </author>
+        <link href="https://flibusta.herokuapp.com/opds/author/1012" rel="related" type="application/atom+xml" title="Все книги автора Беляев Александр Романович"/>
+        <category term="Научная Фантастика" label="Научная Фантастика"/>
+        <dc:language>ru</dc:language>
+        <dc:format>fb2+zip</dc:format>
+        <dc:issued>1938</dc:issued>
+        <content type="text/html">Год издания: 1938&lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 79 Kb&lt;br/&gt;Скачиваний: 4158&lt;br/&gt;</content>
+        <link href="https://flibusta.herokuapp.com/i/95/94695/cover.jpg" rel="http://opds-spec.org/image" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/95/94695/cover.jpg" rel="x-stanza-cover-image" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/95/94695/cover.jpg" rel="http://opds-spec.org/thumbnail" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/i/95/94695/cover.jpg" rel="x-stanza-cover-image-thumbnail" type="image/jpeg"/>
+        <link href="https://flibusta.herokuapp.com/b/94695/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/94695/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/94695/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/94695/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/94695/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip"/>
+        <link href="https://flibusta.herokuapp.com/b/94695/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook"/>
+        <link href="https://flibusta.herokuapp.com/b/94695" rel="alternate" type="text/html" title="Книга на сайте"/>
+    </entry>
+</feed>

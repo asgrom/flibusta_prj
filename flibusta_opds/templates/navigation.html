@@ -1,0 +1,27 @@
+{% block navigation %}
+<header>
+    <div class="container">
+        <p>
+            <img src="images/favicon.ico" alt="Favicon.ico">
+        </p>
+        <h2>Flibusta OPDS</h2>
+        <nav>
+            <ul>
+                <li>
+                    {% if data.up %}
+                    <a class="nav_btn" href="{{ data.up }}">назад</a>
+                    {% endif %}
+                </li>
+                <li>
+                    <a class="nav_btn" href="/opds">Главная</a>
+                </li>
+                <li>
+                    {% if data.next %}
+                    <a class="nav_btn" href="{{ data.next }}">следующая</a>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+{% endblock navigation %}

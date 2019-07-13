@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/terms/" xmlns:os="http://a9.com/-/spec/opensearch/1.1/" xmlns:opds="http://opds-spec.org/2010/catalog"> <id>tag:author:1012:sequences:</id>
+ <title>Книжные серии Беляев Александр Романович</title>
+ <updated>2019-03-25T04:32:17+01:00</updated>
+ <icon>/favicon.ico</icon>
+ <link href="https://flibusta.herokuapp.com/opds-opensearch.xml" rel="search" type="application/opensearchdescription+xml" />
+ <link href="https://flibusta.herokuapp.com/opds/search?searchTerm={searchTerms}" rel="search" type="application/atom+xml" />
+ <link href="https://flibusta.herokuapp.com/opds" rel="start" type="application/atom+xml;profile=opds-catalog" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequences/1012/1" rel="next" type="application/atom+xml;profile=opds-catalog" />
+ <entry> <updated>2019-03-25T04:32:18+01:00</updated>
+ <id>tag:author:1012:sequence:7285</id>
+ <title>Альманах «Мир приключений»</title>
+ <content type="text">1 книга в серии</content>
+ <link href="https://flibusta.herokuapp.com/opds/authorsequence/1012/7285" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-25T04:32:18+01:00</updated>
+ <id>tag:author:1012:sequence:4884</id>
+ <title>Антология фантастики</title>
+ <content type="text">4 книги в серии</content>
+ <link href="https://flibusta.herokuapp.com/opds/authorsequence/1012/4884" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-25T04:32:18+01:00</updated>
+ <id>tag:author:1012:sequence:45472</id>
+ <title>Беляев А. Р. Сборники</title>
+ <content type="text">4 книги в серии</content>
+ <link href="https://flibusta.herokuapp.com/opds/authorsequence/1012/45472" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-25T04:32:18+01:00</updated>
+ <id>tag:author:1012:sequence:40648</id>
+ <title>Беляев А. Р. Собрание сочинений в 5 томах</title>
+ <content type="text">5 книг в серии</content>
+ <link href="https://flibusta.herokuapp.com/opds/authorsequence/1012/40648" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-25T04:32:18+01:00</updated>
+ <id>tag:author:1012:sequence:35939</id>
+ <title>Беляев А. Р. Собрание сочинений в 8 томах</title>
+ <content type="text">16 книг в серии</content>
+ <link href="https://flibusta.herokuapp.com/opds/authorsequence/1012/35939" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-25T04:32:18+01:00</updated>
+ <id>tag:author:1012:sequence:13749</id>
+ <title>Библиотека научной фантастики и приключений</title>
+ <content type="text">3 книги в серии</content>
+ <link href="https://flibusta.herokuapp.com/opds/authorsequence/1012/13749" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-25T04:32:18+01:00</updated>
+ <id>tag:author:1012:sequence:45400</id>
+ <title>Библиотека отечественной художественной литературы в 100 томах</title>
+ <content type="text">1 книга в серии</content>
+ <link href="https://flibusta.herokuapp.com/opds/authorsequence/1012/45400" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-25T04:32:18+01:00</updated>
+ <id>tag:author:1012:sequence:9427</id>
+ <title>Библиотека приключений</title>
+ <content type="text">1 книга в серии</content>
+ <link href="https://flibusta.herokuapp.com/opds/authorsequence/1012/9427" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-25T04:32:18+01:00</updated>
+ <id>tag:author:1012:sequence:3776</id>
+ <title>Библиотека приключений и научной фантастики</title>
+ <content type="text">3 книги в серии</content>
+ <link href="https://flibusta.herokuapp.com/opds/authorsequence/1012/3776" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-25T04:32:18+01:00</updated>
+ <id>tag:author:1012:sequence:13957</id>
+ <title>Библиотека приключений и фантастики</title>
+ <content type="text">2 книги в серии</content>
+ <link href="https://flibusta.herokuapp.com/opds/authorsequence/1012/13957" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-25T04:32:18+01:00</updated>
+ <id>tag:author:1012:sequence:43777</id>
+ <title>Библиотека фантастики в 24 томах</title>
+ <content type="text">3 книги в серии</content>
+ <link href="https://flibusta.herokuapp.com/opds/authorsequence/1012/43777" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-25T04:32:18+01:00</updated>
+ <id>tag:author:1012:sequence:15605</id>
+ <title>Бібліотека пригод та наукової фантастики</title>
+ <content type="text">1 книга в серии</content>
+ <link href="https://flibusta.herokuapp.com/opds/authorsequence/1012/15605" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-25T04:32:18+01:00</updated>
+ <id>tag:author:1012:sequence:43496</id>
+ <title>Бібліотека пригод. Золота серія</title>
+ <content type="text">2 книги в серии</content>
+ <link href="https://flibusta.herokuapp.com/opds/authorsequence/1012/43496" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-25T04:32:18+01:00</updated>
+ <id>tag:author:1012:sequence:11822</id>
+ <title>Бібліотечка пригод та наукової фантастики</title>
+ <content type="text">2 книги в серии</content>
+ <link href="https://flibusta.herokuapp.com/opds/authorsequence/1012/11822" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-25T04:32:18+01:00</updated>
+ <id>tag:author:1012:sequence:8867</id>
+ <title>В мире фантастики и приключений</title>
+ <content type="text">1 книга в серии</content>
+ <link href="https://flibusta.herokuapp.com/opds/authorsequence/1012/8867" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-25T04:32:18+01:00</updated>
+ <id>tag:author:1012:sequence:40509</id>
+ <title>Всемирный следопыт (журнал)</title>
+ <content type="text">14 книг в серии</content>
+ <link href="https://flibusta.herokuapp.com/opds/authorsequence/1012/40509" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-25T04:32:18+01:00</updated>
+ <id>tag:author:1012:sequence:56700</id>
+ <title>Журнал «Юный техник»</title>
+ <content type="text">1 книга в серии</content>
+ <link href="https://flibusta.herokuapp.com/opds/authorsequence/1012/56700" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-25T04:32:18+01:00</updated>
+ <id>tag:author:1012:sequence:28820</id>
+ <title>Звезды Млечного Пути</title>
+ <content type="text">1 книга в серии</content>
+ <link href="https://flibusta.herokuapp.com/opds/authorsequence/1012/28820" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-25T04:32:18+01:00</updated>
+ <id>tag:author:1012:sequence:45465</id>
+ <title>Звезды советской фантастики</title>
+ <content type="text">2 книги в серии</content>
+ <link href="https://flibusta.herokuapp.com/opds/authorsequence/1012/45465" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-25T04:32:18+01:00</updated>
+ <id>tag:author:1012:sequence:3519</id>
+ <title>Изобретения профессора Вагнера</title>
+ <content type="text">8 книг в серии</content>
+ <link href="https://flibusta.herokuapp.com/opds/authorsequence/1012/3519" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+</feed>

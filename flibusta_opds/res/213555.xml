@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/terms/" xmlns:os="http://a9.com/-/spec/opensearch/1.1/" xmlns:opds="http://opds-spec.org/2010/catalog"> <id>tag:search:new:book:0</id>
+ <title>Новинки с 19.03.2019 по 26.03.2019</title>
+ <updated>2019-03-26T23:46:00+01:00</updated>
+ <icon>/favicon.ico</icon>
+ <link href="/opds-opensearch.xml" rel="search" type="application/opensearchdescription+xml" />
+ <link href="/opds/search?searchTerm={searchTerms}" rel="search" type="application/atom+xml" />
+ <link href="/opds" rel="start" type="application/atom+xml;profile=opds-catalog" />
+ <entry> <updated>2019-03-26T23:46:00+01:00</updated>
+ <id>tag:book:545401</id>
+ <title>Личный призрак [СИ]</title>
+ <author> <name>Masluteek</name>
+ <uri>/a/213555</uri>
+</author>
+ <link href="/opds/author/213555" rel="related" type="application/atom+xml" title="Все книги автора Masluteek" />
+ <category term="Любовное фэнтези, любовно-фантастические романы " label="Любовное фэнтези, любовно-фантастические романы " />
+ <category term="Самиздат, сетевая литература" label="Самиздат, сетевая литература" />
+ <dc:language>ru</dc:language>
+ <dc:format>fb2+zip</dc:format>
+ <content type="text/html">
+        &lt;p class=&quot;book&quot;&gt;	Ты обычный темный маг, жил не тужил в своем замке, работал по специальности, и вдруг БАЦ!!! И объявилась в твоем замке девушка, говорливая, не в меру раскованная, да еще и утверждающая, что из другого мира. И как поверить, что в давно запечатанный мир смогло проникнуть такое чудо...И что с ней делать? Но спокойное &quot;жил не тужил&quot; уж точно кануло в Лету....&lt;/p&gt;
+      &lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 1453 Kb&lt;br/&gt;Скачиваний: 1199&lt;br/&gt;</content>
+ <link href="/i/1/545401/cover.jpg" rel="http://opds-spec.org/image" type="image/jpeg" />
+ <link href="/i/1/545401/cover.jpg" rel="x-stanza-cover-image" type="image/jpeg" />
+ <link href="/i/1/545401/cover.jpg" rel="http://opds-spec.org/thumbnail" type="image/jpeg" />
+ <link href="/i/1/545401/cover.jpg" rel="x-stanza-cover-image-thumbnail" type="image/jpeg" />
+ <link href="/b/545401/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip" />
+ <link href="/b/545401/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip" />
+ <link href="/b/545401/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip" />
+ <link href="/b/545401/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip" />
+ <link href="/b/545401/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip" />
+ <link href="/b/545401/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook" />
+ <link href="/b/545401" rel="alternate" type="text/html" title="Книга на сайте" />
+</entry>
+</feed>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/terms/" xmlns:os="http://a9.com/-/spec/opensearch/1.1/" xmlns:opds="http://opds-spec.org/2010/catalog"> <id>tag:search:new:book:</id>
+    <title>Новинки с 18.03.2019 по 25.03.2019</title>
+    <updated>2019-03-25T04:23:15+01:00</updated>
+    <icon>/favicon.ico</icon>
+    <link href="https://flibusta.herokuapp.com/opds-opensearch.xml" rel="search" type="application/opensearchdescription+xml" />
+    <link href="https://flibusta.herokuapp.com/opds/search?searchTerm={searchTerms}" rel="search" type="application/atom+xml" />
+    <link href="https://flibusta.herokuapp.com/opds" rel="start" type="application/atom+xml;profile=opds-catalog" />
+    <entry> <updated>2019-03-25T04:23:15+01:00</updated>
+        <id>tag:search:new:books</id>
+        <title>Все новинки</title>
+        <content>581 новая книга</content>
+        <link href="https://flibusta.herokuapp.com/opds/new/0/new" type="application/atom+xml;profile=opds-catalog" />
+    </entry>
+    <entry> <updated>2019-03-25T04:23:16+01:00</updated>
+        <id>tag:search:new:genres</id>
+        <title>По жанрам</title>
+        <content>Новые книги по жанрам</content>
+        <link href="https://flibusta.herokuapp.com/opds/newgenres" type="application/atom+xml;profile=opds-catalog" />
+    </entry>
+    <entry> <updated>2019-03-25T04:23:16+01:00</updated>
+        <id>tag:search:new:authors</id>
+        <title>По авторам</title>
+        <content>Новые книги по авторам</content>
+        <link href="https://flibusta.herokuapp.com/opds/newauthors" type="application/atom+xml;profile=opds-catalog" />
+    </entry>
+    <entry> <updated>2019-03-25T04:23:16+01:00</updated>
+        <id>tag:search:new:authors:watched</id>
+        <title>По отслеживаемым авторам</title>
+        <content>Новые книги по авторам (требуется логин)</content>
+        <link href="https://flibusta.herokuapp.com/opds/newauthorswatched" type="application/atom+xml;profile=opds-catalog" />
+    </entry>
+    <entry> <updated>2019-03-25T04:23:16+01:00</updated>
+        <id>tag:search:new:sequences</id>
+        <title>По сериям</title>
+        <content>Новые книги по сериям</content>
+        <link href="https://flibusta.herokuapp.com/opds/newsequences" type="application/atom+xml;profile=opds-catalog" />
+    </entry>
+</feed>

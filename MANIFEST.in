@@ -1,0 +1,5 @@
+recursive-include flibusta_opds/templates *
+recursive-include flibusta_opds/images *.ico
+recursive-include flibusta_opds/css *
+recursive-include flibusta_opds/ui *
+recursive-include flibusta_opds/res proxy*

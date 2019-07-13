@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    {% block page_title %}
+        <title>Filbusta OPDS Catalog</title>
+    {% endblock %}
+    {% block head %}
+        <link type="text/css" rel="stylesheet" href="{{ css }}">
+    {% endblock %}
+</head>
+
+<body>
+<div class="main">
+    {% include 'navigation.html' %}
+    {% block content %}{% endblock %}
+</div>
+</body>
+
+</html>

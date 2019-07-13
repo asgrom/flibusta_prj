@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/terms/" xmlns:os="http://a9.com/-/spec/opensearch/1.1/" xmlns:opds="http://opds-spec.org/2010/catalog"> <id>tag:root:sequences:БВ</id>
+ <title>Книги по сериям</title>
+ <updated>2019-03-26T23:50:50+01:00</updated>
+ <icon>/favicon.ico</icon>
+ <link href="/opds-opensearch.xml" rel="search" type="application/opensearchdescription+xml" />
+ <link href="/opds/search?searchTerm={searchTerms}" rel="search" type="application/atom+xml" />
+ <link href="/opds" rel="start" type="application/atom+xml;profile=opds-catalog" />
+ <entry> <updated>2019-03-26T23:50:50+01:00</updated>
+ <id>tag:sequence:19566</id>
+ <title>БВЛ – 10. Песнь о Роланде. Коронование Людовика. Нимская телега. Песнь о Сиде. Романсеро</title>
+ <content type="text">2 книги в серии</content>
+ <link href="/opds/sequencebooks/19566" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-26T23:50:50+01:00</updated>
+ <id>tag:sequence:48486</id>
+ <title>БВЛ – 145. Сага о Форсайтах. Том 1</title>
+ <content type="text">2 книги в серии</content>
+ <link href="/opds/sequencebooks/48486" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-26T23:50:50+01:00</updated>
+ <id>tag:sequence:48487</id>
+ <title>БВЛ – 146. Сага о Форсайтах. Том 2</title>
+ <content type="text">4 книги в серии</content>
+ <link href="/opds/sequencebooks/48487" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-26T23:50:50+01:00</updated>
+ <id>tag:sequence:47287</id>
+ <title>БВЛ – 26. Алишер Навои. Поэмы</title>
+ <content type="text">5 книг в серии</content>
+ <link href="/opds/sequencebooks/47287" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-26T23:50:50+01:00</updated>
+ <id>tag:sequence:47286</id>
+ <title>БВЛ – 39. Испанский театр</title>
+ <content type="text">1 книга в серии</content>
+ <link href="/opds/sequencebooks/47286" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-26T23:50:50+01:00</updated>
+ <id>tag:sequence:47288</id>
+ <title>БВЛ – 48. Драматические произведения. Мемуары</title>
+ <content type="text">1 книга в серии</content>
+ <link href="/opds/sequencebooks/47288" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-26T23:50:50+01:00</updated>
+ <id>tag:sequence:39839</id>
+ <title>БВЛ – 57. Русская поэзия XVIII века</title>
+ <content type="text">1 книга в серии</content>
+ <link href="/opds/sequencebooks/39839" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-26T23:50:50+01:00</updated>
+ <id>tag:sequence:47463</id>
+ <title>БВЛ – 64. Драмы. Стихотворения</title>
+ <content type="text">5 книг в серии</content>
+ <link href="/opds/sequencebooks/47463" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-26T23:50:50+01:00</updated>
+ <id>tag:sequence:47471</id>
+ <title>БВЛ – 67. Паломничество Чайльд-Гарольда. Дон-Жуан</title>
+ <content type="text">1 книга в серии</content>
+ <link href="/opds/sequencebooks/47471" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-26T23:50:50+01:00</updated>
+ <id>tag:sequence:47497</id>
+ <title>БВЛ – 76. Жермини Ласерте. Братья Земганно. Актриса Фостен</title>
+ <content type="text">1 книга в серии</content>
+ <link href="/opds/sequencebooks/47497" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-26T23:50:50+01:00</updated>
+ <id>tag:sequence:17507</id>
+ <title>БВЛ. Серия вторая</title>
+ <content type="text">33 книги в серии</content>
+ <link href="/opds/sequencebooks/17507" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-26T23:50:50+01:00</updated>
+ <id>tag:sequence:17232</id>
+ <title>БВЛ. Серия первая</title>
+ <content type="text">83 книги в серии</content>
+ <link href="/opds/sequencebooks/17232" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-26T23:50:50+01:00</updated>
+ <id>tag:sequence:17508</id>
+ <title>БВЛ. Серия третья</title>
+ <content type="text">30 книг в серии</content>
+ <link href="/opds/sequencebooks/17508" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+</feed>

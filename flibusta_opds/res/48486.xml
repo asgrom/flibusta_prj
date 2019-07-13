@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/terms/" xmlns:os="http://a9.com/-/spec/opensearch/1.1/" xmlns:opds="http://opds-spec.org/2010/catalog"> <id>tag:sequence:48486:</id>
+ <title>Книги в серии БВЛ – 145. Сага о Форсайтах. Том 1</title>
+ <updated>2019-03-26T23:51:00+01:00</updated>
+ <icon>/favicon.ico</icon>
+ <link href="/opds-opensearch.xml" rel="search" type="application/opensearchdescription+xml" />
+ <link href="/opds/search?searchTerm={searchTerms}" rel="search" type="application/atom+xml" />
+ <link href="/opds" rel="start" type="application/atom+xml;profile=opds-catalog" />
+ <entry> <updated>2019-03-26T23:51:00+01:00</updated>
+ <id>tag:book:543484</id>
+ <title>В петле</title>
+ <author> <name>Голсуорси Джон</name>
+ <uri>/a/4055</uri>
+</author>
+ <link href="/opds/author/4055" rel="related" type="application/atom+xml" title="Все книги автора Голсуорси Джон" />
+ <category term="Классическая проза" label="Классическая проза" />
+ <dc:language>ru</dc:language>
+ <dc:format>fb2+zip</dc:format>
+ <dc:issued>1973</dc:issued>
+ <link href="/opds/sequencebooks/56800" rel="related" type="application/atom+xml" title="Все книги серии &quot;Сага о Форсайтах&quot;" />
+ <link href="/opds/sequencebooks/1346" rel="related" type="application/atom+xml" title="Все книги серии &quot;Форсайты — 1. Сага о Форсайтах&quot;" />
+ <content type="text/html">
+&lt;p class=&quot;book&quot;&gt;«Сага о Форсайтах» известного английского писателя Дж. Голсуорси (1867—1933) — эпопея о судьбах английской буржуазной семьи, представляющей собой реалистическую картину нравов викторианской эпохи.&lt;/p&gt;
+    &lt;br/&gt;Перевод: Богословская-Боброва Мария Павловна&lt;br/&gt;Год издания: 1973&lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 1155 Kb&lt;br/&gt;Скачиваний: 25684&lt;br/&gt;Серия: Сага о Форсайтах #3&lt;br/&gt;Серия: Форсайты — 1. Сага о Форсайтах #3&lt;br/&gt;</content>
+ <link href="/i/84/543484/_1.jpg" rel="http://opds-spec.org/image" type="image/jpeg" />
+ <link href="/i/84/543484/_1.jpg" rel="x-stanza-cover-image" type="image/jpeg" />
+ <link href="/i/84/543484/_1.jpg" rel="http://opds-spec.org/thumbnail" type="image/jpeg" />
+ <link href="/i/84/543484/_1.jpg" rel="x-stanza-cover-image-thumbnail" type="image/jpeg" />
+ <link href="/b/543484/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip" />
+ <link href="/b/543484/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip" />
+ <link href="/b/543484/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip" />
+ <link href="/b/543484/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip" />
+ <link href="/b/543484/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip" />
+ <link href="/b/543484/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook" />
+ <link href="/b/543484" rel="alternate" type="text/html" title="Книга на сайте" />
+</entry>
+ <entry> <updated>2019-03-26T23:51:00+01:00</updated>
+ <id>tag:book:74150</id>
+ <title>Сдается в наем</title>
+ <author> <name>Голсуорси Джон</name>
+ <uri>/a/4055</uri>
+</author>
+ <link href="/opds/author/4055" rel="related" type="application/atom+xml" title="Все книги автора Голсуорси Джон" />
+ <category term="Классическая проза" label="Классическая проза" />
+ <dc:language>ru</dc:language>
+ <dc:format>fb2+zip</dc:format>
+ <dc:issued>1973</dc:issued>
+ <link href="/opds/sequencebooks/1346" rel="related" type="application/atom+xml" title="Все книги серии &quot;Форсайты — 1. Сага о Форсайтах&quot;" />
+ <content type="text/html">&lt;p class=book&gt;«Сага о Форсайтах» известного английского писателя Дж. Голсуорси (1867 — 1933) — эпопея о судьбах английской буржуазной семьи, представляющей собой реалистическую картину нравов викторианской эпохи.&lt;/p&gt;
+&lt;br/&gt;Перевод: Вольпин Надежда Давидовна&lt;br/&gt;Год издания: 1973&lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 553 Kb&lt;br/&gt;Скачиваний: 23733&lt;br/&gt;Серия: Форсайты — 1. Сага о Форсайтах #3&lt;br/&gt;</content>
+ <link href="/i/50/74150/_1.jpg" rel="http://opds-spec.org/image" type="image/jpeg" />
+ <link href="/i/50/74150/_1.jpg" rel="x-stanza-cover-image" type="image/jpeg" />
+ <link href="/i/50/74150/_1.jpg" rel="http://opds-spec.org/thumbnail" type="image/jpeg" />
+ <link href="/i/50/74150/_1.jpg" rel="x-stanza-cover-image-thumbnail" type="image/jpeg" />
+ <link href="/b/74150/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip" />
+ <link href="/b/74150/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip" />
+ <link href="/b/74150/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip" />
+ <link href="/b/74150/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip" />
+ <link href="/b/74150/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip" />
+ <link href="/b/74150/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook" />
+ <link href="/b/74150" rel="alternate" type="text/html" title="Книга на сайте" />
+</entry>
+</feed>

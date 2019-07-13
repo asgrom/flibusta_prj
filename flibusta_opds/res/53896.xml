@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/terms/" xmlns:os="http://a9.com/-/spec/opensearch/1.1/" xmlns:opds="http://opds-spec.org/2010/catalog"> <id>tag:author:157909:sequence:53896:</id>
+ <title>Книги в серии Цитадели гордыни</title>
+ <updated>2019-03-28T11:59:33+01:00</updated>
+ <icon>/favicon.ico</icon>
+ <link href="/opds-opensearch.xml" rel="search" type="application/opensearchdescription+xml" />
+ <link href="/opds/search?searchTerm={searchTerms}" rel="search" type="application/atom+xml" />
+ <link href="/opds" rel="start" type="application/atom+xml;profile=opds-catalog" />
+ <entry> <updated>2019-03-28T11:59:33+01:00</updated>
+ <id>tag:book:534810</id>
+ <title>Ученик [litres]</title>
+ <author> <name>Каменев Алекс</name>
+ <uri>/a/157909</uri>
+</author>
+ <link href="/opds/author/157909" rel="related" type="application/atom+xml" title="Все книги автора Каменев Алекс" />
+ <category term="Боевая фантастика" label="Боевая фантастика" />
+ <category term="Фэнтези" label="Фэнтези" />
+ <dc:language>ru</dc:language>
+ <dc:format>fb2+zip</dc:format>
+ <dc:issued>2018</dc:issued>
+ <link href="/opds/sequencebooks/53896" rel="related" type="application/atom+xml" title="Все книги серии &quot;Цитадели гордыни&quot;" />
+ <content type="text/html">&lt;p class=&quot;book&quot;&gt;Высокие небоскребы мегаполисов и острые шпили волшебных башен, убойные штурмовые винтовки и смертоносные боевые заклятья, роботизированные системы и магические создания – Виктор никогда не думал, что когда-нибудь столкнется с этим в реальной жизни. Простой воспитанник заурядной школы-интерната вчера и член могущественного колдовского клана сегодня, он вынужден научиться сражаться и стать одним из клинков великого рода Строгановых.&lt;/p&gt;
+&lt;br/&gt;Год издания: 2018&lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 3979 Kb&lt;br/&gt;Скачиваний: 25361&lt;br/&gt;Серия: Цитадели гордыни #1&lt;br/&gt;</content>
+ <link href="/i/10/534810/cover.jpg" rel="http://opds-spec.org/image" type="image/jpeg" />
+ <link href="/i/10/534810/cover.jpg" rel="x-stanza-cover-image" type="image/jpeg" />
+ <link href="/i/10/534810/cover.jpg" rel="http://opds-spec.org/thumbnail" type="image/jpeg" />
+ <link href="/i/10/534810/cover.jpg" rel="x-stanza-cover-image-thumbnail" type="image/jpeg" />
+ <link href="/b/534810/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip" />
+ <link href="/b/534810/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip" />
+ <link href="/b/534810/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip" />
+ <link href="/b/534810/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip" />
+ <link href="/b/534810/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip" />
+ <link href="/b/534810/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook" />
+ <link href="/b/534810" rel="alternate" type="text/html" title="Книга на сайте" />
+</entry>
+ <entry> <updated>2019-03-28T11:59:33+01:00</updated>
+ <id>tag:book:546407</id>
+ <title>Владыка Холода [litres]</title>
+ <author> <name>Каменев Алекс</name>
+ <uri>/a/157909</uri>
+</author>
+ <link href="/opds/author/157909" rel="related" type="application/atom+xml" title="Все книги автора Каменев Алекс" />
+ <category term="Городское фэнтези" label="Городское фэнтези" />
+ <category term="Фэнтези" label="Фэнтези" />
+ <dc:language>ru</dc:language>
+ <dc:format>fb2+zip</dc:format>
+ <dc:issued>2019</dc:issued>
+ <link href="/opds/sequencebooks/53896" rel="related" type="application/atom+xml" title="Все книги серии &quot;Цитадели гордыни&quot;" />
+ <content type="text/html">&lt;p class=&quot;book&quot;&gt;Повсеместное распространение магии и падение национальных правительств, приход к власти магических кланов и глобальный экономический кризис – Виктор никогда не думал, что станет свидетелем подобных событий. Простой ученик колдовского лицея вчера, и карающая длань князя сегодня, он вынужден сражаться в первых рядах, во имя сохранения родного клана.&lt;/p&gt;
+&lt;br/&gt;Год издания: 2019&lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 4557 Kb&lt;br/&gt;Скачиваний: 9489&lt;br/&gt;Серия: Цитадели гордыни #2&lt;br/&gt;</content>
+ <link href="/i/7/546407/cover.jpg" rel="http://opds-spec.org/image" type="image/jpeg" />
+ <link href="/i/7/546407/cover.jpg" rel="x-stanza-cover-image" type="image/jpeg" />
+ <link href="/i/7/546407/cover.jpg" rel="http://opds-spec.org/thumbnail" type="image/jpeg" />
+ <link href="/i/7/546407/cover.jpg" rel="x-stanza-cover-image-thumbnail" type="image/jpeg" />
+ <link href="/b/546407/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip" />
+ <link href="/b/546407/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip" />
+ <link href="/b/546407/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip" />
+ <link href="/b/546407/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip" />
+ <link href="/b/546407/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip" />
+ <link href="/b/546407/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook" />
+ <link href="/b/546407" rel="alternate" type="text/html" title="Книга на сайте" />
+</entry>
+</feed>

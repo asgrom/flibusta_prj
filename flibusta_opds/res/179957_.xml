@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/terms/" xmlns:os="http://a9.com/-/spec/opensearch/1.1/" xmlns:opds="http://opds-spec.org/2010/catalog"> <id>tag:author:179957:sequences:</id>
+ <title>Книжные серии Фёдоров Виталий</title>
+ <updated>2019-03-25T03:40:31+01:00</updated>
+ <icon>/favicon.ico</icon>
+ <link href="/opds-opensearch.xml" rel="search" type="application/opensearchdescription+xml" />
+ <link href="/opds/search?searchTerm={searchTerms}" rel="search" type="application/atom+xml" />
+ <link href="/opds" rel="start" type="application/atom+xml;profile=opds-catalog" />
+ <entry> <updated>2019-03-25T03:40:31+01:00</updated>
+ <id>tag:author:179957:sequence:48416</id>
+ <title>Terra Nova</title>
+ <content type="text">5 книг в серии</content>
+ <link href="/opds/authorsequence/179957/48416" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-25T03:40:31+01:00</updated>
+ <id>tag:author:179957:sequence:2682</id>
+ <title>Фантастический боевик</title>
+ <content type="text">4 книги в серии</content>
+ <link href="/opds/authorsequence/179957/2682" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+</feed>

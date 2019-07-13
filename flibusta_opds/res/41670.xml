@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/terms/"
+      xmlns:os="http://a9.com/-/spec/opensearch/1.1/" xmlns:opds="http://opds-spec.org/2010/catalog">
+    <id>tag:sequence:41670:</id>
+    <title>Книги в серии Баба Яга</title>
+    <updated>2019-03-26T03:06:08+01:00</updated>
+    <icon>/favicon.ico</icon>
+    <link href="/opds-opensearch.xml" rel="search" type="application/opensearchdescription+xml"/>
+    <link href="/opds/search?searchTerm={searchTerms}" rel="search" type="application/atom+xml"/>
+    <link href="/opds" rel="start" type="application/atom+xml;profile=opds-catalog"/>
+    <entry>
+        <updated>2019-03-26T03:06:08+01:00</updated>
+        <id>tag:book:486338</id>
+        <title>Безумно очаровательна (ЛП)</title>
+        <author>
+            <name>Блейк Дебора</name>
+            <uri>/a/150997</uri>
+        </author>
+        <link href="/opds/author/150997" rel="related" type="application/atom+xml"
+              title="Все книги автора Блейк Дебора"/>
+        <category term="Фэнтези" label="Фэнтези"/>
+        <dc:language>ru</dc:language>
+        <dc:format>fb2+zip</dc:format>
+        <dc:issued>2016</dc:issued>
+        <link href="/opds/sequencebooks/41670" rel="related" type="application/atom+xml"
+              title="Все книги серии &quot;Баба Яга&quot;"/>
+        <content type="text/html">
+            &lt;p class=&quot;book&quot;&gt;Барбаре Ягер нравится быть ведьмой, одной из самых могущественных в мире.
+            Хотя иногда и она не прочь расслабиться, потягивая пиво в своем зачарованном Эйрстриме, вместо того, чтобы
+            помогать всем, кто просил ее об этом. Но когда приходит человек с символом семейного долга чести, Барбара
+            должна бросить все, чтобы выполнить данное ее предшественницей обещание. И, пожалуй, она приложит все усилия
+            (и даже сверх того), чтобы убедиться, что долг выплачен в полном объеме… https://vk.com/darksword&lt;/p&gt;
+            &lt;br/&gt;Год издания: 2016&lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 406 Kb&lt;br/&gt;Скачиваний:
+            735&lt;br/&gt;Серия: Баба Яга&lt;br/&gt;
+        </content>
+        <link href="/i/38/486338/cover.jpg" rel="http://opds-spec.org/image" type="image/jpeg"/>
+        <link href="/i/38/486338/cover.jpg" rel="x-stanza-cover-image" type="image/jpeg"/>
+        <link href="/i/38/486338/cover.jpg" rel="http://opds-spec.org/thumbnail" type="image/jpeg"/>
+        <link href="/i/38/486338/cover.jpg" rel="x-stanza-cover-image-thumbnail" type="image/jpeg"/>
+        <link href="/b/486338/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip"/>
+        <link href="/b/486338/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip"/>
+        <link href="/b/486338/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip"/>
+        <link href="/b/486338/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip"/>
+        <link href="/b/486338/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip"/>
+        <link href="/b/486338/mobi" rel="http://opds-spec.org/acquisition/open-access"
+              type="application/x-mobipocket-ebook"/>
+        <link href="/b/486338" rel="alternate" type="text/html" title="Книга на сайте"/>
+    </entry>
+    <entry>
+        <updated>2019-03-26T03:06:08+01:00</updated>
+        <id>tag:book:428850</id>
+        <title>Безумно опасна (ЛП)</title>
+        <author>
+            <name>Блейк Дебора</name>
+            <uri>/a/150997</uri>
+        </author>
+        <link href="/opds/author/150997" rel="related" type="application/atom+xml"
+              title="Все книги автора Блейк Дебора"/>
+        <category term="Мифологическое фэнтези" label="Мифологическое фэнтези"/>
+        <dc:language>ru</dc:language>
+        <dc:format>fb2+zip</dc:format>
+        <link href="/opds/sequencebooks/41670" rel="related" type="application/atom+xml"
+              title="Все книги серии &quot;Баба Яга&quot;"/>
+        <content type="text/html">&lt;p class=&quot;book&quot;&gt;Известно, что злая колдунья из русских сказок, Баба
+            Яга, не одна женщина, а, скорее, собирательный образ. Она сохраняет баланс природы и охраняет границы нашего
+            мира, но опасайтесь совершить ошибку, нарушая одно или другое... Старше, чем выглядит, и обладая
+            непостижимой мощью, Барбара Ягер больше не имеет ничего общего с жизнью Смертных, которую давным-давно
+            оставила. Под видом травницы и исследователя она путешествует по стране в зачарованном Эйрстриме со своим
+            преданным (в основном) драконом в собачьем облике, выполняя свои обязанности Бабы Яги и избегая любой
+            возможности привязываться к кому-либо. Но когда ее призывают найти пропавшего ребенка, Барбара внезапно
+            оказывается втянутой в хитросплетение лжи и неожиданного влечения к очаровательному, но вечно путающемуся
+            под ее ногами, шерифу Лиаму МакКлеллану. Чтобы спасти жизни трех невинных детей, Барбаре предстоит
+            столкнуться с врагами среди Смертных и жителей Иноземья, но вскоре она обнаружит, что самое трудное сражение
+            — это с ее собственным сердцем...&lt;/p&gt;&lt;br&gt;&lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер:
+            1221 Kb&lt;br/&gt;Скачиваний: 1166&lt;br/&gt;Серия: Баба Яга #1&lt;br/&gt;
+        </content>
+        <link href="/i/50/428850/cover.jpg" rel="http://opds-spec.org/image" type="image/jpeg"/>
+        <link href="/i/50/428850/cover.jpg" rel="x-stanza-cover-image" type="image/jpeg"/>
+        <link href="/i/50/428850/cover.jpg" rel="http://opds-spec.org/thumbnail" type="image/jpeg"/>
+        <link href="/i/50/428850/cover.jpg" rel="x-stanza-cover-image-thumbnail" type="image/jpeg"/>
+        <link href="/b/428850/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip"/>
+        <link href="/b/428850/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip"/>
+        <link href="/b/428850/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip"/>
+        <link href="/b/428850/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip"/>
+        <link href="/b/428850/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip"/>
+        <link href="/b/428850/mobi" rel="http://opds-spec.org/acquisition/open-access"
+              type="application/x-mobipocket-ebook"/>
+        <link href="/b/428850" rel="alternate" type="text/html" title="Книга на сайте"/>
+    </entry>
+</feed>

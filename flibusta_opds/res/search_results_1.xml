@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/terms/" xmlns:os="http://a9.com/-/spec/opensearch/1.1/" xmlns:opds="http://opds-spec.org/2010/catalog"> <id>tag:search:authors:беляев:1</id>
+ <title>Результат поиска</title>
+ <updated>2019-03-25T04:28:19+01:00</updated>
+ <icon>/favicon.ico</icon>
+ <link href="https://flibusta.herokuapp.com/opds-opensearch.xml" rel="search" type="application/opensearchdescription+xml" />
+ <link href="https://flibusta.herokuapp.com/opds/search?searchTerm={searchTerms}" rel="search" type="application/atom+xml" />
+ <link href="https://flibusta.herokuapp.com/opds" rel="start" type="application/atom+xml;profile=opds-catalog" />
+ <link href="https://flibusta.herokuapp.com/opds/search?searchTerm=%D0%B1%D0%B5%D0%BB%D1%8F%D0%B5%D0%B2" rel="up" type="application/atom+xml;profile=opds-catalog" />
+ <link href="https://flibusta.herokuapp.com/opds/search?searchType=authors&amp;searchTerm=%D0%B1%D0%B5%D0%BB%D1%8F%D0%B5%D0%B2&amp;pageNumber=2" rel="next" type="application/atom+xml;profile=opds-catalog" />
+ <entry> <updated>2019-03-25T04:28:19+01:00</updated>
+ <id>tag:author:122418</id>
+ <title>Беляев Дмитрий</title>
+ <content type="text">1 книга</content>
+ <link href="https://flibusta.herokuapp.com/opds/author/122418" type="application/atom+xml;profile=opds-catalog" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequences/122418" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора по сериям" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequenceless/122418" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора вне серий" />
+</entry>
+ <entry> <updated>2019-03-25T04:28:19+01:00</updated>
+ <id>tag:author:136303</id>
+ <title>Беляев Дмитрий Павлович</title>
+ <content type="text">2 книги</content>
+ <link href="https://flibusta.herokuapp.com/opds/author/136303" type="application/atom+xml;profile=opds-catalog" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequences/136303" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора по сериям" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequenceless/136303" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора вне серий" />
+</entry>
+ <entry> <updated>2019-03-25T04:28:19+01:00</updated>
+ <id>tag:author:1013</id>
+ <title>Беляев Евгений</title>
+ <content type="text">1 книга</content>
+ <link href="https://flibusta.herokuapp.com/opds/author/1013" type="application/atom+xml;profile=opds-catalog" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequences/1013" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора по сериям" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequenceless/1013" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора вне серий" />
+</entry>
+ <entry> <updated>2019-03-25T04:28:19+01:00</updated>
+ <id>tag:author:30125</id>
+ <title>Беляев Иван</title>
+ <content type="text">2 книги</content>
+ <link href="https://flibusta.herokuapp.com/opds/author/30125" type="application/atom+xml;profile=opds-catalog" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequences/30125" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора по сериям" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequenceless/30125" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора вне серий" />
+</entry>
+ <entry> <updated>2019-03-25T04:28:19+01:00</updated>
+ <id>tag:author:104445</id>
+ <title>Беляев Иван Андреевич</title>
+ <content type="text">1 книга</content>
+ <link href="https://flibusta.herokuapp.com/opds/author/104445" type="application/atom+xml;profile=opds-catalog" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequences/104445" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора по сериям" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequenceless/104445" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора вне серий" />
+</entry>
+ <entry> <updated>2019-03-25T04:28:19+01:00</updated>
+ <id>tag:author:171994</id>
+ <title>Беляев Иван Георгиевич</title>
+ <content type="text">1 книга</content>
+ <link href="https://flibusta.herokuapp.com/opds/author/171994" type="application/atom+xml;profile=opds-catalog" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequences/171994" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора по сериям" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequenceless/171994" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора вне серий" />
+</entry>
+ <entry> <updated>2019-03-25T04:28:19+01:00</updated>
+ <id>tag:author:63958</id>
+ <title>Беляев Иван Дмитриевич</title>
+ <content type="text">3 книги</content>
+ <link href="https://flibusta.herokuapp.com/opds/author/63958" type="application/atom+xml;profile=opds-catalog" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequences/63958" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора по сериям" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequenceless/63958" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора вне серий" />
+</entry>
+ <entry> <updated>2019-03-25T04:28:19+01:00</updated>
+ <id>tag:author:116711</id>
+ <title>Беляев Иван Тимофеевич</title>
+ <content type="text">1 книга</content>
+ <link href="https://flibusta.herokuapp.com/opds/author/116711" type="application/atom+xml;profile=opds-catalog" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequences/116711" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора по сериям" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequenceless/116711" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора вне серий" />
+</entry>
+ <entry> <updated>2019-03-25T04:28:19+01:00</updated>
+ <id>tag:author:128204</id>
+ <title>Беляев Игорь Ипполитович</title>
+ <content type="text">1 книга</content>
+ <link href="https://flibusta.herokuapp.com/opds/author/128204" type="application/atom+xml;profile=opds-catalog" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequences/128204" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора по сериям" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequenceless/128204" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора вне серий" />
+</entry>
+ <entry> <updated>2019-03-25T04:28:19+01:00</updated>
+ <id>tag:author:101549</id>
+ <title>Беляев Игорь Константинович</title>
+ <content type="text">1 книга</content>
+ <link href="https://flibusta.herokuapp.com/opds/author/101549" type="application/atom+xml;profile=opds-catalog" />
+ <link href="https://flibusta.herokuapp.com/ia/70/213470/belyaev_igor_konstantinovich.jpg" rel="http://opds-spec.org/image" type="image/jpeg" />
+ <link href="https://flibusta.herokuapp.com/ia/70/213470/belyaev_igor_konstantinovich.jpg" rel="x-stanza-cover-image" type="image/jpeg" />
+ <link href="https://flibusta.herokuapp.com/ia/70/213470/belyaev_igor_konstantinovich.jpg" rel="http://opds-spec.org/image/thumbnail" type="image/jpeg" />
+ <link href="https://flibusta.herokuapp.com/ia/70/213470/belyaev_igor_konstantinovich.jpg" rel="x-stanza-cover-image-thumbnail" type="image/jpeg" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequences/101549" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора по сериям" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequenceless/101549" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора вне серий" />
+</entry>
+ <entry> <updated>2019-03-25T04:28:19+01:00</updated>
+ <id>tag:author:122754</id>
+ <title>Беляев Игорь Николаевич</title>
+ <content type="text">1 книга</content>
+ <link href="https://flibusta.herokuapp.com/opds/author/122754" type="application/atom+xml;profile=opds-catalog" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequences/122754" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора по сериям" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequenceless/122754" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора вне серий" />
+</entry>
+ <entry> <updated>2019-03-25T04:28:19+01:00</updated>
+ <id>tag:author:165002</id>
+ <title>Беляев Илья Дмитриевич</title>
+ <content type="text">5 книг</content>
+ <link href="https://flibusta.herokuapp.com/opds/author/165002" type="application/atom+xml;profile=opds-catalog" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequences/165002" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора по сериям" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequenceless/165002" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора вне серий" />
+</entry>
+ <entry> <updated>2019-03-25T04:28:19+01:00</updated>
+ <id>tag:author:209759</id>
+ <title>Беляев К. И.</title>
+ <content type="text">1 книга</content>
+ <link href="https://flibusta.herokuapp.com/opds/author/209759" type="application/atom+xml;profile=opds-catalog" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequences/209759" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора по сериям" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequenceless/209759" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора вне серий" />
+</entry>
+ <entry> <updated>2019-03-25T04:28:19+01:00</updated>
+ <id>tag:author:84099</id>
+ <title>Беляев Константин</title>
+ <content type="text">1 книга</content>
+ <link href="https://flibusta.herokuapp.com/opds/author/84099" type="application/atom+xml;profile=opds-catalog" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequences/84099" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора по сериям" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequenceless/84099" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора вне серий" />
+</entry>
+ <entry> <updated>2019-03-25T04:28:19+01:00</updated>
+ <id>tag:author:113226</id>
+ <title>Беляев Леонид Андреевич</title>
+ <content type="text">8 книг</content>
+ <link href="https://flibusta.herokuapp.com/opds/author/113226" type="application/atom+xml;profile=opds-catalog" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequences/113226" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора по сериям" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequenceless/113226" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора вне серий" />
+</entry>
+ <entry> <updated>2019-03-25T04:28:19+01:00</updated>
+ <id>tag:author:79870</id>
+ <title>Беляев Максим Анатольевич</title>
+ <content type="text">1 книга</content>
+ <link href="https://flibusta.herokuapp.com/opds/author/79870" type="application/atom+xml;profile=opds-catalog" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequences/79870" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора по сериям" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequenceless/79870" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора вне серий" />
+</entry>
+ <entry> <updated>2019-03-25T04:28:19+01:00</updated>
+ <id>tag:author:182780</id>
+ <title>Беляев Михаил</title>
+ <content type="text">1 книга</content>
+ <link href="https://flibusta.herokuapp.com/opds/author/182780" type="application/atom+xml;profile=opds-catalog" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequences/182780" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора по сериям" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequenceless/182780" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора вне серий" />
+</entry>
+ <entry> <updated>2019-03-25T04:28:19+01:00</updated>
+ <id>tag:author:1015</id>
+ <title>Беляев Михаил Александрович</title>
+ <content type="text">4 книги</content>
+ <link href="https://flibusta.herokuapp.com/opds/author/1015" type="application/atom+xml;profile=opds-catalog" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequences/1015" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора по сериям" />
+ <link href="https://flibusta.herokuapp.com/opds/authorsequenceless/1015" rel="http://www.feedbooks.com/opds/facet" type="application/atom+xml;profile=opds-catalog" title="Книги автора вне серий" />
+</entry>
+</feed>

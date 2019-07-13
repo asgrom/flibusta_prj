@@ -1,0 +1,217 @@
+body {
+    /*font-family: "Trebuchet MS", sans-serif;*/
+    font-family: "Myriad Pro", sans-serif;
+}
+
+h2, h1 {
+    text-align: center;
+    text-shadow: 6px 6px 4px rgba(0, 0, 0, 0.493);
+}
+
+.main {
+    border: thin solid #f2732b;
+    background-color: rgba(236, 187, 159, 0.247);
+    border-top: none;
+    max-width: 1024px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin: 0 auto;
+}
+
+header {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    text-align: center;
+    padding: 5px 15px 10px;
+    background-color: #f2732b;
+    margin: 0 auto;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: inherit;
+}
+
+nav li {
+    display: inline-block;
+    width: 30%;
+    border-radius: 20px;
+    padding: 0px 0;
+    background-color: #fd843f;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.31);
+    margin-right: 5px;
+}
+nav li:last-child {
+    margin-right: 0;
+}
+
+.nav_btn {
+    color: white;
+    text-shadow: 0 0px 2px white;
+    display: block;
+    padding: 10px 0;
+    text-align-all: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.nav_btn:hover {
+    color: rgb(55, 104, 255);
+    text-shadow: 0 0 3px rgba(90, 143, 255, 0.31);
+}
+
+.book {
+    text-align: justify;
+    clear: both;
+}
+
+.container {
+    border: 2px solid #f2732b;
+    border-top: none;
+    margin: 10px 20px;
+    border-radius: 8px;
+}
+
+.title {
+    text-align: center;
+    font-size: 120%;
+    font-weight: bold;
+    background-color: #f2732b;
+    padding: 8px;
+    margin: 0px 0px;
+    border-radius: 8px 8px 0 0;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.51);
+}
+
+.cover_img {
+    float: left;
+    width: 300px;
+    margin-right: 10px;
+}
+
+.cover_img img {
+    width: 300px;
+}
+
+.author_name {
+    font-weight: bold;
+    font-size: 110%;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    height: 0px;
+    clear: both;
+    visibility: hidden;
+}
+
+a {
+    color: darkblue;
+    text-decoration: none;
+}
+
+.download_links {
+    float: left;
+    width: 50%;
+}
+
+.wrapper {
+    padding: 0 10px;
+}
+
+.rectangle {
+    list-style: none;
+    font: 14px "Trebuchet MS", "Lucida Sans";
+    padding: 0;
+}
+
+.rectangle li {
+    display: inline-block;
+    margin: 10px;
+}
+
+/*######################################################################################################################
+стиль ссылок для скачивания книги в виде анимированных кнопок
+######################################################################################################################*/
+
+a.download-btn {
+    text-decoration: none;
+    outline: none;
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 1px 4px;
+    width: 80px;
+    /*height: 35px;*/
+    line-height: 30px;
+    border-radius: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: smaller;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: black;
+    background: #f2742b;
+    box-shadow: 0px 8px 15px rgb(165, 83, 40);
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.644);
+    transition: .3s;
+}
+
+a.download-btn:hover {
+    background: #f2742b;
+    box-shadow: 0 15px 20px rgba(165, 83, 40, 0.71);
+    color: white;
+    text-shadow: -1px -1px 2px rgba(255, 255, 255, 0.411), 1px 1px 2px rgba(255, 255, 255, 0.411);
+    transform: translate(0px, -7px);
+}
+
+/*####################################################################################################################*/
+
+.links {
+    float: left;
+    /*width: 50%;*/
+}
+
+.links ul {
+    list-style-type: none;
+}
+
+.links a {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    color: #444444;
+    text-shadow: 0 1px 0 rgba(109, 109, 109, 0.7);
+    margin-left: 2px;
+}
+
+.links li:hover {
+    background-color: rgba(242, 115, 43, 0.12);
+}
+
+.links li {
+    background-color: rgba(242, 115, 43, 0.31);
+    margin: 5px;
+    padding: 2px 5px;
+    transition: all .3s ease-out;
+}
+
+span.nav-link {
+    background-color: #f2732b;
+    border-radius: 8px 8px 0 0;
+    padding: 8px 0;
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
+span.nav-link a {
+    font-size: 110%;
+    font-weight: bold;
+    color: #224183;
+    text-shadow: 0 0 1px rgba(55, 104, 255, 0.51);
+}

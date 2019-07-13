@@ -1,0 +1,28 @@
+{# Шаблон тела веб-страницы #}
+
+{% extends 'base.html' %}
+{% block page_title %}
+    <title>{{ data.title + ' ' + title}}</title>
+{% endblock %}
+{% block content %}
+    <h2>{{ data.title }}</h2>
+    {% for item in data.entries %}
+        <div class="container">
+            {% if item.id is book %}
+                {% include 'book.html' %}
+
+            {% elif item.id is auth_bio %}
+                {% include 'author_bio.html' %}
+
+            {% else %}
+                <span class="nav-link">
+        <a class="nav_link" href="{{ item.links[0].href }}">{{ item.title }}</a>
+    </span>
+                <p class="wrapper">
+                    {{ item.updated }}<br>
+                    <a href="{{ item.links[0].href }}">{{ item.content if item.content else item.title }}</a>
+                </p>
+            {% endif %}
+        </div>
+    {% endfor %}
+{% endblock %}

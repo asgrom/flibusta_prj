@@ -1,0 +1,48 @@
+{# Шаблон отображения данных о книге #}
+{% block book %}
+    <p class="title">{{ item.title }}</p>
+    <div class="wrapper clearfix">
+        <div class="cover_img">
+            {% for l in item.links %}
+                {% if l.rel == "x-stanza-cover-image" %}
+                    <img src="{{ 'https://flibusta.is' + l.href }}">
+                {% endif %}
+            {% endfor %}
+        </div>
+        <p class=" author_name">{{ ' '.join(item.author) }}</p>
+        <p>
+            <b>Год издания:</b> {{ item.issued }}<br>
+            <b>Формат:</b> {{ item.format.split('+')[0] }}<br>
+            <b>Категория:</b> {{ ', '.join(item.category) }}<br>
+        </p>
+        <div class="book">
+            <h4>Аннотация</h4>
+            {{ item.content }}
+        </div>
+        <div class="download_links">
+            <h4>Скачать:</h4>
+            <ol class="rectangle">
+                {% for l in item.links %}
+                    {% if l.rel == 'http://opds-spec.org/acquisition/open-access' %}
+                        <li>
+                            <a class="download-btn"
+                               href="{{ l.href }}">{{ l.type.split('/')[1].split('+')[0] if 'ebook'not in l.type else 'ebook' }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ol>
+        </div>
+        <div class="links">
+            <h4>Ссылки:</h4>
+            <ul>
+                {% for l in item.links %}
+                    {% if l.type == 'application/atom+xml' %}
+                        <li><a href="{{ l.href }}">{{ l.title }}</a></li>
+                    {% elif l.type == 'text/html' %}
+                        <li><a href="{{ ''.join(['http://flibusta.is', l.href]) }}">{{ l.title }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

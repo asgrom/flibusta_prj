@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/terms/" xmlns:os="http://a9.com/-/spec/opensearch/1.1/" xmlns:opds="http://opds-spec.org/2010/catalog"> <id>tag:sequence:38139:</id>
+ <title>Книги в серии Воздушный стрелок</title>
+ <updated>2019-03-26T15:56:52+01:00</updated>
+ <icon>/favicon.ico</icon>
+ <link href="/opds-opensearch.xml" rel="search" type="application/opensearchdescription+xml" />
+ <link href="/opds/search?searchTerm={searchTerms}" rel="search" type="application/atom+xml" />
+ <link href="/opds" rel="start" type="application/atom+xml;profile=opds-catalog" />
+ <entry> <updated>2019-03-26T15:56:53+01:00</updated>
+ <id>tag:book:450325</id>
+ <title>Боярич [litres, с илл.]</title>
+ <author> <name>Демченко Антон Витальевич</name>
+ <uri>/a/52396</uri>
+</author>
+ <link href="/opds/author/52396" rel="related" type="application/atom+xml" title="Все книги автора Демченко Антон Витальевич" />
+ <category term="Альтернативная история, попаданцы" label="Альтернативная история, попаданцы" />
+ <category term="Боевая фантастика" label="Боевая фантастика" />
+ <category term="Городское фэнтези" label="Городское фэнтези" />
+ <category term="Самиздат, сетевая литература" label="Самиздат, сетевая литература" />
+ <dc:language>ru</dc:language>
+ <dc:format>fb2+zip</dc:format>
+ <dc:issued>2015</dc:issued>
+ <link href="/opds/sequencebooks/38139" rel="related" type="application/atom+xml" title="Все книги серии &quot;Воздушный стрелок&quot;" />
+ <content type="text/html">
+    &lt;p class=&quot;book&quot;&gt;Говорят, жить надо так, чтобы после смерти боги предложили тебе повторить. Если так, то это определенно был тот самый случай. Случай и воля древнего божества, занесшего бывшего военного инструктора в тело четырнадцатилетнего подростка с советом-наказом продолжать «учительствовать». Вот только где найти время на столь благородное дело, когда вокруг закручиваются какие-то непонятные, но явственно попахивающие опасностью интриги. Нежданно обретенная родня так и норовит подкинуть неприятностей, а то и просто спалить к чертям, пользуясь Даром и фамильной склонностью к Пламени, а давно сгинувшие родители его «нового» тела даже после смерти умудряются подкидывать сюрпризы.&lt;/p&gt;
+   &lt;br/&gt;Год издания: 2015&lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 2475 Kb&lt;br/&gt;Скачиваний: 86111&lt;br/&gt;Серия: Воздушный стрелок #1&lt;br/&gt;</content>
+ <link href="/i/25/450325/cover.jpg" rel="http://opds-spec.org/image" type="image/jpeg" />
+ <link href="/i/25/450325/cover.jpg" rel="x-stanza-cover-image" type="image/jpeg" />
+ <link href="/i/25/450325/cover.jpg" rel="http://opds-spec.org/thumbnail" type="image/jpeg" />
+ <link href="/i/25/450325/cover.jpg" rel="x-stanza-cover-image-thumbnail" type="image/jpeg" />
+ <link href="/b/450325/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip" />
+ <link href="/b/450325/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip" />
+ <link href="/b/450325/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip" />
+ <link href="/b/450325/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip" />
+ <link href="/b/450325/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip" />
+ <link href="/b/450325/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook" />
+ <link href="/b/450325" rel="alternate" type="text/html" title="Книга на сайте" />
+</entry>
+ <entry> <updated>2019-03-26T15:56:53+01:00</updated>
+ <id>tag:book:450323</id>
+ <title>Учитель [litres, с илл.]</title>
+ <author> <name>Демченко Антон Витальевич</name>
+ <uri>/a/52396</uri>
+</author>
+ <link href="/opds/author/52396" rel="related" type="application/atom+xml" title="Все книги автора Демченко Антон Витальевич" />
+ <category term="Боевая фантастика" label="Боевая фантастика" />
+ <category term="Городское фэнтези" label="Городское фэнтези" />
+ <category term="Самиздат, сетевая литература" label="Самиздат, сетевая литература" />
+ <dc:language>ru</dc:language>
+ <dc:format>fb2+zip</dc:format>
+ <dc:issued>2016</dc:issued>
+ <link href="/opds/sequencebooks/38139" rel="related" type="application/atom+xml" title="Все книги серии &quot;Воздушный стрелок&quot;" />
+ <content type="text/html">
+    &lt;p class=&quot;book&quot;&gt;Правильно говорят: свобода не избавляет от проблем. Вот и юному Кириллу Николаеву, избавившемуся наконец от навязчивой опеки родни, пришлось убедиться в этом на собственном опыте. Не успел он вдохнуть пьянящий воздух свободы, как навалились неприятности, от которых до недавнего времени его избавлял статус несовершеннолетнего боярича. Сплетается вокруг невидимая, но ощутимая паутина чьих-то интриг, с интересом поглядывают в сторону юного эмансипированного мещанина бояре и Преображенский приказ, вьются вокруг представители малоизвестного, но очень влиятельного клуба эфирников, прибавляется количество учеников… а интуиция так и воет, предупреждая о приближающейся опасности.&lt;/p&gt;
+   &lt;br/&gt;Год издания: 2016&lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 2519 Kb&lt;br/&gt;Скачиваний: 64537&lt;br/&gt;Серия: Воздушный стрелок #2&lt;br/&gt;</content>
+ <link href="/i/23/450323/cover.jpg" rel="http://opds-spec.org/image" type="image/jpeg" />
+ <link href="/i/23/450323/cover.jpg" rel="x-stanza-cover-image" type="image/jpeg" />
+ <link href="/i/23/450323/cover.jpg" rel="http://opds-spec.org/thumbnail" type="image/jpeg" />
+ <link href="/i/23/450323/cover.jpg" rel="x-stanza-cover-image-thumbnail" type="image/jpeg" />
+ <link href="/b/450323/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip" />
+ <link href="/b/450323/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip" />
+ <link href="/b/450323/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip" />
+ <link href="/b/450323/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip" />
+ <link href="/b/450323/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip" />
+ <link href="/b/450323/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook" />
+ <link href="/b/450323" rel="alternate" type="text/html" title="Книга на сайте" />
+</entry>
+ <entry> <updated>2019-03-26T15:56:53+01:00</updated>
+ <id>tag:book:450324</id>
+ <title>Гранд [с илл.]</title>
+ <author> <name>Демченко Антон Витальевич</name>
+ <uri>/a/52396</uri>
+</author>
+ <link href="/opds/author/52396" rel="related" type="application/atom+xml" title="Все книги автора Демченко Антон Витальевич" />
+ <category term="Альтернативная история, попаданцы" label="Альтернативная история, попаданцы" />
+ <category term="Боевая фантастика" label="Боевая фантастика" />
+ <category term="Городское фэнтези" label="Городское фэнтези" />
+ <category term="Самиздат, сетевая литература" label="Самиздат, сетевая литература" />
+ <dc:language>ru</dc:language>
+ <dc:format>fb2+zip</dc:format>
+ <dc:issued>2016</dc:issued>
+ <link href="/opds/sequencebooks/38139" rel="related" type="application/atom+xml" title="Все книги серии &quot;Воздушный стрелок&quot;" />
+ <content type="text/html">
+    &lt;p class=&quot;book&quot;&gt;Самое страшное проклятие у китайцев: «Чтоб ты жил в эпоху перемен!» Если так, то Кирилла Николаева явно проклял весь китайский народ. Не успел мещанин Николаев выкрутиться из неприятностей с клубом эфирников и отвести от себя угрозу со стороны бывших родственников, как навалились новые неприятности. Мятеж в столице недавно спокойного Русского государства подхватывает людей, словно ураган листья, и несет их сквозь дым и пожары к грандиозной катастрофе. Грохочут по древней брусчатке гусеницы бронемашин, гремят в ночи взрывы и горят дома. Владетельные и служилые бояре увлеченно режут друг друга, не гнушаясь ничем, привлекая на свою сторону европейских наемников и бросая в атаку собственные дружины. И среди всего этого сумасшествия Кирилл крутится как белка в колесе, пытаясь защитить своих близких и не влезть при этом в разборки меж боярами и государем.&lt;/p&gt;
+   &lt;br/&gt;Год издания: 2016&lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 2572 Kb&lt;br/&gt;Скачиваний: 57012&lt;br/&gt;Серия: Воздушный стрелок #3&lt;br/&gt;</content>
+ <link href="/i/24/450324/cover.jpg" rel="http://opds-spec.org/image" type="image/jpeg" />
+ <link href="/i/24/450324/cover.jpg" rel="x-stanza-cover-image" type="image/jpeg" />
+ <link href="/i/24/450324/cover.jpg" rel="http://opds-spec.org/thumbnail" type="image/jpeg" />
+ <link href="/i/24/450324/cover.jpg" rel="x-stanza-cover-image-thumbnail" type="image/jpeg" />
+ <link href="/b/450324/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip" />
+ <link href="/b/450324/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip" />
+ <link href="/b/450324/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip" />
+ <link href="/b/450324/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip" />
+ <link href="/b/450324/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip" />
+ <link href="/b/450324/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook" />
+ <link href="/b/450324" rel="alternate" type="text/html" title="Книга на сайте" />
+</entry>
+ <entry> <updated>2019-03-26T15:56:53+01:00</updated>
+ <id>tag:book:532471</id>
+ <title>Наемник [litres]</title>
+ <author> <name>Демченко Антон Витальевич</name>
+ <uri>/a/52396</uri>
+</author>
+ <link href="/opds/author/52396" rel="related" type="application/atom+xml" title="Все книги автора Демченко Антон Витальевич" />
+ <category term="Альтернативная история, попаданцы" label="Альтернативная история, попаданцы" />
+ <category term="Боевая фантастика" label="Боевая фантастика" />
+ <category term="Героическая фантастика" label="Героическая фантастика" />
+ <dc:language>ru</dc:language>
+ <dc:format>fb2+zip</dc:format>
+ <dc:issued>2018</dc:issued>
+ <link href="/opds/sequencebooks/38139" rel="related" type="application/atom+xml" title="Все книги серии &quot;Воздушный стрелок&quot;" />
+ <content type="text/html">&lt;p class=&quot;book&quot;&gt;После суматошного, насыщенного событиями года Кирилл Николаев совсем не горит желанием окунуться в очередную авантюру. У юного гранда и без того уйма планов и дел. Но кто ж его будет спрашивать? И вот вместо возведения «крепости» – будущего родового гнезда и обучения набранных учеников Кирилл вновь вынужден искать выход из тупика, в который его завели интриги неразборчивого в средствах сюзерена. Что ж, бывшему офицеру, бояричу и мещанину не привыкать ломать чужие планы. А собственные… их можно и сдвинуть немного, раз уж так сложились обстоятельства.&lt;/p&gt;
+&lt;br/&gt;Год издания: 2018&lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 1383 Kb&lt;br/&gt;Скачиваний: 22962&lt;br/&gt;Серия: Воздушный стрелок #4&lt;br/&gt;</content>
+ <link href="/i/71/532471/cover.jpg" rel="http://opds-spec.org/image" type="image/jpeg" />
+ <link href="/i/71/532471/cover.jpg" rel="x-stanza-cover-image" type="image/jpeg" />
+ <link href="/i/71/532471/cover.jpg" rel="http://opds-spec.org/thumbnail" type="image/jpeg" />
+ <link href="/i/71/532471/cover.jpg" rel="x-stanza-cover-image-thumbnail" type="image/jpeg" />
+ <link href="/b/532471/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip" />
+ <link href="/b/532471/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip" />
+ <link href="/b/532471/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip" />
+ <link href="/b/532471/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip" />
+ <link href="/b/532471/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip" />
+ <link href="/b/532471/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook" />
+ <link href="/b/532471" rel="alternate" type="text/html" title="Книга на сайте" />
+</entry>
+ <entry> <updated>2019-03-26T15:56:53+01:00</updated>
+ <id>tag:book:546301</id>
+ <title>Запечатанный [СИ]</title>
+ <author> <name>Демченко Антон Витальевич</name>
+ <uri>/a/52396</uri>
+</author>
+ <link href="/opds/author/52396" rel="related" type="application/atom+xml" title="Все книги автора Демченко Антон Витальевич" />
+ <category term="Боевая фантастика" label="Боевая фантастика" />
+ <category term="Городское фэнтези" label="Городское фэнтези" />
+ <dc:language>ru</dc:language>
+ <dc:format>fb2+zip</dc:format>
+ <dc:issued>2019</dc:issued>
+ <link href="/opds/sequencebooks/38139" rel="related" type="application/atom+xml" title="Все книги серии &quot;Воздушный стрелок&quot;" />
+ <content type="text/html">
+    &lt;p class=&quot;book&quot;&gt;Мир, удивительно похожий на земной. Во многом похожий, но разительно отличающийся несколькими контрастными чертами. Например, в нем правит магия и существует рабство, в которое можно попасть еще ребенком, а заработать свободу ох как непросто. Вячеславу Стрелкову, рабу и сыну рабыни, обладающему покалеченным, запечатанным внутри него Даром стихийника, очень хочется обрести свободу: и для себя, и для младшей сестренки, тоже рабыни с детства. Но для этого парню придется пройти через такое… от чего в его шестнадцать лет и поседеть можно вмиг. &lt;/p&gt;
+   &lt;br/&gt;Год издания: 2019&lt;br/&gt;Формат: fb2&lt;br/&gt;Язык: ru&lt;br/&gt;Размер: 1311 Kb&lt;br/&gt;Скачиваний: 7477&lt;br/&gt;Серия: Воздушный стрелок #5&lt;br/&gt;</content>
+ <link href="/i/1/546301/cover.jpg" rel="http://opds-spec.org/image" type="image/jpeg" />
+ <link href="/i/1/546301/cover.jpg" rel="x-stanza-cover-image" type="image/jpeg" />
+ <link href="/i/1/546301/cover.jpg" rel="http://opds-spec.org/thumbnail" type="image/jpeg" />
+ <link href="/i/1/546301/cover.jpg" rel="x-stanza-cover-image-thumbnail" type="image/jpeg" />
+ <link href="/b/546301/fb2" rel="http://opds-spec.org/acquisition/open-access" type="application/fb2+zip" />
+ <link href="/b/546301/html" rel="http://opds-spec.org/acquisition/open-access" type="application/html+zip" />
+ <link href="/b/546301/txt" rel="http://opds-spec.org/acquisition/open-access" type="application/txt+zip" />
+ <link href="/b/546301/rtf" rel="http://opds-spec.org/acquisition/open-access" type="application/rtf+zip" />
+ <link href="/b/546301/epub" rel="http://opds-spec.org/acquisition/open-access" type="application/epub+zip" />
+ <link href="/b/546301/mobi" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook" />
+ <link href="/b/546301" rel="alternate" type="text/html" title="Книга на сайте" />
+</entry>
+</feed>

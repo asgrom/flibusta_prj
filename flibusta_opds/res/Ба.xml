@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/terms/" xmlns:os="http://a9.com/-/spec/opensearch/1.1/" xmlns:opds="http://opds-spec.org/2010/catalog"> <id>tag:root:sequences:Ба</id>
+ <title>Книги по сериям</title>
+ <updated>2019-03-26T03:05:34+01:00</updated>
+ <icon>/favicon.ico</icon>
+ <link href="/opds-opensearch.xml" rel="search" type="application/opensearchdescription+xml" />
+ <link href="/opds/search?searchTerm={searchTerms}" rel="search" type="application/atom+xml" />
+ <link href="/opds" rel="start" type="application/atom+xml;profile=opds-catalog" />
+ <entry> <updated>2019-03-26T03:05:34+01:00</updated>
+ <id>tag:sequences:Баб</id>
+ <title>Баб</title>
+ <content type="text">13 серий на &#039;Баб&#039;</content>
+ <link href="/opds/sequences/%D0%91%D0%B0%D0%B1" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-26T03:05:34+01:00</updated>
+ <id>tag:sequences:Баг</id>
+ <title>Баг</title>
+ <content type="text">8 серий на &#039;Баг&#039;</content>
+ <link href="/opds/sequences/%D0%91%D0%B0%D0%B3" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-26T03:05:34+01:00</updated>
+ <id>tag:sequences:Баж</id>
+ <title>Баж</title>
+ <content type="text">1 серия на &#039;Баж&#039;</content>
+ <link href="/opds/sequences/%D0%91%D0%B0%D0%B6" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-26T03:05:34+01:00</updated>
+ <id>tag:sequences:Баз</id>
+ <title>Баз</title>
+ <content type="text">5 серий на &#039;Баз&#039;</content>
+ <link href="/opds/sequences/%D0%91%D0%B0%D0%B7" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-26T03:05:34+01:00</updated>
+ <id>tag:sequences:Бай</id>
+ <title>Бай</title>
+ <content type="text">18 серий на &#039;Бай&#039;</content>
+ <link href="/opds/sequences/%D0%91%D0%B0%D0%B9" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-26T03:05:34+01:00</updated>
+ <id>tag:sequences:Бак</id>
+ <title>Бак</title>
+ <content type="text">4 серии на &#039;Бак&#039;</content>
+ <link href="/opds/sequences/%D0%91%D0%B0%D0%BA" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-26T03:05:34+01:00</updated>
+ <id>tag:sequences:Бал</id>
+ <title>Бал</title>
+ <content type="text">18 серий на &#039;Бал&#039;</content>
+ <link href="/opds/sequences/%D0%91%D0%B0%D0%BB" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-26T03:05:34+01:00</updated>
+ <id>tag:sequences:Бан</id>
+ <title>Бан</title>
+ <content type="text">12 серий на &#039;Бан&#039;</content>
+ <link href="/opds/sequences/%D0%91%D0%B0%D0%BD" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-26T03:05:34+01:00</updated>
+ <id>tag:sequences:Бар</id>
+ <title>Бар</title>
+ <content type="text">25 серий на &#039;Бар&#039;</content>
+ <link href="/opds/sequences/%D0%91%D0%B0%D1%80" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-26T03:05:34+01:00</updated>
+ <id>tag:sequences:Бас</id>
+ <title>Бас</title>
+ <content type="text">10 серий на &#039;Бас&#039;</content>
+ <link href="/opds/sequences/%D0%91%D0%B0%D1%81" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-26T03:05:34+01:00</updated>
+ <id>tag:sequences:Бат</id>
+ <title>Бат</title>
+ <content type="text">6 серий на &#039;Бат&#039;</content>
+ <link href="/opds/sequences/%D0%91%D0%B0%D1%82" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-26T03:05:34+01:00</updated>
+ <id>tag:sequences:Баф</id>
+ <title>Баф</title>
+ <content type="text">1 серия на &#039;Баф&#039;</content>
+ <link href="/opds/sequences/%D0%91%D0%B0%D1%84" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-26T03:05:34+01:00</updated>
+ <id>tag:sequences:Бах</id>
+ <title>Бах</title>
+ <content type="text">2 серии на &#039;Бах&#039;</content>
+ <link href="/opds/sequences/%D0%91%D0%B0%D1%85" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+ <entry> <updated>2019-03-26T03:05:34+01:00</updated>
+ <id>tag:sequences:Баш</id>
+ <title>Баш</title>
+ <content type="text">1 серия на &#039;Баш&#039;</content>
+ <link href="/opds/sequences/%D0%91%D0%B0%D1%88" type="application/atom+xml;profile=opds-catalog" />
+</entry>
+</feed>
