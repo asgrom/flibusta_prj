@@ -1,12 +1,13 @@
-from requests import request, exceptions
-from user_agent import generate_user_agent
-import re
 import os
+import re
 from threading import Thread
-from . import PROXY_LIST, signals, CURRENT_PROXY
 
 from PyQt5.QtCore import QDir
 from PyQt5.QtWidgets import QFileDialog
+from requests import request, exceptions
+from user_agent import generate_user_agent
+
+from . import PROXY_LIST, signals, CURRENT_PROXY
 
 
 class RequestErr(Exception):
@@ -142,20 +143,22 @@ def get_from_opds(url):
 
     if CURRENT_PROXY:
         try:
-            res = request('get', URL + url, proxies=CURRENT_PROXY, user_agent=user_agent, stream=True, timeout=(10, 30))
+            res = request('get', URL + url, proxies=CURRENT_PROXY, headers={'user-agent': user_agent}, stream=True, timeout=(10, 30))
         except (exceptions.ConnectionError, exceptions.ConnectTimeout) as e:
             print(f'{CURRENT_PROXY}\n{e}')
             CURRENT_PROXY.clear()
     else:
         for proxy in PROXIES:
             try:
-                res = request('get', URL + url, proxies=proxy, user_agent=user_agent, stream=True, timeout=(10, 30))
+                res = request('get', URL + url, proxies=proxy, headers={'user-agent': user_agent}, stream=True, timeout=(10, 30))
                 CURRENT_PROXY.update(proxy)
                 break
             except (exceptions.ConnectTimeout, exceptions.ConnectionError) as e:
                 print(f'{proxy}\n{e}')
     if not res:
         raise RequestErr('ОШИБКА СОЕДИНЕНИЯ')
+
+    res.raise_for_status()
 
     signals.connect_to_proxy.emit()
 

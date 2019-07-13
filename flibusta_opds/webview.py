@@ -5,14 +5,15 @@ from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtCore import QUrl, pyqtSlot
 from PyQt5.QtNetwork import QNetworkProxy
 from PyQt5.QtWebEngineWidgets import QWebEnginePage
+from requests import exceptions
 
+from flibusta_opds.webviewwidget import Ui_Form
 from . import BASE_DIR, CURRENT_PROXY
+from . import PROXY_LIST, signals
 from . import xml_parser
 from .history import History
 from .make_html import make_html_page
 from .opds_requests import get_from_opds, RequestErr, get_main_opds, DownloadFile
-from flibusta_opds.webviewwidget import Ui_Form
-from . import PROXY_LIST, signals
 
 
 class MyEvent(QtCore.QEvent):
@@ -172,7 +173,7 @@ class MainWidget(QtWidgets.QWidget):
     def main_page_btn_clicked(self):
         try:
             html = self.get_html('/opds')
-        except (RequestErr, xml_parser.XMLError) as e:
+        except (RequestErr, xml_parser.XMLError, exceptions.HTTPError) as e:
             print(e)
             self.msgbox(str(e))
             return
@@ -189,7 +190,7 @@ class MainWidget(QtWidgets.QWidget):
             html = self.get_html(url)
         except DownloadFile:
             return
-        except (RequestErr, xml_parser.XMLError) as e:
+        except (RequestErr, xml_parser.XMLError, exceptions.HTTPError) as e:
             print(e)
             self.msgbox(str(e))
             return
