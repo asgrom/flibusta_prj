@@ -162,8 +162,8 @@ class MainWidget(QtWidgets.QWidget):
         finally:
             QtWidgets.QApplication.restoreOverrideCursor()
         # Если ссылка была на файл, то функция get_from_opds возвращает пустой объект.
-        # if not content:
-        #     return None
+        if not content:
+            return None
         data = xml_parser.parser(fromstr=content)
         html = make_html_page(data)
         return html
