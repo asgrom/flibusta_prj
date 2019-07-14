@@ -11,9 +11,10 @@ from flibusta_opds.webviewwidget import Ui_Form
 from . import BASE_DIR, CURRENT_PROXY
 from . import PROXY_LIST, signals
 from . import xml_parser
+from .get_proxy import get_proxy_list
 from .history import History
 from .make_html import make_html_page
-from .opds_requests import get_from_opds, RequestErr, get_main_opds, DownloadFile
+from .opds_requests import get_from_opds, RequestErr, DownloadFile
 
 
 class MyEvent(QtCore.QEvent):
@@ -91,8 +92,10 @@ class MainWidget(QtWidgets.QWidget):
         ################################################################################################################
         self.proxy_label = QtWidgets.QLabel(f'Прокси {self.proxy.hostName()} : {self.proxy.port()}')
         self.setProxyBtn = QtWidgets.QPushButton('Установить прокси')
+        self.getProxyBtn = QtWidgets.QPushButton('Получить список прокси')
 
         hbox = QtWidgets.QHBoxLayout()
+        hbox.addWidget(self.getProxyBtn)
         hbox.addStretch()
         hbox.addWidget(self.proxy_label)
         hbox.addWidget(self.proxy_cbx)
@@ -107,17 +110,33 @@ class MainWidget(QtWidgets.QWidget):
         self.ui.nextBtn.clicked.connect(self.next_btn_clicked)
         self.setProxyBtn.clicked.connect(self.setPoxyBtn_clicked)
         signals.connect_to_proxy.connect(self.connect_to_proxy_signal)
-        self.ui.searchBtn.clicked.connect(self.do_smtng)
         signals.progress.connect(self.ui.progressBar.setValue)
         self.ui.webView.titleChanged.connect(self.set_back_forward_btns_status)
         signals.file_name.connect(lambda x: self.ui.label.setText(x))
         signals.done.connect(self.ui.progressBar.reset)
+        self.getProxyBtn.clicked.connect(self.get_proxy)
 
         self.show()
 
-    def do_smtng(self):
-        url = 'http://testsite.alex.org/res/AUK-1M.pdf'
-        get_main_opds(url)
+    @pyqtSlot()
+    def get_proxy(self):
+        """Палучаем новый список прокси и устанавливаем его"""
+        proxies = None
+        QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+        try:
+            proxies = get_proxy_list()
+        except Exception as e:
+            self.msgbox(str(e))
+            return
+        finally:
+            QtWidgets.QApplication.restoreOverrideCursor()
+        if proxies:
+            PROXY_LIST.clear()
+            PROXY_LIST.extend(proxies)
+            self.proxy_cbx.setModel(QtCore.QStringListModel(PROXY_LIST))
+            self.msgbox('Список прокси обновлен', title='Выполнено')
+
+
 
     def setHtml(self, html):
         self.ui.webView.page().setHtml(html, self.baseUrl)
@@ -134,9 +153,7 @@ class MainWidget(QtWidgets.QWidget):
         proxy, port = CURRENT_PROXY['https'].split(':')
         self.proxy.setHostName(proxy)
         self.proxy.setPort(int(port))
-        # self.proxy.setType(QNetworkProxy.HttpProxy)
         self.proxy_label.setText(f'Прокси {proxy} : {port}')
-        # print(self.proxy)
         QNetworkProxy.setApplicationProxy(self.proxy)
 
     @pyqtSlot()
@@ -194,7 +211,7 @@ class MainWidget(QtWidgets.QWidget):
             print(e)
             self.msgbox(str(e))
             return
-        # если по ссылке находится файл, то метод get_html возвращает None
+        # если по ссылке находится файл, то метод get_html_with_request возвращает None
         # if not html:
         #     return
         self.setHtml(html)
@@ -218,8 +235,11 @@ class MainWidget(QtWidgets.QWidget):
         html = self.get_html(link.val)
         self.setHtml(html)
 
-    def msgbox(self, msg):
-        msgBox = QtWidgets.QMessageBox(QtWidgets.QMessageBox.Warning, 'Error', msg)
+    def msgbox(self, msg, title=None):
+        if not title:
+            msgBox = QtWidgets.QMessageBox(QtWidgets.QMessageBox.Warning, 'Error', msg)
+        else:
+            msgBox = QtWidgets.QMessageBox(QtWidgets.QMessageBox.Warning, title, msg)
         msgBox.exec_()
 
 

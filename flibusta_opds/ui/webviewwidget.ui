@@ -49,26 +49,6 @@
       <item row="0" column="0">
        <layout class="QGridLayout" name="gridLayout_2">
         <item row="1" column="0">
-         <widget class="QPushButton" name="searchBtn">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="text">
-           <string>Кнопка для тестов</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="0">
-         <widget class="QPushButton" name="mainPageBtn">
-          <property name="text">
-           <string>Главная страница каталога</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0">
          <widget class="QSplitter" name="splitter_2">
           <property name="frameShape">
            <enum>QFrame::NoFrame</enum>
@@ -86,6 +66,13 @@
             <string>Вперед</string>
            </property>
           </widget>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QPushButton" name="mainPageBtn">
+          <property name="text">
+           <string>Главная страница каталога</string>
+          </property>
          </widget>
         </item>
        </layout>
@@ -142,7 +129,7 @@
     </widget>
    </item>
    <item row="2" column="0">
-    <widget class="QWebView" name="webView">
+    <widget class="QWebEngineView" name="webView">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
        <horstretch>0</horstretch>
@@ -160,9 +147,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>QWebView</class>
+   <class>QWebEngineView</class>
    <extends>QWidget</extends>
-   <header location="global">QtWebKitWidgets/QWebView</header>
+   <header location="global">QtWebEngineWidgets/QWebEngineView</header>
   </customwidget>
  </customwidgets>
  <resources/>

@@ -6,7 +6,7 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-from PyQt5 import QtCore, QtGui, QtWidgets, QtWebEngineWidgets
+from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_Form(object):
@@ -28,17 +28,6 @@ class Ui_Form(object):
         self.gridLayout_3.setObjectName("gridLayout_3")
         self.gridLayout_2 = QtWidgets.QGridLayout()
         self.gridLayout_2.setObjectName("gridLayout_2")
-        self.searchBtn = QtWidgets.QPushButton(self.frame_download)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.searchBtn.sizePolicy().hasHeightForWidth())
-        self.searchBtn.setSizePolicy(sizePolicy)
-        self.searchBtn.setObjectName("searchBtn")
-        self.gridLayout_2.addWidget(self.searchBtn, 1, 0, 1, 1)
-        self.mainPageBtn = QtWidgets.QPushButton(self.frame_download)
-        self.mainPageBtn.setObjectName("mainPageBtn")
-        self.gridLayout_2.addWidget(self.mainPageBtn, 0, 0, 1, 1)
         self.splitter_2 = QtWidgets.QSplitter(self.frame_download)
         self.splitter_2.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.splitter_2.setOrientation(QtCore.Qt.Horizontal)
@@ -47,7 +36,10 @@ class Ui_Form(object):
         self.backBtn.setObjectName("backBtn")
         self.nextBtn = QtWidgets.QPushButton(self.splitter_2)
         self.nextBtn.setObjectName("nextBtn")
-        self.gridLayout_2.addWidget(self.splitter_2, 2, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.splitter_2, 1, 0, 1, 1)
+        self.mainPageBtn = QtWidgets.QPushButton(self.frame_download)
+        self.mainPageBtn.setObjectName("mainPageBtn")
+        self.gridLayout_2.addWidget(self.mainPageBtn, 0, 0, 1, 1)
         self.gridLayout_3.addLayout(self.gridLayout_2, 0, 0, 1, 1)
         self.gridLayout_4.addWidget(self.frame_download, 0, 0, 1, 1)
         self.frame_btn = QtWidgets.QFrame(Form)
@@ -89,8 +81,10 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Flibusta OPDS"))
-        self.searchBtn.setText(_translate("Form", "Кнопка для тестов"))
-        self.mainPageBtn.setText(_translate("Form", "Главная страница каталога"))
         self.backBtn.setText(_translate("Form", "Назад"))
         self.nextBtn.setText(_translate("Form", "Вперед"))
+        self.mainPageBtn.setText(_translate("Form", "Главная страница каталога"))
         self.label.setText(_translate("Form", "Загрузка файла"))
+
+
+from PyQt5 import QtWebEngineWidgets
