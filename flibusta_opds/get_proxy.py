@@ -22,14 +22,15 @@ def get_html_with_selenium(url):
 
     Время ожидания загрузки страницы выставлено на 10 секунд, плюс выставил ожидание после еще 10 секунд.
     Браузер запускается в режиме 'невидимки' - т.е. окно браузера не открывается. Делается с помощью аргумента 'headles'
-    """
-    options = webdriver.ChromeOptions()
 
+    В режиме невидимки не получилось получить список. Сойт воспринимает меня как бота.
+    """
+    # options = webdriver.ChromeOptions()
     # аргумент опций для запуска браузера без запуска окна
-    options.add_argument('headless')
+    # options.add_argument('headless')
     ######################################################
 
-    driver = webdriver.Chrome(options=options)
+    driver = webdriver.Chrome()
     driver.implicitly_wait(10)
     driver.get(url)
     time.sleep(10)
@@ -37,10 +38,6 @@ def get_html_with_selenium(url):
     # код страницы
     html = driver.page_source
     driver.close()
-
-    with open('proxy_list.html', 'w') as f:
-        f.write(html)
-
     return html
 
 
@@ -73,15 +70,8 @@ def html_parser(html):
 
 
 def get_proxy_list():
-    # with open(
-    #         '/home/alexandr/tmp/Прокси-листы, бесплатный список анонимных прокси серверов — HideMy.name (ex hideme.ru).html',
-    #         'rb') as f:
-    #     html = f.read()
-
-    # proxies = html_parser(html)
     try:
-        # html = get_html_with_selenium('https://hidemyna.me/ru/proxy-list/?maxtime=300&type=s#list')
-        html = get_html_with_selenium("http://testsite.alex.org/zametkinapolyah.ru/index.html")
+        html = get_html_with_selenium(URL)
     except Exception as e:
         raise RequestErr('Ошибка получения списка прокси-серверов')
     return html_parser(html)

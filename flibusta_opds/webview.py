@@ -14,7 +14,7 @@ from . import xml_parser
 from .get_proxy import get_proxy_list
 from .history import History
 from .make_html import make_html_page
-from .opds_requests import get_from_opds, RequestErr, DownloadFile
+from .opds_requests import get_from_opds, RequestErr, DownloadFile, generate_proxies
 
 
 class MyEvent(QtCore.QEvent):
@@ -43,7 +43,7 @@ class WebEnginePage(QWebEnginePage):
     def acceptNavigationRequest(self, url, _type, isMainFrame):
         """При запросе урла со схемой file возбуждает событие и запрещает загрузку этого урла"""
         if url.scheme() == 'file':
-            QtCore.QCoreApplication.sendEvent(self.parent(), MyEvent(url.toLocalFile()))
+            QtCore.QCoreApplication.sendEvent(self.parent(), MyEvent(os.path.normpath(url.url(QUrl.RemoveScheme))))
             return False
         return True
 
@@ -60,12 +60,8 @@ class MainWidget(QtWidgets.QWidget):
         ################################################################################################################
         # Задаем прокси-сервер для приложения                                                                          #
         ################################################################################################################
-        # todo: после установки соединения с прокси с помощью request установить этот прокси для всего приложения
         self.proxy = QNetworkProxy()
-        # self.proxy.setHostName('37.182.199.214')  # 142.93.132.193
-        # self.proxy.setPort(3128)  # 8080
         self.proxy.setType(QNetworkProxy.HttpProxy)
-        # QNetworkProxy.setApplicationProxy(self.proxy)
         ################################################################################################################
         self.loadUI()
 
@@ -115,8 +111,22 @@ class MainWidget(QtWidgets.QWidget):
         signals.file_name.connect(lambda x: self.ui.label.setText(x))
         signals.done.connect(self.ui.progressBar.reset)
         self.getProxyBtn.clicked.connect(self.get_proxy)
+        self.ui.searchBtn.clicked.connect(self.search_on_opds)
 
         self.show()
+
+    @pyqtSlot()
+    def search_on_opds(self):
+        QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+        try:
+            html = self.get_html('/opds/search', txt=self.ui.search_le.text().strip())
+        except Exception as e:
+            self.msgbox(str(e))
+            return
+        finally:
+            QtWidgets.QApplication.restoreOverrideCursor()
+        self.setHtml(html)
+        self.history.add('/opds/search')
 
     @pyqtSlot()
     def get_proxy(self):
@@ -126,17 +136,16 @@ class MainWidget(QtWidgets.QWidget):
         try:
             proxies = get_proxy_list()
         except Exception as e:
+            QtWidgets.QApplication.restoreOverrideCursor()
             self.msgbox(str(e))
             return
-        finally:
-            QtWidgets.QApplication.restoreOverrideCursor()
+        QtWidgets.QApplication.restoreOverrideCursor()
         if proxies:
             PROXY_LIST.clear()
             PROXY_LIST.extend(proxies)
             self.proxy_cbx.setModel(QtCore.QStringListModel(PROXY_LIST))
+            generate_proxies()
             self.msgbox('Список прокси обновлен', title='Выполнено')
-
-
 
     def setHtml(self, html):
         self.ui.webView.page().setHtml(html, self.baseUrl)
@@ -173,15 +182,12 @@ class MainWidget(QtWidgets.QWidget):
         if e.type() == MyEvent.idType:
             self.link_clicked(e.data)
 
-    def get_html(self, url):
+    def get_html(self, url, txt=None):
         QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
         try:
-            content = get_from_opds(url)
+            content = get_from_opds(url, txt)
         finally:
             QtWidgets.QApplication.restoreOverrideCursor()
-        # Если ссылка была на файл, то функция get_from_opds возвращает пустой объект.
-        # if not content:
-        #     return None
         data = xml_parser.parser(fromstr=content)
         html = make_html_page(data)
         return html
@@ -211,9 +217,6 @@ class MainWidget(QtWidgets.QWidget):
             print(e)
             self.msgbox(str(e))
             return
-        # если по ссылке находится файл, то метод get_html_with_request возвращает None
-        # if not html:
-        #     return
         self.setHtml(html)
         self.history.add(url)
 
@@ -258,5 +261,5 @@ if __name__ == '__main__':
     print(QtCore.QT_VERSION_STR)
     app = QtWidgets.QApplication(sys.argv)
     win = MainWidget()
-    win.show()
+    # win.show()
     sys.exit(app.exec_())

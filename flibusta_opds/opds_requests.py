@@ -13,6 +13,7 @@ from . import PROXY_LIST, signals, CURRENT_PROXY
 class RequestErr(Exception):
     pass
 
+
 class DownloadFile(Exception):
     pass
 
@@ -28,9 +29,9 @@ def get_dirname_to_save():
     return dir_name
 
 
-PROXIES = [{'https': proxy} for proxy in PROXY_LIST]
+PROXIES = []
 
-user_agent =generate_user_agent('linux', 'chrome' )
+user_agent = generate_user_agent('linux', 'chrome')
 
 URL = 'https://flibusta.is'
 
@@ -75,6 +76,12 @@ search_params = {
     'searchTerm': '',
     'pageNumber': None
 }
+
+
+def generate_proxies():
+    proxies = [{'https': proxy} for proxy in PROXY_LIST]
+    PROXIES.clear()
+    PROXIES.extend(proxies)
 
 
 def is_file(headers):
@@ -132,7 +139,7 @@ def get_main_opds(url):
     download_file(r, file_dest, 1024 * 128)
 
 
-def get_from_opds(url):
+def get_from_opds(url, txt=None):
     """Сделать запрос по ссылке
 
     Производится проверка - является ли ссылка файлом или страницей. Если по ссылке находится файл, то происходит
@@ -141,16 +148,26 @@ def get_from_opds(url):
     res = None
     size = 1024 * 128
 
+    if not PROXIES:
+        generate_proxies()
+
+    if not txt:
+        params = None
+    else:
+        params = dict(searchTerm=txt)
+
     if CURRENT_PROXY:
         try:
-            res = request('get', URL + url, proxies=CURRENT_PROXY, headers={'user-agent': user_agent}, stream=True, timeout=(10, 30))
+            res = request('get', URL + url, proxies=CURRENT_PROXY, headers={'user-agent': user_agent}, params=params,
+                          stream=True, timeout=(10, 30))
         except (exceptions.ConnectionError, exceptions.ConnectTimeout) as e:
             print(f'{CURRENT_PROXY}\n{e}')
             CURRENT_PROXY.clear()
     else:
         for proxy in PROXIES:
             try:
-                res = request('get', URL + url, proxies=proxy, headers={'user-agent': user_agent}, stream=True, timeout=(10, 30))
+                res = request('get', URL + url, proxies=proxy, headers={'user-agent': user_agent}, params=params,
+                              stream=True, timeout=(10, 30))
                 CURRENT_PROXY.update(proxy)
                 break
             except (exceptions.ConnectTimeout, exceptions.ConnectionError) as e:
@@ -173,4 +190,3 @@ def get_from_opds(url):
                     kwargs=dict(res=res, size=size, file_dest=file_dest))
     thread.start()
     raise DownloadFile('Скачивание файла')
-    # return None
