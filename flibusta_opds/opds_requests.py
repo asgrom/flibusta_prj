@@ -49,7 +49,7 @@ search_params = {
 
 
 def generate_proxies():
-    proxies = [{'https': proxy} for proxy in PROXY_LIST]
+    proxies = [{'http': proxy} for proxy in PROXY_LIST]
     _PROXIES.clear()
     _PROXIES.extend(proxies)
 

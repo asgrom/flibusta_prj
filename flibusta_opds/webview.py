@@ -164,7 +164,7 @@ class MainWidget(QtWidgets.QWidget):
     @pyqtSlot()
     def set_proxy(self):
         """Установка прокси для приложения"""
-        proxy, port = CURRENT_PROXY['https'].split(':')
+        proxy, port = CURRENT_PROXY['http'].split(':')
         self.proxy.setHostName(proxy)
         self.proxy.setPort(int(port))
         self.proxy_label.setText(f'Прокси {proxy} : {port}')
