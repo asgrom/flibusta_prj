@@ -1,6 +1,7 @@
 __version__ = '0.1'
 
 from os import path
+import os
 import json
 from PyQt5.QtCore import pyqtSignal, QObject
 
@@ -9,13 +10,15 @@ BASE_DIR = path.dirname(__file__) + '/'
 # текущий прокси. будет использоваться глобально для всего приложения
 CURRENT_PROXY = dict()
 
+if not path.exists(path.join(BASE_DIR, 'res')):
+    os.mkdir(path.join(BASE_DIR, 'res'))
 proxy_json_file = path.join(BASE_DIR, 'res/proxy.json')
 
-with open(proxy_json_file) as f:
-    try:
+try:
+    with open(proxy_json_file) as f:
         PROXY_LIST = json.load(f)
-    except json.JSONDecodeError:
-        PROXY_LIST = list()
+except (FileNotFoundError, json.JSONDecoder):
+    PROXY_LIST = list()
 
 
 class Signals(QObject):
