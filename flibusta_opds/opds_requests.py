@@ -35,36 +35,6 @@ user_agent = generate_user_agent(os='linux', navigator='chrome')
 
 URL = 'https://flibusta.is'
 
-# _PROXIES = [
-#     {
-#         'http': '46.218.155.194:3128',
-#         'https': '46.218.155.194:3128'
-#     },
-#     {
-#         'http': '142.93.132.193:8080',
-#         'https': '142.93.132.193:8080'
-#     },
-#     {
-#         'http': '217.69.14.55:3128',
-#         'https': '217.69.14.55:3128'
-#     },
-#     {
-#         'http': '37.182.199.214:3128',
-#         'https': '37.182.199.214:3128'
-#     },
-#     {
-#         'http': '84.22.139.241:3128',
-#         'https': '84.22.139.241:3128'
-#     },
-#     {
-#         'http': '51.77.210.229:3128',
-#         'https': '51.77.210.229:3128'
-#     },
-#     {
-#         'https': '185.162.235.32:8082'
-#     }
-# ]
-
 # список типов поиска
 SEARCH_TYPE = ['authors', 'books']
 
@@ -128,15 +98,6 @@ def download_file(res, file_dest, size):
             raise RequestErr(f'ОШИБКА СКАЧИВАНИЯ ФАЙЛА\n{e}')
         finally:
             signals.done.emit()
-
-
-def get_main_opds(url):
-    """Получаем главную страницу каталога"""
-    d = get_dirname_to_save()
-    r = request('get', url, stream=True)
-    fname = get_file_name(r)
-    file_dest = os.path.join(d, fname)
-    download_file(r, file_dest, 1024 * 128)
 
 
 def get_from_opds(url, txt=None):
