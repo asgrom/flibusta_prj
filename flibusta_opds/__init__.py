@@ -9,10 +9,13 @@ BASE_DIR = path.dirname(__file__) + '/'
 # текущий прокси. будет использоваться глобально для всего приложения
 CURRENT_PROXY = dict()
 
-proxy_json_file = path.join(BASE_DIR, 'res/proxy1.json')
+proxy_json_file = path.join(BASE_DIR, 'res/proxy.json')
 
 with open(proxy_json_file) as f:
-    PROXY_LIST = [':'.join(proxy) for proxy in json.load(f)]
+    try:
+        PROXY_LIST = json.load(f)
+    except json.JSONDecodeError:
+        PROXY_LIST = list()
 
 
 class Signals(QObject):

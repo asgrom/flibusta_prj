@@ -3,6 +3,7 @@
 # Пришлось использовать selenium
 
 import time
+import json
 
 from lxml import html as parser
 from requests import request, exceptions
@@ -10,12 +11,12 @@ from selenium import webdriver
 from user_agent import generate_user_agent
 
 from flibusta_opds.opds_requests import RequestErr
+from flibusta_opds import proxy_json_file
 
 USER_AGENT = generate_user_agent(os='linux', navigator=['chrome', 'firefox'])
 
 # УРЛ запроса списка прокси с временем отклика не более 300 мс и страны исключая Россию и Украину
-URL = 'https://hidemyna.me/ru/proxy-list/?country=AFALARAMAUATAZBDBYBEBJBOBABWBRBGBFBIKHCMCATDCLCOCGCDCRCIHRCYCZDKDOECEGEEFIFRGEDEGHGRGTGNHNHKHUINIDIQIEILITJMJPKZKEKRKGLVLBLSLYLTLUMKMGMWMYMLMTMUMXMDMNMEMZMMNANPNLNZNINGNOPKPSPAPYPEPHPLPTPRRORWRSSLSGSKSISOZAESSECHSYTWTJTZTHTLTNTRUGGBUSUYVEVN&maxtime=300&type=s#list'
-
+URL = 'https://hidemy.name/ru/proxy-list/?country=CZFRDEHKHURSSLSETHGB&maxtime=300&type=hs#list'
 
 def get_html_with_selenium(url):
     """Получить страницу с прокси-серверами с помощью selenium
@@ -23,7 +24,7 @@ def get_html_with_selenium(url):
     Время ожидания загрузки страницы выставлено на 10 секунд, плюс выставил ожидание после еще 10 секунд.
     Браузер запускается в режиме 'невидимки' - т.е. окно браузера не открывается. Делается с помощью аргумента 'headles'
 
-    В режиме невидимки не получилось получить список. Сойт воспринимает меня как бота.
+    В режиме невидимки не получилось получить список. Сайт воспринимает меня как бота.
     """
     # options = webdriver.ChromeOptions()
     # аргумент опций для запуска браузера без запуска окна
@@ -58,13 +59,20 @@ def get_html_with_request(url):
 def html_parser(html):
     """Парсинг страницы со списком прокси"""
     proxy_list = []
+
+    # with open('res/page.html', 'w') as f:
+        # f.write(html)
+
     root = parser.document_fromstring(html)
     # строки содержащие прокси
-    tr = root.xpath("//table[contains(@class,'proxy')]/tbody/tr")
+    tr = root.xpath('//div[@class="table_block"]/table/tbody/tr')
 
     for i in tr:
         td = i.xpath('./td')
         proxy_list.append(':'.join([td[0].text.strip(), td[1].text.strip()]))
+
+    with open(proxy_json_file, 'w') as f:
+        json.dump([i.strip(':') for i in proxy_list], f, ensure_ascii=False, indent=2)
 
     return proxy_list
 

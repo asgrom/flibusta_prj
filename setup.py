@@ -13,7 +13,7 @@ setup(
     description='Просмотр OPDS каталога библиотеки Флибуста',
     long_description=open('README.md').read(),
     include_package_data=True,
-    install_requires=['lxml', 'jinja2', 'requests', 'USER_AGENT'],
+    install_requires=['lxml', 'jinja2', 'requests', 'user_agent', 'selenium'],
     entry_points={
         'console_scripts': [
             'flibusta-opds = flibusta_opds.webview:main'

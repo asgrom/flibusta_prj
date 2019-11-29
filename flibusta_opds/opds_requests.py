@@ -29,13 +29,13 @@ def get_dirname_to_save():
     return dir_name
 
 
-PROXIES = []
+_PROXIES = []
 
-user_agent = generate_user_agent('linux', 'chrome')
+user_agent = generate_user_agent(os='linux', navigator='chrome')
 
 URL = 'https://flibusta.is'
 
-# PROXIES = [
+# _PROXIES = [
 #     {
 #         'http': '46.218.155.194:3128',
 #         'https': '46.218.155.194:3128'
@@ -80,8 +80,8 @@ search_params = {
 
 def generate_proxies():
     proxies = [{'https': proxy} for proxy in PROXY_LIST]
-    PROXIES.clear()
-    PROXIES.extend(proxies)
+    _PROXIES.clear()
+    _PROXIES.extend(proxies)
 
 
 def is_file(headers):
@@ -148,7 +148,7 @@ def get_from_opds(url, txt=None):
     res = None
     size = 1024 * 128
 
-    if not PROXIES:
+    if not _PROXIES:
         generate_proxies()
 
     if not txt:
@@ -159,16 +159,17 @@ def get_from_opds(url, txt=None):
     if CURRENT_PROXY:
         try:
             res = request('get', URL + url, proxies=CURRENT_PROXY, headers={'user-agent': user_agent}, params=params,
-                          stream=True, timeout=(10, 30))
+                          stream=True, timeout=(10, 30), verify=False)
         except (exceptions.ConnectionError, exceptions.ConnectTimeout) as e:
             print(f'{CURRENT_PROXY}\n{e}')
             CURRENT_PROXY.clear()
     else:
-        for proxy in PROXIES:
+        for proxy in _PROXIES:
             try:
                 res = request('get', URL + url, proxies=proxy, headers={'user-agent': user_agent}, params=params,
-                              stream=True, timeout=(10, 30))
+                              stream=True, timeout=(10, 30), verify=False)
                 CURRENT_PROXY.update(proxy)
+                signals.connect_to_proxy.emit()
                 break
             except (exceptions.ConnectTimeout, exceptions.ConnectionError) as e:
                 print(f'{proxy}\n{e}')
@@ -176,8 +177,6 @@ def get_from_opds(url, txt=None):
         raise RequestErr('ОШИБКА СОЕДИНЕНИЯ')
 
     res.raise_for_status()
-
-    signals.connect_to_proxy.emit()
 
     if not is_file(res.headers):
         return res.content

@@ -39,7 +39,6 @@ class WebEnginePage(QWebEnginePage):
     Перегружаем функцию acceptNavigationRequest чтобы перехватывать запрашиваемые урлы. При перехвате возбуждаем событие
     и обрабатываем урл.
     """
-
     def acceptNavigationRequest(self, url, _type, isMainFrame):
         """При запросе урла со схемой file возбуждает событие и запрещает загрузку этого урла"""
         if url.scheme() == 'file':
@@ -54,7 +53,7 @@ class MainWidget(QtWidgets.QWidget):
         super().__init__(parent)
         self.history = History()
         self.baseUrl = QUrl.fromLocalFile(BASE_DIR)
-        self.url = QUrl('http://flibusta.is')
+        # self.url = QUrl('http://flibusta.is')
         self.ui = Ui_Form()
         self.ui.setupUi(self)
         ################################################################################################################
@@ -69,6 +68,7 @@ class MainWidget(QtWidgets.QWidget):
     def loadUI(self):
         self.setWindowIcon(QtGui.QIcon('./res/favicon.ico'))
         self.ui.progressBar.reset()
+        # self.page = WebEnginePage()
         self.ui.webView.setPage(WebEnginePage(self))
         self.ui.backBtn.setDisabled(True)
         self.ui.nextBtn.setDisabled(True)
@@ -98,6 +98,8 @@ class MainWidget(QtWidgets.QWidget):
         hbox.addWidget(self.setProxyBtn)
         self.ui.verticalLayout.insertLayout(0, hbox)
 
+        self.ui.search_le.setAlignment(QtCore.Qt.AlignLeft)
+
         #################################################################
         #   Обработка сигналов                                          #
         #################################################################
@@ -105,10 +107,14 @@ class MainWidget(QtWidgets.QWidget):
         self.ui.mainPageBtn.clicked.connect(self.main_page_btn_clicked)
         self.ui.nextBtn.clicked.connect(self.next_btn_clicked)
         self.setProxyBtn.clicked.connect(self.setPoxyBtn_clicked)
+        # signals.connect_to_proxy получаем при удачном соединении с прокси
         signals.connect_to_proxy.connect(self.connect_to_proxy_signal)
+        # signals.progress получаем при скачивании файла
         signals.progress.connect(self.ui.progressBar.setValue)
         self.ui.webView.titleChanged.connect(self.set_back_forward_btns_status)
+        # signals.file_name получаем название скачиваемого файла
         signals.file_name.connect(lambda x: self.ui.label.setText(x))
+        # сигнал завершения загрузки
         signals.done.connect(self.ui.progressBar.reset)
         self.getProxyBtn.clicked.connect(self.get_proxy)
         self.ui.searchBtn.clicked.connect(self.search_on_opds)
@@ -131,7 +137,6 @@ class MainWidget(QtWidgets.QWidget):
     @pyqtSlot()
     def get_proxy(self):
         """Палучаем новый список прокси и устанавливаем его"""
-        proxies = None
         QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
         try:
             proxies = get_proxy_list()
@@ -246,20 +251,25 @@ class MainWidget(QtWidgets.QWidget):
         msgBox.exec_()
 
 
+# app = None
+
+
 def main():
+    # global app
     os.chdir(os.path.abspath(os.path.dirname(__file__)))
     sys.argv.append('--disable-web-security')
     print(QtCore.QT_VERSION_STR)
+    # QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_ShareOpenGLContexts)
     app = QtWidgets.QApplication(sys.argv)
     win = MainWidget()
-    status = app.exec()
-    del win
-    sys.exit(status)
+    # status = app.exec_()
+    sys.exit(app.exec_())
 
 
 if __name__ == '__main__':
-    print(QtCore.QT_VERSION_STR)
-    app = QtWidgets.QApplication(sys.argv)
-    win = MainWidget()
+    # print(QtCore.QT_VERSION_STR)
+    # app = QtWidgets.QApplication(sys.argv)
+    # win = MainWidget()
     # win.show()
-    sys.exit(app.exec_())
+    # sys.exit(app.exec_())
+    main()
