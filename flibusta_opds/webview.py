@@ -194,7 +194,6 @@ class MainWidget(QtWidgets.QWidget):
         finally:
             QtWidgets.QApplication.restoreOverrideCursor()
         data = xml_parser.parser(fromstr=content)
-        print(data)
         html = make_html_page(data)
         return html
 

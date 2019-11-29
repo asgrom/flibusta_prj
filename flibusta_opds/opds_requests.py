@@ -33,7 +33,7 @@ _PROXIES = []
 
 user_agent = generate_user_agent(os='linux', navigator='chrome')
 
-URL = 'https://flibusta.is'
+URL = 'http://flibusta.is'
 
 # список типов поиска
 SEARCH_TYPE = ['authors', 'books']
