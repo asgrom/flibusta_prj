@@ -39,6 +39,7 @@ class WebEnginePage(QWebEnginePage):
     Перегружаем функцию acceptNavigationRequest чтобы перехватывать запрашиваемые урлы. При перехвате возбуждаем событие
     и обрабатываем урл.
     """
+
     def acceptNavigationRequest(self, url, _type, isMainFrame):
         """При запросе урла со схемой file возбуждает событие и запрещает загрузку этого урла"""
         if url.scheme() == 'file':
@@ -251,25 +252,15 @@ class MainWidget(QtWidgets.QWidget):
         msgBox.exec_()
 
 
-# app = None
-
-
 def main():
-    # global app
+    global app
     os.chdir(os.path.abspath(os.path.dirname(__file__)))
     sys.argv.append('--disable-web-security')
     print(QtCore.QT_VERSION_STR)
-    # QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_ShareOpenGLContexts)
     app = QtWidgets.QApplication(sys.argv)
     win = MainWidget()
-    # status = app.exec_()
     sys.exit(app.exec_())
 
 
 if __name__ == '__main__':
-    # print(QtCore.QT_VERSION_STR)
-    # app = QtWidgets.QApplication(sys.argv)
-    # win = MainWidget()
-    # win.show()
-    # sys.exit(app.exec_())
     main()
