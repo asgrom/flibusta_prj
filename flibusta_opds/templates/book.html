@@ -5,7 +5,7 @@
         <div class="cover_img">
             {% for l in item.links %}
                 {% if l.rel == "x-stanza-cover-image" %}
-                    <img src="{{ 'https://flibusta.is' + l.href }}">
+                    <img src="{{ 'http://flibusta.is' + l.href }}">
                 {% endif %}
             {% endfor %}
         </div>
