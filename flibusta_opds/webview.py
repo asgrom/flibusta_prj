@@ -48,12 +48,13 @@ class WebEnginePage(QWebEnginePage):
     @QtCore.pyqtSlot(QtWebEngineWidgets.QWebEngineDownloadItem)
     def on_downloadRequested(self, download):
         filename = download.url().fileName()
-        dlg = QtWidgets.QFileDialog(
-            self.view(), 'Save file', os.path.join(os.environ['HOME'], 'Загрузки'), '*')
-        path, _ = dlg.getSaveFileName()
+        dlg = QtWidgets.QFileDialog(self.view(), 'Save file', os.path.join(os.environ['HOME'], 'Загрузки'), '*')
+        path = dlg.getExistingDirectory()
+        path = os.path.join(path, filename)
         if path:
             download.setPath(path)
             download.accept()
+            signals.file_name.emit(path)
 
     def acceptNavigationRequest(self, url, _type, isMainFrame):
         """При запросе урла со схемой file возбуждает событие и запрещает загрузку этого урла"""
@@ -189,7 +190,7 @@ class MainWidget(QtWidgets.QWidget):
     @pyqtSlot()
     def setPoxyBtn_clicked(self):
         """Обработка нажатия кнопки установки прокси"""
-        CURRENT_PROXY['https'] = self.proxy_cbx.currentText()
+        CURRENT_PROXY['http'] = self.proxy_cbx.currentText()
         self.set_proxy()
 
     @pyqtSlot()
