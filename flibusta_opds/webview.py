@@ -5,6 +5,7 @@ from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtCore import QUrl, pyqtSlot
 from PyQt5.QtNetwork import QNetworkProxy
 from PyQt5.QtWebEngineWidgets import QWebEnginePage
+from PyQt5 import QtWebEngineWidgets
 from requests import exceptions
 
 from flibusta_opds.webviewwidget import Ui_Form
@@ -40,12 +41,26 @@ class WebEnginePage(QWebEnginePage):
     и обрабатываем урл.
     """
 
+    def __init__(self, *args, **kwargs):
+        super(WebEnginePage, self).__init__(*args, **kwargs)
+        self.profile().downloadRequested.connect(self.on_downloadRequested)
+
+    @QtCore.pyqtSlot(QtWebEngineWidgets.QWebEngineDownloadItem)
+    def on_downloadRequested(self, download):
+        filename = download.url().fileName()
+        dlg = QtWidgets.QFileDialog(
+            self.view(), 'Save file', os.path.join(os.environ['HOME'], 'Загрузки'), '*')
+        path, _ = dlg.getSaveFileName()
+        if path:
+            download.setPath(path)
+            download.accept()
+
     def acceptNavigationRequest(self, url, _type, isMainFrame):
         """При запросе урла со схемой file возбуждает событие и запрещает загрузку этого урла"""
         if url.scheme() == 'file':
             QtCore.QCoreApplication.sendEvent(self.parent(), MyEvent(os.path.normpath(url.url(QUrl.RemoveScheme))))
             return False
-        return True
+        return super(WebEnginePage, self).acceptNavigationRequest(url, _type, isMainFrame)
 
 
 class MainWidget(QtWidgets.QWidget):
