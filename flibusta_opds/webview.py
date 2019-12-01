@@ -2,7 +2,7 @@ import os
 import sys
 
 from PyQt5 import QtWidgets, QtCore, QtGui
-from PyQt5.QtCore import QUrl, pyqtSlot
+from PyQt5.QtCore import QUrl, pyqtSlot, QThread
 from PyQt5.QtNetwork import QNetworkProxy
 from PyQt5.QtWebEngineWidgets import QWebEnginePage
 from PyQt5 import QtWebEngineWidgets
@@ -34,6 +34,31 @@ class MyEvent(QtCore.QEvent):
         return self.data
 
 
+class Worker(QThread):
+    """Прогресс скачивания файла со страницы сайта"""
+
+    def __init__(self, download: QtWebEngineWidgets.QWebEngineDownloadItem, filename, parent=None):
+        super(Worker, self).__init__(parent)
+        self.download = download
+        self.filename = filename
+
+    def run(self) -> None:
+        self.download_progress(self.download, self.filename)
+
+    def download_progress(self, download, filename):
+        """Прогрессбар при скачивании файла со страницы сайта"""
+        signals.start_download.emit()
+        while not download.isFinished():
+            signals.file_name.emit(filename + '\t' + str(download.receivedBytes()) + ' Bytes')
+            self.sleep(1)
+        state = download.state()
+        if state == 2:
+            MainWidget.msgbox('Download complete', 'Download')
+        elif state == 4:
+            MainWidget.msgbox('Ошибка загрузки файла')
+        signals.done.emit()
+
+
 class WebEnginePage(QWebEnginePage):
     """Класс QWebEnginePage
 
@@ -43,18 +68,22 @@ class WebEnginePage(QWebEnginePage):
 
     def __init__(self, *args, **kwargs):
         super(WebEnginePage, self).__init__(*args, **kwargs)
+        # сигнал генерируется при запросе на скачивание файла
         self.profile().downloadRequested.connect(self.on_downloadRequested)
 
     @QtCore.pyqtSlot(QtWebEngineWidgets.QWebEngineDownloadItem)
-    def on_downloadRequested(self, download):
-        filename = download.url().fileName()
-        dlg = QtWidgets.QFileDialog(self.view(), 'Save file', os.path.join(os.environ['HOME'], 'Загрузки'), '*')
+    def on_downloadRequested(self, download: QtWebEngineWidgets.QWebEngineDownloadItem):
+        self.downloadItem = download
+        filename = self.downloadItem.url().fileName()
+        dlg = QtWidgets.QFileDialog(caption='Save file', filter='*')
         path = dlg.getExistingDirectory()
         path = os.path.join(path, filename)
         if path:
-            download.setPath(path)
-            download.accept()
+            self.downloadItem.setPath(path)
+            self.downloadItem.accept()
             signals.file_name.emit(path)
+            self.thread = Worker(self.downloadItem, path)
+            self.thread.start()
 
     def acceptNavigationRequest(self, url, _type, isMainFrame):
         """При запросе урла со схемой file возбуждает событие и запрещает загрузку этого урла"""
@@ -70,7 +99,6 @@ class MainWidget(QtWidgets.QWidget):
         super().__init__(parent)
         self.history = History()
         self.baseUrl = QUrl.fromLocalFile(BASE_DIR)
-        # self.url = QUrl('http://flibusta.is')
         self.ui = Ui_Form()
         self.ui.setupUi(self)
         ################################################################################################################
@@ -85,8 +113,8 @@ class MainWidget(QtWidgets.QWidget):
     def loadUI(self):
         self.setWindowIcon(QtGui.QIcon('./res/favicon.ico'))
         self.ui.progressBar.reset()
-        # self.page = WebEnginePage()
-        self.ui.webView.setPage(WebEnginePage(self))
+        self.page = WebEnginePage(self)
+        self.ui.webView.setPage(self.page)
         self.ui.backBtn.setDisabled(True)
         self.ui.nextBtn.setDisabled(True)
 
@@ -128,15 +156,29 @@ class MainWidget(QtWidgets.QWidget):
         signals.connect_to_proxy.connect(self.connect_to_proxy_signal)
         # signals.progress получаем при скачивании файла
         signals.progress.connect(self.ui.progressBar.setValue)
+        # сигнал при скачивании файла со страницы сайта
+        signals.start_download.connect(self.mod_progressbar)
         self.ui.webView.titleChanged.connect(self.set_back_forward_btns_status)
         # signals.file_name получаем название скачиваемого файла
         signals.file_name.connect(lambda x: self.ui.label.setText(x))
         # сигнал завершения загрузки
-        signals.done.connect(self.ui.progressBar.reset)
+        signals.done.connect(self.reset_progressbar)
         self.getProxyBtn.clicked.connect(self.get_proxy)
         self.ui.searchBtn.clicked.connect(self.search_on_opds)
-
         self.show()
+
+    @pyqtSlot()
+    def mod_progressbar(self):
+        """Формат прогрессбара при скачивании файла со страницы сайта"""
+        self.ui.progressBar.setFormat('%v Bytes')
+        # минимум и максимум на 0 при невозможности определить размер скачиваемого файла
+        self.ui.progressBar.setRange(0, 0)
+
+    @pyqtSlot()
+    def reset_progressbar(self):
+        self.ui.progressBar.setRange(0, 100)
+        self.ui.progressBar.reset()
+        self.ui.progressBar.resetFormat()
 
     @pyqtSlot()
     def search_on_opds(self):
@@ -260,7 +302,8 @@ class MainWidget(QtWidgets.QWidget):
         html = self.get_html(link.val)
         self.setHtml(html)
 
-    def msgbox(self, msg, title=None):
+    @staticmethod
+    def msgbox(msg, title=None):
         if not title:
             msgBox = QtWidgets.QMessageBox(QtWidgets.QMessageBox.Warning, 'Error', msg)
         else:

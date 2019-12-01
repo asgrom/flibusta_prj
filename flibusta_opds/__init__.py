@@ -26,6 +26,7 @@ class Signals(QObject):
     connect_to_proxy = pyqtSignal()
     file_name = pyqtSignal(str)
     done = pyqtSignal()
+    start_download = pyqtSignal()
 
 
 signals = Signals()
