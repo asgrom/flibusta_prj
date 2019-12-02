@@ -22,9 +22,12 @@ def get_dirname_to_save():
     """Вызывает диалог выбора каталога для сохраниния загрузки
 
     По-умолчанию начальный каталог устанавливается как папка downloads в корневом каталоге пакета"""
+    # dir_name = QFileDialog.getExistingDirectory(
+    #     parent=None, caption='Каталог для загрузки',
+    #     directory=os.path.join(QDir.currentPath(), 'downloads'),
+    #     options=QFileDialog.ShowDirsOnly)
     dir_name = QFileDialog.getExistingDirectory(
-        parent=None, caption='Каталог для загрузки',
-        directory=os.path.join(QDir.currentPath(), 'downloads'),
+        caption='Каталог для загрузки',
         options=QFileDialog.ShowDirsOnly)
     return dir_name
 
@@ -84,20 +87,21 @@ def download_file(res, file_dest, size):
     chunk = True
     i = 0
     fsize = int(res.headers['content-length'])
-    delta = size * 100 / fsize
     signals.file_name.emit(os.path.basename(file_dest))
+    signals.start_download.emit(int(fsize))
     with open(file_dest, 'wb') as f:
         try:
             while chunk:
                 chunk = res.raw.read(size)
                 if chunk:
                     f.write(chunk)
-                    i += delta
+                    # i += delta
+                    i += size
                     signals.progress.emit(i)
-        except Exception as e:
-            raise RequestErr(f'ОШИБКА СКАЧИВАНИЯ ФАЙЛА\n{e}')
+        except Exception:
+            signals.done.emit(4)
         finally:
-            signals.done.emit()
+            signals.done.emit(2)
 
 
 def get_from_opds(url, txt=None):
@@ -143,10 +147,11 @@ def get_from_opds(url, txt=None):
         return res.content
 
     dir_name = get_dirname_to_save()
-    fname = get_file_name(res)
-    file_dest = os.path.join(dir_name, fname)
+    if dir_name:
+        fname = get_file_name(res)
+        file_dest = os.path.join(dir_name, fname)
 
-    thread = Thread(target=download_file,
-                    kwargs=dict(res=res, size=size, file_dest=file_dest))
-    thread.start()
+        thread = Thread(target=download_file,
+                        kwargs=dict(res=res, size=size, file_dest=file_dest))
+        thread.start()
     raise DownloadFile('Скачивание файла')

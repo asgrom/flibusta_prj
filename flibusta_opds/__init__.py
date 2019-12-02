@@ -22,11 +22,16 @@ except (FileNotFoundError, json.JSONDecoder):
 
 
 class Signals(QObject):
+    # прогресс скачивания
     progress = pyqtSignal(int)
+    # соединение с прокси
     connect_to_proxy = pyqtSignal()
+    # название скачиваемого файла
     file_name = pyqtSignal(str)
-    done = pyqtSignal()
-    start_download = pyqtSignal()
+    # скачивание завершено. аргумент - код завершения загрузки. 4 - ошибка загрузки, 2 - загрузка завершена.
+    done = pyqtSignal(int)
+    # старт загрузки. аргумент - максимум прогрессбара(размер файла). 0 если размер файла невозможно получить.
+    start_download = pyqtSignal(int)
 
 
 signals = Signals()

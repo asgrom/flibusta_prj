@@ -47,16 +47,12 @@ class Worker(QThread):
 
     def download_progress(self, download, filename):
         """Прогрессбар при скачивании файла со страницы сайта"""
-        signals.start_download.emit()
+        signals.start_download.emit(0)
         while not download.isFinished():
             signals.file_name.emit(filename + '\t' + str(download.receivedBytes()) + ' Bytes')
             self.sleep(1)
         state = download.state()
-        if state == 2:
-            MainWidget.msgbox('Download complete', 'Download')
-        elif state == 4:
-            MainWidget.msgbox('Ошибка загрузки файла')
-        signals.done.emit()
+        signals.done.emit(state)
 
 
 class WebEnginePage(QWebEnginePage):
@@ -77,6 +73,8 @@ class WebEnginePage(QWebEnginePage):
         filename = self.downloadItem.url().fileName()
         dlg = QtWidgets.QFileDialog(caption='Save file', filter='*')
         path = dlg.getExistingDirectory()
+        if not path:
+            return
         path = os.path.join(path, filename)
         if path:
             self.downloadItem.setPath(path)
@@ -162,23 +160,30 @@ class MainWidget(QtWidgets.QWidget):
         # signals.file_name получаем название скачиваемого файла
         signals.file_name.connect(lambda x: self.ui.label.setText(x))
         # сигнал завершения загрузки
-        signals.done.connect(self.reset_progressbar)
+        signals.done.connect(self.download_complete)
         self.getProxyBtn.clicked.connect(self.get_proxy)
         self.ui.searchBtn.clicked.connect(self.search_on_opds)
         self.show()
 
-    @pyqtSlot()
-    def mod_progressbar(self):
+    @pyqtSlot(int)
+    def mod_progressbar(self, maximum):
         """Формат прогрессбара при скачивании файла со страницы сайта"""
-        self.ui.progressBar.setFormat('%v Bytes')
-        # минимум и максимум на 0 при невозможности определить размер скачиваемого файла
-        self.ui.progressBar.setRange(0, 0)
+        if maximum == 0:
+            self.ui.progressBar.setFormat('%v Bytes')
+            # минимум и максимум на 0 при невозможности определить размер скачиваемого файла
+            self.ui.progressBar.setRange(0, 0)
+        else:
+            self.ui.progressBar.setRange(0, maximum)
 
-    @pyqtSlot()
-    def reset_progressbar(self):
+    @pyqtSlot(int)
+    def download_complete(self, state=2):
         self.ui.progressBar.setRange(0, 100)
         self.ui.progressBar.reset()
         self.ui.progressBar.resetFormat()
+        if state == 4:
+            self.msgbox('Ошибка загрузки файла')
+        elif state == 2:
+            self.msgbox('Download complete', 'Загрузка')
 
     @pyqtSlot()
     def search_on_opds(self):
