@@ -49,7 +49,7 @@ class Worker(QThread):
         """Прогрессбар при скачивании файла со страницы сайта"""
         signals.start_download.emit(0)
         while not download.isFinished():
-            signals.file_name.emit(filename + '\t' + str(download.receivedBytes()) + ' Bytes')
+            signals.file_name.emit(filename + '\t' + str(download.receivedBytes()/1000) + ' Kb')
             self.sleep(1)
         state = download.state()
         signals.done.emit(state)
