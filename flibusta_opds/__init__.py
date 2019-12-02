@@ -1,8 +1,9 @@
 __version__ = '0.2'
 
-from os import path
-import os
 import json
+import os
+from os import path
+
 from PyQt5.QtCore import pyqtSignal, QObject
 
 BASE_DIR = path.dirname(__file__) + '/'

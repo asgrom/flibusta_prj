@@ -2,7 +2,6 @@ import os
 import re
 from threading import Thread
 
-from PyQt5.QtCore import QDir
 from PyQt5.QtWidgets import QFileDialog
 from requests import request, exceptions
 from user_agent import generate_user_agent
@@ -32,7 +31,7 @@ def get_dirname_to_save():
     return dir_name
 
 
-_PROXIES = []
+proxies = []
 
 user_agent = generate_user_agent(os='linux', navigator='chrome')
 
@@ -52,9 +51,9 @@ search_params = {
 
 
 def generate_proxies():
-    proxies = [{'http': proxy} for proxy in PROXY_LIST]
-    _PROXIES.clear()
-    _PROXIES.extend(proxies)
+    _proxies = [{'http': proxy} for proxy in PROXY_LIST]
+    proxies.clear()
+    proxies.extend(_proxies)
 
 
 def is_file(headers):
@@ -112,7 +111,7 @@ def get_from_opds(url, txt=None):
     res = None
     size = 1024 * 128
 
-    if not _PROXIES:
+    if not proxies:
         generate_proxies()
 
     if not txt:
@@ -128,7 +127,7 @@ def get_from_opds(url, txt=None):
             print(f'{CURRENT_PROXY}\n{e}')
             CURRENT_PROXY.clear()
     else:
-        for proxy in _PROXIES:
+        for proxy in proxies:
             try:
                 res = request('get', URL + url, proxies=proxy, headers={'user-agent': user_agent}, params=params,
                               stream=True, timeout=(10, 30), verify=False)

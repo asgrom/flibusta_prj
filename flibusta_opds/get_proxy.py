@@ -2,21 +2,18 @@
 # Поэтому с помощью requests'a страницу заполучть невозможно.
 # Пришлось использовать selenium
 
-import time
 import json
+import time
 
 from lxml import html as parser
-from requests import request, exceptions
 from selenium import webdriver
-from user_agent import generate_user_agent
 
-from flibusta_opds.opds_requests import RequestErr
-from flibusta_opds import proxy_json_file
-
-USER_AGENT = generate_user_agent(os='linux', navigator=['chrome', 'firefox'])
+from . import proxy_json_file
+from .opds_requests import RequestErr
 
 # УРЛ запроса списка прокси с временем отклика не более 300 мс и страны исключая Россию и Украину
 URL = 'https://hidemy.name/ru/proxy-list/?country=CZFRDEHKHURSSLSETHGB&maxtime=300&type=hs#list'
+
 
 def get_html_with_selenium(url):
     """Получить страницу с прокси-серверами с помощью selenium
@@ -42,27 +39,9 @@ def get_html_with_selenium(url):
     return html
 
 
-def get_html_with_request(url):
-    """Получает страницу со списком прокси"""
-    try:
-        r = request('get', url, headers={'User-Agent': USER_AGENT}, timeout=(10, 30))
-    except exceptions.RequestException:
-        raise RequestErr('Ошибка получения страницы со списком прокси')
-    r.raise_for_status()
-
-    with open('proxy_list.html', 'wb') as f:
-        f.write(r.content)
-
-    return r.content
-
-
 def html_parser(html):
     """Парсинг страницы со списком прокси"""
     proxy_list = []
-
-    # with open('res/page.html', 'w') as f:
-        # f.write(html)
-
     root = parser.document_fromstring(html)
     # строки содержащие прокси
     tr = root.xpath('//div[@class="table_block"]/table/tbody/tr')
@@ -80,7 +59,7 @@ def html_parser(html):
 def get_proxy_list():
     try:
         html = get_html_with_selenium(URL)
-    except Exception as e:
+    except Exception:
         raise RequestErr('Ошибка получения списка прокси-серверов')
     return html_parser(html)
 

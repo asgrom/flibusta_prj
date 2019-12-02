@@ -1,14 +1,13 @@
 import os
 import sys
 
+from PyQt5 import QtWebEngineWidgets
 from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtCore import QUrl, pyqtSlot, QThread
 from PyQt5.QtNetwork import QNetworkProxy
 from PyQt5.QtWebEngineWidgets import QWebEnginePage
-from PyQt5 import QtWebEngineWidgets
 from requests import exceptions
 
-from flibusta_opds.webviewwidget import Ui_Form
 from . import BASE_DIR, CURRENT_PROXY
 from . import PROXY_LIST, signals
 from . import xml_parser
@@ -16,6 +15,7 @@ from .get_proxy import get_proxy_list
 from .history import History
 from .make_html import make_html_page
 from .opds_requests import get_from_opds, RequestErr, DownloadFile, generate_proxies
+from .webviewwidget import Ui_Form
 
 
 class MyEvent(QtCore.QEvent):
@@ -49,7 +49,7 @@ class Worker(QThread):
         """Прогрессбар при скачивании файла со страницы сайта"""
         signals.start_download.emit(0)
         while not download.isFinished():
-            signals.file_name.emit(filename + '\t' + str(download.receivedBytes()/1000) + ' Kb')
+            signals.file_name.emit(filename + '\t' + str(download.receivedBytes() / 1000) + ' Kb')
             self.sleep(1)
         state = download.state()
         signals.done.emit(state)
@@ -76,12 +76,11 @@ class WebEnginePage(QWebEnginePage):
         if not path:
             return
         path = os.path.join(path, filename)
-        if path:
-            self.downloadItem.setPath(path)
-            self.downloadItem.accept()
-            signals.file_name.emit(path)
-            self.thread = Worker(self.downloadItem, path)
-            self.thread.start()
+        self.downloadItem.setPath(path)
+        self.downloadItem.accept()
+        signals.file_name.emit(path)
+        self.thread = Worker(self.downloadItem, path)
+        self.thread.start()
 
     def acceptNavigationRequest(self, url, _type, isMainFrame):
         """При запросе урла со схемой file возбуждает событие и запрещает загрузку этого урла"""
@@ -110,7 +109,6 @@ class MainWidget(QtWidgets.QWidget):
     # noinspection PyUnresolvedReferences
     def loadUI(self):
         self.setWindowIcon(QtGui.QIcon('./res/favicon.ico'))
-        self.ui.progressBar.reset()
         self.page = WebEnginePage(self)
         self.ui.webView.setPage(self.page)
         self.ui.backBtn.setDisabled(True)
@@ -205,10 +203,10 @@ class MainWidget(QtWidgets.QWidget):
         try:
             proxies = get_proxy_list()
         except Exception as e:
-            QtWidgets.QApplication.restoreOverrideCursor()
             self.msgbox(str(e))
             return
-        QtWidgets.QApplication.restoreOverrideCursor()
+        finally:
+            QtWidgets.QApplication.restoreOverrideCursor()
         if proxies:
             PROXY_LIST.clear()
             PROXY_LIST.extend(proxies)
