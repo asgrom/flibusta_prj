@@ -100,8 +100,7 @@ def download_file(res, file_dest, size):
                     signals.progress.emit(i)
         except Exception:
             signals.done.emit(4)
-        finally:
-            signals.done.emit(2)
+    signals.done.emit(2)
 
 
 def get_from_opds(url, txt=None):
