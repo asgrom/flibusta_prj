@@ -241,7 +241,7 @@ class MainWidget(QtWidgets.QWidget):
     @pyqtSlot()
     def set_back_forward_btns_status(self):
         """Установка активности кнопок вперед/назад в зависимости от истории посещений"""
-        self.ui.backBtn.setEnabled(self.history.last.prev is not None)
+        self.ui.backBtn.setEnabled((self.history.last.prev is not None) or (self.page.history().canGoBack()))
         self.ui.nextBtn.setEnabled(self.history.last.next is not None)
 
     def customEvent(self, e):
@@ -290,6 +290,13 @@ class MainWidget(QtWidgets.QWidget):
     @pyqtSlot()
     def back_btn_clicked(self):
         """Навигация по истории назад"""
+
+        # если история в QWebEnginePage на текущей странице не пуста, то используем эту историю для навигации.
+        # иначе загружаем данные с opds
+        if self.page.history().canGoBack():
+            self.page.history().back()
+            return
+
         link = self.history.previous()
         try:
             html = self.get_html(link.val)
