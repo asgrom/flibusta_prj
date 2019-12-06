@@ -123,7 +123,7 @@ def get_from_opds(url, txt=None):
         try:
             res = request('get', URL + url, proxies=CURRENT_PROXY, headers={'user-agent': user_agent}, params=params,
                           stream=True, timeout=(10, 30), verify=False)
-        except (exceptions.ConnectionError, exceptions.ConnectTimeout) as e:
+        except (exceptions.ConnectionError, exceptions.ConnectTimeout, Exception) as e:
             print(f'{CURRENT_PROXY}\n{e}')
             CURRENT_PROXY.clear()
     else:
@@ -134,7 +134,7 @@ def get_from_opds(url, txt=None):
                 CURRENT_PROXY.update(proxy)
                 signals.connect_to_proxy.emit()
                 break
-            except (exceptions.ConnectTimeout, exceptions.ConnectionError) as e:
+            except (exceptions.ConnectTimeout, exceptions.ConnectionError, Exception) as e:
                 print(f'{proxy}\n{e}')
     if not res:
         raise RequestErr('ОШИБКА СОЕДИНЕНИЯ')
