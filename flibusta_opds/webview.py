@@ -14,7 +14,8 @@ from . import xml_parser
 from .get_proxy import get_proxy_list
 from .history import History
 from .make_html import make_html_page
-from .opds_requests import get_from_opds, RequestErr, DownloadFile, generate_proxies
+from . import opds_requests
+from .opds_requests import get_from_opds, RequestErr, DownloadFile
 from .webviewwidget import Ui_Form
 
 
@@ -159,6 +160,8 @@ class MainWidget(QtWidgets.QWidget):
         signals.file_name.connect(lambda x: self.ui.label.setText(x))
         # сигнал завершения загрузки
         signals.done.connect(self.download_complete)
+        signals.change_proxy[list].connect(self.change_app_proxies)
+        signals.change_proxy.connect(self.change_app_proxies)
         self.getProxyBtn.clicked.connect(self.get_proxy)
         self.ui.searchBtn.clicked.connect(self.search_on_opds)
         self.show()
@@ -187,7 +190,7 @@ class MainWidget(QtWidgets.QWidget):
     def search_on_opds(self):
         QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
         try:
-            html = self.get_html('/opds/search', txt=self.ui.search_le.text().strip())
+            html = self.get_html('/opds/search', searchText=self.ui.search_le.text().strip())
         except Exception as e:
             self.msgbox(str(e))
             return
@@ -197,22 +200,34 @@ class MainWidget(QtWidgets.QWidget):
         self.history.add('/opds/search')
 
     @pyqtSlot()
+    @pyqtSlot(list)
+    def change_app_proxies(self, proxy_list=None):
+        """Установка списка прокси в выпадающий список"""
+        if not proxy_list:
+            try:
+                PROXY_LIST.remove(CURRENT_PROXY['http'])
+            except ValueError:
+                pass
+        else:
+            PROXY_LIST.clear()
+            PROXY_LIST.extend(proxy_list)
+        CURRENT_PROXY.clear()
+        self.proxy_label.setText('Прокси: ')
+        self.proxy_cbx.setModel(QtCore.QStringListModel(PROXY_LIST))
+        opds_requests.proxies.clear()
+
+    @pyqtSlot()
     def get_proxy(self):
         """Палучаем новый список прокси и устанавливаем его"""
         QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
         try:
-            proxies = get_proxy_list()
+            self.change_app_proxies(get_proxy_list())
         except Exception as e:
             self.msgbox(str(e))
-            return
+        else:
+            self.msgbox('Список прокси обновлен', title='Выполнено')
         finally:
             QtWidgets.QApplication.restoreOverrideCursor()
-        if proxies:
-            PROXY_LIST.clear()
-            PROXY_LIST.extend(proxies)
-            self.proxy_cbx.setModel(QtCore.QStringListModel(PROXY_LIST))
-            generate_proxies()
-            self.msgbox('Список прокси обновлен', title='Выполнено')
 
     def setHtml(self, html):
         self.ui.webView.page().setHtml(html, self.baseUrl)
@@ -236,6 +251,8 @@ class MainWidget(QtWidgets.QWidget):
     def setPoxyBtn_clicked(self):
         """Обработка нажатия кнопки установки прокси"""
         CURRENT_PROXY['http'] = self.proxy_cbx.currentText()
+        PROXY_LIST.append(self.proxy_cbx.currentText())
+        opds_requests.proxies.clear()
         self.set_proxy()
 
     @pyqtSlot()
@@ -249,10 +266,10 @@ class MainWidget(QtWidgets.QWidget):
         if e.type() == MyEvent.idType:
             self.link_clicked(e.data)
 
-    def get_html(self, url, txt=None):
+    def get_html(self, url, searchText=None):
         QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
         try:
-            content = get_from_opds(url, txt)
+            content = get_from_opds(url, searchText)
         finally:
             QtWidgets.QApplication.restoreOverrideCursor()
         data = xml_parser.parser(fromstr=content)
@@ -264,7 +281,7 @@ class MainWidget(QtWidgets.QWidget):
         try:
             html = self.get_html('/opds')
         except (RequestErr, xml_parser.XMLError, exceptions.HTTPError) as e:
-            print(e)
+            # print(e)
             self.msgbox(str(e))
             return
         self.setHtml(html)
@@ -281,7 +298,7 @@ class MainWidget(QtWidgets.QWidget):
         except DownloadFile:
             return
         except (RequestErr, xml_parser.XMLError, exceptions.HTTPError) as e:
-            print(e)
+            # print(e)
             self.msgbox(str(e))
             return
         self.setHtml(html)
@@ -301,7 +318,7 @@ class MainWidget(QtWidgets.QWidget):
         try:
             html = self.get_html(link.val)
         except (RequestErr, xml_parser.XMLError) as e:
-            print(e)
+            # print(e)
             self.msgbox(str(e))
             return
         self.setHtml(html)

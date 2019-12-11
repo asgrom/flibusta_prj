@@ -11,15 +11,18 @@ BASE_DIR = path.dirname(__file__) + '/'
 # текущий прокси. будет использоваться глобально для всего приложения
 CURRENT_PROXY = dict()
 
+# список прокси серверов
+PROXY_LIST = list()
+
 if not path.exists(path.join(BASE_DIR, 'res')):
     os.mkdir(path.join(BASE_DIR, 'res'))
 proxy_json_file = path.join(BASE_DIR, 'res/proxy.json')
 
 try:
     with open(proxy_json_file) as f:
-        PROXY_LIST = json.load(f)
+        PROXY_LIST.extend(json.load(f))
 except (FileNotFoundError, json.JSONDecoder):
-    PROXY_LIST = list()
+    pass
 
 
 class Signals(QObject):
@@ -33,6 +36,7 @@ class Signals(QObject):
     done = pyqtSignal(int)
     # старт загрузки. аргумент - максимум прогрессбара(размер файла). 0 если размер файла невозможно получить.
     start_download = pyqtSignal(int)
+    change_proxy = pyqtSignal([], [list])
 
 
 signals = Signals()

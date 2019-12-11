@@ -2,6 +2,8 @@ from datetime import datetime as dt
 
 from lxml import etree as et
 
+from . import signals
+
 
 class XMLError(Exception):
     pass
@@ -31,31 +33,29 @@ def parser(fromfile=None, fromstr=None):
             data_entry.update(parse_entry(entry))
             data['entries'].append(data_entry)
         return data
-    except et.XMLSyntaxError as e:
-        raise XMLError(f'ОШИБКА ПАРСИНГА СТРАНИЦЫ\n{e}')
+    except et.XMLSyntaxError:
+        signals.change_proxy.emit()
+        raise XMLError(f'ОШИБКА ПАРСИНГА СТРАНИЦЫ\nПрокси сервер будет удален из списка.')
 
 
 def parse_entry(chunk):
     """Парсит кусок переданных данных xml"""
-    try:
-        tags = chunk.xpath('./*[not(local-name()="link")]')
-        dct = dict(category=list(), author=list())
-        for tag in tags:
-            tag_name = tag.xpath('local-name()')
-            if tag_name == 'updated':
-                dct[tag_name] = dt.astimezone(
-                    dt.fromisoformat(tag.xpath('text()')[0])).strftime(
-                    '%d-%m-%Y %H:%M:%S'
-                )
-            elif tag_name == 'category':
-                dct[tag_name].append(tag.xpath('./@label')[0])
-            elif tag_name == 'author':
-                dct[tag_name].append(tag.xpath('./ns:name', namespaces=nsx)[0].text)
-            else:
-                dct[tag_name] = tag.text
-        return dct
-    except et.XMLSyntaxError as e:
-        raise XMLError(f'ОШИБКА ПАРСИНГА ЭЛЕМЕНТА СТРАНИЦЫ\n{e}')
+    tags = chunk.xpath('./*[not(local-name()="link")]')
+    dct = dict(category=list(), author=list())
+    for tag in tags:
+        tag_name = tag.xpath('local-name()')
+        if tag_name == 'updated':
+            dct[tag_name] = dt.astimezone(
+                dt.fromisoformat(tag.xpath('text()')[0])).strftime(
+                '%d-%m-%Y %H:%M:%S'
+            )
+        elif tag_name == 'category':
+            dct[tag_name].append(tag.xpath('./@label')[0])
+        elif tag_name == 'author':
+            dct[tag_name].append(tag.xpath('./ns:name', namespaces=nsx)[0].text)
+        else:
+            dct[tag_name] = tag.text
+    return dct
 
 
 if __name__ == '__main__':

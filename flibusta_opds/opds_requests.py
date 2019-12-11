@@ -51,9 +51,8 @@ search_params = {
 
 
 def generate_proxies():
-    _proxies = [{'http': proxy} for proxy in PROXY_LIST]
     proxies.clear()
-    proxies.extend(_proxies)
+    proxies.extend([{'http': proxy, 'https': proxy} for proxy in PROXY_LIST])
 
 
 def is_file(headers):
@@ -102,7 +101,7 @@ def download_file(res, file_dest, size):
     signals.done.emit(2)
 
 
-def get_from_opds(url, txt=None):
+def get_from_opds(url, searchText=None):
     """Сделать запрос по ссылке
 
     Производится проверка - является ли ссылка файлом или страницей. Если по ссылке находится файл, то происходит
@@ -114,28 +113,36 @@ def get_from_opds(url, txt=None):
     if not proxies:
         generate_proxies()
 
-    if not txt:
+    if not searchText:
         params = None
     else:
-        params = dict(searchTerm=txt)
+        params = dict(searchTerm=searchText)
 
     if CURRENT_PROXY:
         try:
-            res = request('get', URL + url, proxies=CURRENT_PROXY, headers={'user-agent': user_agent}, params=params,
-                          stream=True, timeout=(10, 30), verify=False)
+            res = request('get', URL + url,
+                          proxies={'http': CURRENT_PROXY['http'], 'https': CURRENT_PROXY['http']},
+                          headers={'user-agent': user_agent},
+                          params=params,
+                          stream=True, timeout=(10, 30),
+                          verify=False)
+            res.raise_for_status()
         except (exceptions.ConnectionError, exceptions.ConnectTimeout, Exception) as e:
-            print(f'{CURRENT_PROXY}\n{e}')
-            CURRENT_PROXY.clear()
+            # print(f'{CURRENT_PROXY}\n{e}')
+            signals.change_proxy.emit()
     else:
         for proxy in proxies:
             try:
                 res = request('get', URL + url, proxies=proxy, headers={'user-agent': user_agent}, params=params,
                               stream=True, timeout=(10, 30), verify=False)
+                signals.change_proxy[list].emit(PROXY_LIST.copy())
                 CURRENT_PROXY.update(proxy)
                 signals.connect_to_proxy.emit()
                 break
             except (exceptions.ConnectTimeout, exceptions.ConnectionError, Exception) as e:
-                print(f'{proxy}\n{e}')
+                PROXY_LIST.remove(proxy['http'])
+                # print(f'{proxy}\n{e}')
+
     if not res:
         raise RequestErr('ОШИБКА СОЕДИНЕНИЯ')
 
