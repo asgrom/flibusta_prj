@@ -121,6 +121,7 @@ class MainWidget(QtWidgets.QWidget):
         self.proxy_cbx = QtWidgets.QComboBox(self)
         self.proxy_cbx.setInsertPolicy(self.proxy_cbx.InsertAtTop)
         self.proxy_cbx.setEditable(True)
+        self.proxy_cbx.setSizeAdjustPolicy(QtWidgets.QComboBox.AdjustToContents)
         self.proxy_cbx.setModel(QtCore.QStringListModel(PROXY_LIST))
 
         validator = QtGui.QRegExpValidator(QtCore.QRegExp(
@@ -345,7 +346,14 @@ def main():
     print(QtCore.QT_VERSION_STR)
     app = QtWidgets.QApplication(sys.argv)
     win = MainWidget()
-    sys.exit(app.exec_())
+    status = app.exec_()
+
+    import json
+    from . import proxy_json_file
+    with open(proxy_json_file, 'w') as f:
+        json.dump(PROXY_LIST, f, ensure_ascii=False, indent=2)
+
+    sys.exit(status)
 
 
 if __name__ == '__main__':

@@ -21,7 +21,7 @@ proxy_json_file = path.join(BASE_DIR, 'res/proxy.json')
 try:
     with open(proxy_json_file) as f:
         PROXY_LIST.extend(json.load(f))
-except (FileNotFoundError, json.JSONDecoder):
+except Exception:
     pass
 
 
