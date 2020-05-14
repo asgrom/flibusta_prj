@@ -5,6 +5,7 @@ import os
 from os import path
 
 from PyQt5.QtCore import pyqtSignal, QObject
+from PyQt5 import QtCore
 
 BASE_DIR = path.dirname(__file__) + '/'
 
@@ -16,6 +17,7 @@ PROXY_LIST = list()
 
 if not path.exists(path.join(BASE_DIR, 'res')):
     os.mkdir(path.join(BASE_DIR, 'res'))
+
 proxy_json_file = path.join(BASE_DIR, 'res/proxy.json')
 
 try:
@@ -36,7 +38,8 @@ class Signals(QObject):
     done = pyqtSignal(int)
     # старт загрузки. аргумент - максимум прогрессбара(размер файла). 0 если размер файла невозможно получить.
     start_download = pyqtSignal(int)
-    change_proxy = pyqtSignal([], [list])
+    change_proxy = pyqtSignal(QtCore.QVariant)
+    # change_proxy = pyqtSignal([], [list])
 
 
 signals = Signals()

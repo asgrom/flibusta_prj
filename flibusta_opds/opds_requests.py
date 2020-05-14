@@ -126,22 +126,19 @@ def get_from_opds(url, searchText=None):
                           params=params,
                           stream=True, timeout=(10, 30),
                           verify=False)
-            res.raise_for_status()
         except (exceptions.ConnectionError, exceptions.ConnectTimeout, Exception) as e:
-            # print(f'{CURRENT_PROXY}\n{e}')
-            signals.change_proxy.emit()
+            signals.change_proxy.emit(None)
     else:
         for proxy in proxies:
             try:
                 res = request('get', URL + url, proxies=proxy, headers={'user-agent': user_agent}, params=params,
                               stream=True, timeout=(10, 30), verify=False)
-                signals.change_proxy[list].emit(PROXY_LIST.copy())
+                signals.change_proxy.emit(PROXY_LIST.copy())
                 CURRENT_PROXY.update(proxy)
                 signals.connect_to_proxy.emit()
                 break
             except (exceptions.ConnectTimeout, exceptions.ConnectionError, Exception) as e:
                 PROXY_LIST.remove(proxy['http'])
-                # print(f'{proxy}\n{e}')
 
     if not res:
         raise RequestErr('ОШИБКА СОЕДИНЕНИЯ')

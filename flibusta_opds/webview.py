@@ -50,7 +50,7 @@ class Worker(QThread):
         """Прогрессбар при скачивании файла со страницы сайта"""
         signals.start_download.emit(0)
         while not download.isFinished():
-            signals.file_name.emit(filename + '\t' + str(download.receivedBytes() / 1000) + ' Kb')
+            signals.file_name.emit(filename + '\t' + str(int(download.receivedBytes() / 1024) + ' Kb'))
             self.sleep(1)
         state = download.state()
         signals.done.emit(state)
@@ -99,6 +99,7 @@ class MainWidget(QtWidgets.QWidget):
         self.baseUrl = QUrl.fromLocalFile(BASE_DIR)
         self.ui = Ui_Form()
         self.ui.setupUi(self)
+        self.tor = '127.0.0.1:8118'
         ################################################################################################################
         # Задаем прокси-сервер для приложения                                                                          #
         ################################################################################################################
@@ -132,8 +133,10 @@ class MainWidget(QtWidgets.QWidget):
         self.proxy_label = QtWidgets.QLabel(f'Прокси {self.proxy.hostName()} : {self.proxy.port()}')
         self.setProxyBtn = QtWidgets.QPushButton('Установить прокси')
         self.getProxyBtn = QtWidgets.QPushButton('Получить список прокси')
+        self.torBtn = QtWidgets.QPushButton('Tor')
 
         hbox = QtWidgets.QHBoxLayout()
+        hbox.addWidget(self.torBtn)
         hbox.addWidget(self.getProxyBtn)
         hbox.addStretch()
         hbox.addWidget(self.proxy_label)
@@ -161,11 +164,19 @@ class MainWidget(QtWidgets.QWidget):
         signals.file_name.connect(lambda x: self.ui.label.setText(x))
         # сигнал завершения загрузки
         signals.done.connect(self.download_complete)
-        signals.change_proxy[list].connect(self.change_app_proxies)
+        # signals.change_proxy[list].connect(self.change_app_proxies)
         signals.change_proxy.connect(self.change_app_proxies)
         self.getProxyBtn.clicked.connect(self.get_proxy)
         self.ui.searchBtn.clicked.connect(self.search_on_opds)
+        self.torBtn.clicked.connect(self.torBtn_clicked)
         self.show()
+
+    @pyqtSlot()
+    def torBtn_clicked(self):
+        CURRENT_PROXY.clear()
+        # CURRENT_PROXY.update(http='http://' + self.tor, https='https://' + self.tor)
+        CURRENT_PROXY.update(http=self.tor, https=self.tor)
+        signals.connect_to_proxy.emit()
 
     @pyqtSlot(int)
     def mod_progressbar(self, maximum):
@@ -201,13 +212,13 @@ class MainWidget(QtWidgets.QWidget):
         self.history.add('/opds/search')
 
     @pyqtSlot()
-    @pyqtSlot(list)
+    # @pyqtSlot(list)
     def change_app_proxies(self, proxy_list=None):
         """Установка списка прокси в выпадающий список"""
         if not proxy_list:
             try:
                 PROXY_LIST.remove(CURRENT_PROXY['http'])
-            except ValueError:
+            except Exception:
                 pass
         else:
             PROXY_LIST.clear()
@@ -345,6 +356,8 @@ def main():
     sys.argv.append('--disable-web-security')
     print(QtCore.QT_VERSION_STR)
     app = QtWidgets.QApplication(sys.argv)
+    with open('css/stylesheet.qss') as f:
+        app.setStyleSheet(f.read())
     win = MainWidget()
     status = app.exec_()
 
