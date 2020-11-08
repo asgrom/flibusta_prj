@@ -50,7 +50,7 @@ class Worker(QThread):
         """Прогрессбар при скачивании файла со страницы сайта"""
         signals.start_download.emit(0)
         while not download.isFinished():
-            signals.file_name.emit(filename + '\t' + str(int(download.receivedBytes() / 1024) + ' Kb'))
+            signals.file_name.emit(filename + '\t' + str(int(download.receivedBytes() / 1024)) + ' Kb')
             self.sleep(1)
         state = download.state()
         signals.done.emit(state)
@@ -83,7 +83,7 @@ class WebEnginePage(QWebEnginePage):
         self.thread = Worker(self.downloadItem, path)
         self.thread.start()
 
-    def acceptNavigationRequest(self, url, _type, isMainFrame):
+    def acceptNavigationRequest(self, url: QUrl, _type, isMainFrame):
         """При запросе урла со схемой file возбуждает событие и запрещает загрузку этого урла"""
         if url.scheme() == 'file':
             QtCore.QCoreApplication.sendEvent(self.parent(), MyEvent(os.path.normpath(url.url(QUrl.RemoveScheme))))
@@ -242,6 +242,8 @@ class MainWidget(QtWidgets.QWidget):
             QtWidgets.QApplication.restoreOverrideCursor()
 
     def setHtml(self, html):
+        print(self.baseUrl)
+        print(html)
         self.ui.webView.page().setHtml(html, self.baseUrl)
         self.ui.webView.page().runJavaScript('scrollTo(0,0);')
 
@@ -356,8 +358,10 @@ def main():
     sys.argv.append('--disable-web-security')
     print(QtCore.QT_VERSION_STR)
     app = QtWidgets.QApplication(sys.argv)
-    with open('css/stylesheet.qss') as f:
-        app.setStyleSheet(f.read())
+    # with open('css/stylesheet.qss') as f:
+        # app.setStyleSheet(f.read())
+    from qtl18n_ru import localization
+    localization.setupRussianLang(app)
     win = MainWidget()
     status = app.exec_()
 

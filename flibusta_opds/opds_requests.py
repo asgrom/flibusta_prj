@@ -5,8 +5,12 @@ from threading import Thread
 from PyQt5.QtWidgets import QFileDialog
 from requests import request, exceptions
 from user_agent import generate_user_agent
+import logging
 
 from . import PROXY_LIST, signals, CURRENT_PROXY
+
+
+logging.captureWarnings(True)
 
 
 class RequestErr(Exception):
@@ -35,7 +39,7 @@ proxies = []
 
 user_agent = generate_user_agent(os='linux', navigator='chrome')
 
-URL = 'http://flibusta.is'
+URL = 'https://flibusta.appspot.com/'
 
 # список типов поиска
 SEARCH_TYPE = ['authors', 'books']
@@ -71,7 +75,8 @@ def get_file_name(response):
     """
 
     try:
-        filename = re.search(r'filename=\"?([^\"?]+)', response.headers['content-disposition'])
+        filename = re.search(
+            r'filename=\"?([^\"?]+)', response.headers['content-disposition'])
         return filename.group(1)
     except KeyError:
         return os.path.basename(response.url)
@@ -121,7 +126,8 @@ def get_from_opds(url, searchText=None):
     if CURRENT_PROXY:
         try:
             res = request('get', URL + url,
-                          proxies={'http': CURRENT_PROXY['http'], 'https': CURRENT_PROXY['http']},
+                          proxies={
+                              'http': CURRENT_PROXY['http'], 'https': CURRENT_PROXY['http']},
                           headers={'user-agent': user_agent},
                           params=params,
                           stream=True, timeout=(10, 30),
