@@ -1,6 +1,7 @@
 from datetime import datetime as dt
 
 from lxml import etree as et
+# import json
 
 from . import signals
 
@@ -32,6 +33,8 @@ def parser(fromfile=None, fromstr=None):
             # разбираем сам блок entry
             data_entry.update(parse_entry(entry))
             data['entries'].append(data_entry)
+        # with open('res/data.json', 'w') as f:
+        #     json.dump(data, f, ensure_ascii=False, indent=4)
         return data
     except et.XMLSyntaxError:
         signals.change_proxy.emit(None)

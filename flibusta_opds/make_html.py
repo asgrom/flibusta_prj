@@ -1,10 +1,13 @@
 import re
 from datetime import datetime
 
+from applogger import applogger
 from jinja2 import Environment, FileSystemLoader
 
 from . import BASE_DIR
-# css = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'css/style.css')
+
+logger = applogger.get_logger(__name__, __file__)
+
 css = 'css/style.css'
 
 

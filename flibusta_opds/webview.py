@@ -3,20 +3,23 @@ import sys
 
 from PyQt5 import QtWebEngineWidgets
 from PyQt5 import QtWidgets, QtCore, QtGui
-from PyQt5.QtCore import QUrl, pyqtSlot, QThread
+from PyQt5.QtCore import *
 from PyQt5.QtNetwork import QNetworkProxy
 from PyQt5.QtWebEngineWidgets import QWebEnginePage
+from PyQt5.QtWidgets import *
+from applogger import applogger
 from requests import exceptions
 
-from . import BASE_DIR, CURRENT_PROXY
-from . import PROXY_LIST, signals
+from . import BASE_DIR, CURRENT_PROXY, PROXY_LIST, signals
+from . import opds_requests
 from . import xml_parser
 from .get_proxy import get_proxy_list
 from .history import History
 from .make_html import make_html_page
-from . import opds_requests
 from .opds_requests import get_from_opds, RequestErr, DownloadFile
 from .webviewwidget import Ui_Form
+
+logger = applogger.get_logger(__name__, __file__)
 
 
 class MyEvent(QtCore.QEvent):
@@ -50,8 +53,8 @@ class Worker(QThread):
         """Прогрессбар при скачивании файла со страницы сайта"""
         signals.start_download.emit(0)
         while not download.isFinished():
-            signals.file_name.emit(filename + '\t' + str(int(download.receivedBytes() / 1024)) + ' Kb')
-            self.sleep(1)
+            signals.file_name.emit('{0}\t{1} Kb'.format(os.path.basename(filename),
+                                                        str(int(download.receivedBytes() / 1024))))
         state = download.state()
         signals.done.emit(state)
 
@@ -70,23 +73,19 @@ class WebEnginePage(QWebEnginePage):
 
     @QtCore.pyqtSlot(QtWebEngineWidgets.QWebEngineDownloadItem)
     def on_downloadRequested(self, download: QtWebEngineWidgets.QWebEngineDownloadItem):
-        self.downloadItem = download
-        filename = self.downloadItem.url().fileName()
-        dlg = QtWidgets.QFileDialog(caption='Save file', filter='*')
-        path = dlg.getExistingDirectory()
-        if not path:
+        file, _ = QFileDialog.getSaveFileName(None, '', download.path(), 'All (*)')
+        if not file:
             return
-        path = os.path.join(path, filename)
-        self.downloadItem.setPath(path)
-        self.downloadItem.accept()
-        signals.file_name.emit(path)
-        self.thread = Worker(self.downloadItem, path)
+        download.setPath(file)
+        download.accept()
+        signals.file_name.emit(os.path.basename(file))
+        self.thread = Worker(download, file)
         self.thread.start()
 
     def acceptNavigationRequest(self, url: QUrl, _type, isMainFrame):
         """При запросе урла со схемой file возбуждает событие и запрещает загрузку этого урла"""
         if url.scheme() == 'file':
-            QtCore.QCoreApplication.sendEvent(self.parent(), MyEvent(os.path.normpath(url.url(QUrl.RemoveScheme))))
+            QtCore.QCoreApplication.sendEvent(self.parent(), MyEvent(os.path.normpath(url.path())))
             return False
         return super(WebEnginePage, self).acceptNavigationRequest(url, _type, isMainFrame)
 
@@ -240,7 +239,6 @@ class MainWidget(QtWidgets.QWidget):
             QtWidgets.QApplication.restoreOverrideCursor()
 
     def setHtml(self, html):
-        print(html)
         self.ui.webView.page().setHtml(html, self.baseUrl)
         self.ui.webView.page().runJavaScript('scrollTo(0,0);')
 
@@ -292,7 +290,7 @@ class MainWidget(QtWidgets.QWidget):
         try:
             html = self.get_html('/opds')
         except (RequestErr, xml_parser.XMLError, exceptions.HTTPError) as e:
-            # print(e)
+            logger.exception('')
             self.msgbox(str(e))
             return
         self.setHtml(html)
@@ -309,6 +307,7 @@ class MainWidget(QtWidgets.QWidget):
         except DownloadFile:
             return
         except (RequestErr, xml_parser.XMLError, exceptions.HTTPError) as e:
+            logger.exception('')
             self.msgbox(str(e))
             return
         self.setHtml(html)
