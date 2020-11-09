@@ -92,7 +92,6 @@ class WebEnginePage(QWebEnginePage):
 
 
 class MainWidget(QtWidgets.QWidget):
-
     def __init__(self, parent=None):
         super().__init__(parent)
         self.history = History()
@@ -212,7 +211,6 @@ class MainWidget(QtWidgets.QWidget):
         self.history.add('/opds/search')
 
     @pyqtSlot()
-    # @pyqtSlot(list)
     def change_app_proxies(self, proxy_list=None):
         """Установка списка прокси в выпадающий список"""
         if not proxy_list:
@@ -242,7 +240,6 @@ class MainWidget(QtWidgets.QWidget):
             QtWidgets.QApplication.restoreOverrideCursor()
 
     def setHtml(self, html):
-        print(self.baseUrl)
         print(html)
         self.ui.webView.page().setHtml(html, self.baseUrl)
         self.ui.webView.page().runJavaScript('scrollTo(0,0);')
@@ -312,7 +309,6 @@ class MainWidget(QtWidgets.QWidget):
         except DownloadFile:
             return
         except (RequestErr, xml_parser.XMLError, exceptions.HTTPError) as e:
-            # print(e)
             self.msgbox(str(e))
             return
         self.setHtml(html)
@@ -359,7 +355,7 @@ def main():
     print(QtCore.QT_VERSION_STR)
     app = QtWidgets.QApplication(sys.argv)
     # with open('css/stylesheet.qss') as f:
-        # app.setStyleSheet(f.read())
+    # app.setStyleSheet(f.read())
     from qtl18n_ru import localization
     localization.setupRussianLang(app)
     win = MainWidget()

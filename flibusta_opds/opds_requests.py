@@ -3,6 +3,7 @@ import re
 from threading import Thread
 
 from PyQt5.QtWidgets import QFileDialog
+from PyQt5.QtCore import *
 from requests import request, exceptions
 from user_agent import generate_user_agent
 import logging
@@ -21,37 +22,24 @@ class DownloadFile(Exception):
     pass
 
 
-def get_dirname_to_save():
-    """Вызывает диалог выбора каталога для сохраниния загрузки
-
-    По-умолчанию начальный каталог устанавливается как папка downloads в корневом каталоге пакета"""
-    # dir_name = QFileDialog.getExistingDirectory(
-    #     parent=None, caption='Каталог для загрузки',
-    #     directory=os.path.join(QDir.currentPath(), 'downloads'),
-    #     options=QFileDialog.ShowDirsOnly)
-    dir_name = QFileDialog.getExistingDirectory(
-        caption='Каталог для загрузки',
-        options=QFileDialog.ShowDirsOnly)
-    return dir_name
-
-
 proxies = []
 
 user_agent = generate_user_agent(os='linux', navigator='chrome')
 
-URL = 'https://flibusta.appspot.com/'
+# URL = 'https://flibusta.appspot.com/'
+URL = 'http://flibusta.is/'
 
 # список типов поиска
-SEARCH_TYPE = ['authors', 'books']
+# SEARCH_TYPE = ['authors', 'books']
 
 # данные, которые будем отправлять для поиска
 # соблюдать очередность аргументов!!!
 # сначала тип поиска(книга, автор), потом строка поиска
-search_params = {
-    'searchType': '',
-    'searchTerm': '',
-    'pageNumber': None
-}
+# search_params = {
+#     'searchType': '',
+#     'searchTerm': '',
+#     'pageNumber': None
+# }
 
 
 def generate_proxies():
@@ -73,11 +61,15 @@ def get_file_name(response):
 
     Имя файла берется из заголовка ответа от сервера. Если в заголовке его нет, то имя берется из самой ссылки.
     """
-
     try:
-        filename = re.search(
-            r'filename=\"?([^\"?]+)', response.headers['content-disposition'])
-        return filename.group(1)
+        filename = re.search(r'filename=\"?([^\"?]+)', response.headers['content-disposition'])
+        file, _ = QFileDialog.getSaveFileName(
+            None, '',
+            os.path.join(
+                QStandardPaths.writableLocation(QStandardPaths.DownloadLocation),
+                filename.group(1)),
+            '*')
+        return file
     except KeyError:
         return os.path.basename(response.url)
 
@@ -132,7 +124,7 @@ def get_from_opds(url, searchText=None):
                           params=params,
                           stream=True, timeout=(10, 30),
                           verify=False)
-        except (exceptions.ConnectionError, exceptions.ConnectTimeout, Exception) as e:
+        except (exceptions.ConnectionError, exceptions.ConnectTimeout, Exception):
             signals.change_proxy.emit(None)
     else:
         for proxy in proxies:
@@ -143,7 +135,7 @@ def get_from_opds(url, searchText=None):
                 CURRENT_PROXY.update(proxy)
                 signals.connect_to_proxy.emit()
                 break
-            except (exceptions.ConnectTimeout, exceptions.ConnectionError, Exception) as e:
+            except (exceptions.ConnectTimeout, exceptions.ConnectionError, Exception):
                 PROXY_LIST.remove(proxy['http'])
 
     if not res:
@@ -154,12 +146,10 @@ def get_from_opds(url, searchText=None):
     if not is_file(res.headers):
         return res.content
 
-    dir_name = get_dirname_to_save()
-    if dir_name:
-        fname = get_file_name(res)
-        file_dest = os.path.join(dir_name, fname)
-
-        thread = Thread(target=download_file,
-                        kwargs=dict(res=res, size=size, file_dest=file_dest))
-        thread.start()
+    # dir_name = get_dirname_to_save()
+    # if dir_name:
+    file = get_file_name(res)
+    thread = Thread(target=download_file,
+                    kwargs=dict(res=res, size=size, file_dest=file))
+    thread.start()
     raise DownloadFile('Скачивание файла')

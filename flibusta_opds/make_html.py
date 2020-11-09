@@ -4,7 +4,6 @@ from datetime import datetime
 from jinja2 import Environment, FileSystemLoader
 
 from . import BASE_DIR
-
 # css = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'css/style.css')
 css = 'css/style.css'
 
