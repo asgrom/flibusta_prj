@@ -16,7 +16,7 @@ from . import xml_parser
 from .get_proxy import get_proxy_list
 from .history import History
 from .make_html import make_html_page
-from .opds_requests import get_from_opds, RequestErr, DownloadFile
+from .opds_requests import get_from_opds, RequestErr
 from .webviewwidget import Ui_Form
 
 logger = applogger.get_logger(__name__, __file__)
@@ -172,7 +172,6 @@ class MainWidget(QtWidgets.QWidget):
     @pyqtSlot()
     def torBtn_clicked(self):
         CURRENT_PROXY.clear()
-        # CURRENT_PROXY.update(http='http://' + self.tor, https='https://' + self.tor)
         CURRENT_PROXY.update(http=self.tor, https=self.tor)
         signals.connect_to_proxy.emit()
 
@@ -223,7 +222,7 @@ class MainWidget(QtWidgets.QWidget):
         CURRENT_PROXY.clear()
         self.proxy_label.setText('Прокси: ')
         self.proxy_cbx.setModel(QtCore.QStringListModel(PROXY_LIST))
-        opds_requests.proxies.clear()
+        opds_requests.PROXIES.clear()
 
     @pyqtSlot()
     def get_proxy(self):
@@ -261,7 +260,7 @@ class MainWidget(QtWidgets.QWidget):
         """Обработка нажатия кнопки установки прокси"""
         CURRENT_PROXY['http'] = self.proxy_cbx.currentText()
         PROXY_LIST.append(self.proxy_cbx.currentText())
-        opds_requests.proxies.clear()
+        opds_requests.PROXIES.clear()
         self.set_proxy()
 
     @pyqtSlot()
@@ -304,8 +303,6 @@ class MainWidget(QtWidgets.QWidget):
         """
         try:
             html = self.get_html(url)
-        except DownloadFile:
-            return
         except (RequestErr, xml_parser.XMLError, exceptions.HTTPError) as e:
             logger.exception('')
             self.msgbox(str(e))

@@ -26,7 +26,9 @@
                     {% if l.rel == 'http://opds-spec.org/acquisition/open-access' %}
                         <li>
                             <a class="download-btn"
-                               href="{{ ''.join(['http://flibusta.is', l.href]) }}">{{ l.type.split('/')[1].split('+')[0] if 'ebook'not in l.type else 'ebook' }}</a>
+                               href="{{ ''.join(['http://flibusta.is', l.href]) }}">
+                               {{ l.type.split('/')[1].split('+')[0] if 'ebook' not in l.type else 'ebook' }}
+                            </a>
                         </li>
                     {% endif %}
                 {% endfor %}

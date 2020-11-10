@@ -4,17 +4,24 @@ from lxml import etree as et
 # import json
 
 from . import signals
+from applogger import applogger
+from datetime import datetime as dt
 
 
 class XMLError(Exception):
     pass
 
 
+logger = applogger.get_logger(__name__, __file__)
+
 # пространсто имен по-умолчанию для парсинга
 nsx = {'ns': 'http://www.w3.org/2005/Atom'}
 
 
 def parser(fromfile=None, fromstr=None):
+    # date = dt.strftime(dt.now(), '%d.%m.%Y-%H:%M:%S')
+    # with open(f'res/{date}.xml', 'wb') as fh:
+    #     fh.write(fromstr)
     data = {'entries': []}
     try:
         root = et.parse(fromfile).getroot() if fromfile else et.fromstring(fromstr)
@@ -33,8 +40,7 @@ def parser(fromfile=None, fromstr=None):
             # разбираем сам блок entry
             data_entry.update(parse_entry(entry))
             data['entries'].append(data_entry)
-        # with open('res/data.json', 'w') as f:
-        #     json.dump(data, f, ensure_ascii=False, indent=4)
+        logger.debug(f'\n{data}')
         return data
     except et.XMLSyntaxError:
         signals.change_proxy.emit(None)
