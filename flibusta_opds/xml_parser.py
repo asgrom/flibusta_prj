@@ -5,7 +5,6 @@ from lxml import etree as et
 
 from . import signals
 from applogger import applogger
-from datetime import datetime as dt
 
 
 class XMLError(Exception):
@@ -21,7 +20,7 @@ nsx = {'ns': 'http://www.w3.org/2005/Atom'}
 def parser(fromfile=None, fromstr=None):
     # date = dt.strftime(dt.now(), '%d.%m.%Y-%H:%M:%S')
     # with open(f'res/{date}.xml', 'wb') as fh:
-    #     fh.write(fromstr)
+    #     fh.write(fromstr or fromfile)
     data = {'entries': []}
     try:
         root = et.parse(fromfile).getroot() if fromfile else et.fromstring(fromstr)
@@ -40,7 +39,6 @@ def parser(fromfile=None, fromstr=None):
             # разбираем сам блок entry
             data_entry.update(parse_entry(entry))
             data['entries'].append(data_entry)
-        logger.debug(f'\n{data}')
         return data
     except et.XMLSyntaxError:
         signals.change_proxy.emit(None)

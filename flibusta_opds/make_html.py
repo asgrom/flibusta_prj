@@ -52,7 +52,6 @@ env.tests['book'] = _is_book
 def make_html_page(data):
     template = env.get_template(name='main.html')
     index_html = template.render(data=data, css=css, title=str(datetime.now()))
-    logger.debug(f'\n{index_html}')
     return index_html
 
 

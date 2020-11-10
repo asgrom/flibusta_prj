@@ -9,10 +9,6 @@ class RequestErr(Exception):
     pass
 
 
-# class DownloadFile(Exception):
-#     pass
-
-
 logger = applogger.get_logger(__name__, __file__)
 
 PROXIES = []
@@ -39,59 +35,6 @@ def generate_proxies():
     PROXIES.extend([{'http': proxy, 'https': proxy} for proxy in PROXY_LIST])
 
 
-def is_file(headers):
-    """Прверка является ли ссылка ссылкой на файл
-    """
-    content_type = headers['content-type']
-    if 'text/html' not in content_type and 'xml' not in content_type:
-        return True
-    return False
-
-
-# def get_file_name(response):
-#     """Получаем и возвращаем имя файла по ссылке.
-#
-#     Имя файла берется из заголовка ответа от сервера. Если в заголовке его нет, то имя берется из самой ссылки.
-#     """
-#     try:
-#         filename = re.search(r'filename=\"?([^\"?]+)', response.headers['content-disposition'])
-#         file, _ = QFileDialog.getSaveFileName(
-#             None, '',
-#             os.path.join(
-#                 QStandardPaths.writableLocation(QStandardPaths.DownloadLocation),
-#                 filename.group(1)),
-#             '*')
-#         return file
-#     except KeyError:
-#         logger.exception('')
-#         return os.path.basename(response.url)
-#
-
-# def download_file(res, file_dest):
-#     """ Скачивание файла
-#
-#     Файл скачиваем кусками размером, заданным в переменной size. При скачивании файла изменяем прогресс-бар.
-#     """
-#     size = 1024 * 128
-#     i = 0
-#     fsize = int(res.headers['content-length'])
-#     signals.file_name.emit(os.path.basename(file_dest))
-#     signals.start_download.emit(int(fsize))
-#     with open(file_dest, 'wb') as f:
-#         try:
-#             chunk = res.raw.read(size)
-#             while chunk:
-#                 f.write(chunk)
-#                 i += size
-#                 signals.progress.emit(i)
-#                 chunk = res.raw.read(size)
-#         except Exception:
-#             logger.exception('')
-#             signals.done.emit(4)
-#             return
-#     signals.done.emit(2)
-
-
 # noinspection PyUnboundLocalVariable
 def get_from_opds(url, searchText=None):
     """Сделать запрос по ссылке
@@ -115,6 +58,7 @@ def get_from_opds(url, searchText=None):
                           headers={'user-agent': user_agent}, params=params, stream=True, timeout=(10, 30),
                           verify=False)
             res.raise_for_status()
+            return res.content
         except (exceptions.ConnectionError, exceptions.ConnectTimeout, exceptions.HTTPError):
             signals.change_proxy.emit(None)
             logger.exception('')
@@ -128,22 +72,10 @@ def get_from_opds(url, searchText=None):
                 signals.change_proxy.emit(PROXY_LIST.copy())
                 CURRENT_PROXY.update(proxy)
                 signals.connect_to_proxy.emit()
-                break
+                return res.content
             except (exceptions.ConnectTimeout, exceptions.ConnectionError, exceptions.HTTPError):
                 PROXY_LIST.remove(proxy['http'])
                 res = None
     if not res:
         logger.error('Ошибка соединения')
         raise RequestErr('ОШИБКА СОЕДИНЕНИЯ')
-
-    if not is_file(res.headers):
-        return res.content
-    else:
-        logger.error(f'{res.text}')
-        raise RequestErr('Ошибка получения страницы')
-
-    # file = get_file_name(res)
-    # thread = Thread(target=download_file,
-    #                 kwargs=dict(res=res, file_dest=file))
-    # thread.start()
-    # raise DownloadFile('Скачивание файла')

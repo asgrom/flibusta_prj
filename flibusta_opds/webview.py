@@ -18,8 +18,20 @@ from .history import History
 from .make_html import make_html_page
 from .opds_requests import get_from_opds, RequestErr
 from .webviewwidget import Ui_Form
+import traceback
 
 logger = applogger.get_logger(__name__, __file__)
+
+
+def uncaught_exception(ex_cls, val, tb):
+    text = f'Uncaught exception:\n{ex_cls.__name__}: {val}:\n'
+    text += ''.join(traceback.format_tb(tb))
+    logger.error(text)
+    QMessageBox.critical(None, '', 'Critical error')
+    sys.exit()
+
+
+sys.excepthook = uncaught_exception
 
 
 class MyEvent(QtCore.QEvent):
@@ -47,15 +59,17 @@ class Worker(QThread):
         self.filename = filename
 
     def run(self) -> None:
-        self.download_progress(self.download, self.filename)
+        self.download_progress()
 
-    def download_progress(self, download, filename):
+    def download_progress(self):
         """Прогрессбар при скачивании файла со страницы сайта"""
-        signals.start_download.emit(0)
-        while not download.isFinished():
-            signals.file_name.emit('{0}\t{1} Kb'.format(os.path.basename(filename),
-                                                        str(int(download.receivedBytes() / 1024))))
-        state = download.state()
+        while not self.download.isFinished():
+            signals.progress.emit(self.download.receivedBytes())
+            signals.file_name.emit('{0}\t{1} Kb'.format(os.path.basename(self.filename),
+                                                        str(int(self.download.receivedBytes() / 1024))))
+        state = self.download.state()
+        if state == QtWebEngineWidgets.QWebEngineDownloadItem.DownloadInterrupted:
+            QMessageBox.critical(None, 'Download interrupted', f'{self.download.interruptReasonString()}')
         signals.done.emit(state)
 
 
@@ -78,6 +92,12 @@ class WebEnginePage(QWebEnginePage):
             return
         download.setPath(file)
         download.accept()
+        totalBytes = download.totalBytes()
+        print(totalBytes)
+        if totalBytes == -1:
+            signals.start_download.emit(0)
+        else:
+            signals.start_download.emit(totalBytes)
         signals.file_name.emit(os.path.basename(file))
         self.thread = Worker(download, file)
         self.thread.start()
@@ -152,7 +172,7 @@ class MainWidget(QtWidgets.QWidget):
         self.ui.nextBtn.clicked.connect(self.next_btn_clicked)
         self.setProxyBtn.clicked.connect(self.setPoxyBtn_clicked)
         # signals.connect_to_proxy получаем при удачном соединении с прокси
-        signals.connect_to_proxy.connect(self.connect_to_proxy_signal)
+        signals.connect_to_proxy.connect(self.set_proxy)
         # signals.progress получаем при скачивании файла
         signals.progress.connect(self.ui.progressBar.setValue)
         # сигнал при скачивании файла со страницы сайта
@@ -178,8 +198,8 @@ class MainWidget(QtWidgets.QWidget):
     @pyqtSlot(int)
     def mod_progressbar(self, maximum):
         """Формат прогрессбара при скачивании файла со страницы сайта"""
+        self.ui.progressBar.setFormat('%v Bytes')
         if maximum == 0:
-            self.ui.progressBar.setFormat('%v Bytes')
             # минимум и максимум на 0 при невозможности определить размер скачиваемого файла
             self.ui.progressBar.setRange(0, 0)
         else:
@@ -190,10 +210,8 @@ class MainWidget(QtWidgets.QWidget):
         self.ui.progressBar.setRange(0, 100)
         self.ui.progressBar.reset()
         self.ui.progressBar.resetFormat()
-        if state == 4:
-            self.msgbox('Ошибка загрузки файла')
-        elif state == 2:
-            self.msgbox('Download complete', 'Загрузка')
+        if state == 2:
+            QMessageBox.information(self, '', 'Загрузка завершена.')
 
     @pyqtSlot()
     def search_on_opds(self):
@@ -240,11 +258,6 @@ class MainWidget(QtWidgets.QWidget):
     def setHtml(self, html):
         self.ui.webView.page().setHtml(html, self.baseUrl)
         self.ui.webView.page().runJavaScript('scrollTo(0,0);')
-
-    @pyqtSlot()
-    def connect_to_proxy_signal(self):
-        """Обработка сигнала, поступившего при соединении с прокси-сервером"""
-        self.set_proxy()
 
     @pyqtSlot()
     def set_proxy(self):
@@ -345,10 +358,8 @@ class MainWidget(QtWidgets.QWidget):
 
 
 def main():
-    global app
     os.chdir(os.path.abspath(os.path.dirname(__file__)))
     sys.argv.append('--disable-web-security')
-    print(QtCore.QT_VERSION_STR)
     app = QtWidgets.QApplication(sys.argv)
     # with open('css/stylesheet.qss') as f:
     # app.setStyleSheet(f.read())
