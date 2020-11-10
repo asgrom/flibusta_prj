@@ -59,7 +59,7 @@ def get_from_opds(url, searchText=None):
                           verify=False)
             res.raise_for_status()
             return res.content
-        except (exceptions.ConnectionError, exceptions.ConnectTimeout, exceptions.HTTPError):
+        except (exceptions.ConnectionError, exceptions.ConnectTimeout, exceptions.HTTPError, exceptions.ReadTimeout):
             signals.change_proxy.emit(None)
             logger.exception('')
             raise RequestErr
@@ -73,7 +73,7 @@ def get_from_opds(url, searchText=None):
                 CURRENT_PROXY.update(proxy)
                 signals.connect_to_proxy.emit()
                 return res.content
-            except (exceptions.ConnectTimeout, exceptions.ConnectionError, exceptions.HTTPError):
+            except (exceptions.ConnectTimeout, exceptions.ConnectionError, exceptions.HTTPError, exceptions.ReadTimeout):
                 PROXY_LIST.remove(proxy['http'])
                 res = None
     if not res:

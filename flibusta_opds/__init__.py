@@ -29,7 +29,7 @@ except Exception:
 
 class Signals(QObject):
     # прогресс скачивания
-    progress = pyqtSignal(int)
+    progress = pyqtSignal('qint64', 'qint64')
     # соединение с прокси
     connect_to_proxy = pyqtSignal()
     # название скачиваемого файла
@@ -37,9 +37,7 @@ class Signals(QObject):
     # скачивание завершено. аргумент - код завершения загрузки. 4 - ошибка загрузки, 2 - загрузка завершена.
     done = pyqtSignal(int)
     # старт загрузки. аргумент - максимум прогрессбара(размер файла). 0 если размер файла невозможно получить.
-    start_download = pyqtSignal(int)
     change_proxy = pyqtSignal(QtCore.QVariant)
-    # change_proxy = pyqtSignal([], [list])
 
 
 signals = Signals()
