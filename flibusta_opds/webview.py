@@ -7,8 +7,7 @@ import traceback
 from applogger import applogger
 from PyQt5 import QtCore, QtGui, QtWebEngineWidgets, QtWidgets
 from PyQt5.QtCore import *
-from PyQt5.QtNetwork import (QNetworkAccessManager, QNetworkProxy,
-                             QNetworkReply, QNetworkRequest)
+from PyQt5.QtNetwork import QNetworkProxy
 from PyQt5.QtWebEngineWidgets import QWebEnginePage
 from PyQt5.QtWidgets import *
 from requests import exceptions
