@@ -40,6 +40,10 @@ class MainWidget(QWidget):
         super().__init__(parent)
         self.history = History()
         self.baseUrl = QUrl.fromLocalFile(BASE_DIR)
+        self.qnam = QNetworkAccessManager()
+        self._timer = QTimer()
+        self._timer.setSingleShot(True)
+        self._htmlData: bytes = None  # контент страницы
         self.ui = Ui_Form()
         self.ui.setupUi(self)
         self.tor = '127.0.0.1:8118'
@@ -105,13 +109,8 @@ class MainWidget(QWidget):
         self.getProxyBtn.clicked.connect(self.get_proxy)
         self.ui.searchBtn.clicked.connect(self.search_on_opds)
         self.torBtn.clicked.connect(self.torBtn_clicked)
-        self.webPage.opdsDataDownloaded.connect(self.opdsXmlDownloaded)
+        self.qnam.finished.connect(self.qnamFinished)
         self.show()
-
-    @pyqtSlot()
-    def opdsXmlDownloaded(self):
-        data = self.webPage.getOpdsData()
-        print(data.decode())
 
     @pyqtSlot()
     def torBtn_clicked(self):
@@ -128,16 +127,30 @@ class MainWidget(QWidget):
             self.ui.progressBar.setMaximum(total)
         self.ui.progressBar.setValue(recieved)
 
+    def qnamFinished(self, reply: QNetworkReply):
+        try:
+            if reply.error():
+                logger.error(f'Ошибка загрузки данных с сайта\n{reply.errorString()}')
+                QMessageBox.critical(self, 'Error', f'Ошибка загрузки данных с сайта\n{reply.errorString()}')
+                self._htmlData = None
+                return
+            self._htmlData = bytes(reply.readAll())
+            reply.deleteLater()
+        finally:
+            reply.deleteLater()
+            if self._timer.isActive():
+                self._timer.stop()
+            if self._loop.isRunning():
+                self._loop.quit()
+
     @pyqtSlot()
     def search_on_opds(self):
-        QApplication.setOverrideCursor(Qt.WaitCursor)
         try:
             html = self.get_html('/opds/search', searchText=self.ui.search_le.text().strip())
         except Exception as e:
+            logger.exception('')
             self.msgbox(str(e))
             return
-        finally:
-            QApplication.restoreOverrideCursor()
         self.setHtml(html)
         self.history.add('/opds/search')
 
@@ -158,6 +171,7 @@ class MainWidget(QWidget):
             PROXY_LIST.extend(get_proxy_list())
             self.proxy_cbx.setModel(QStringListModel(PROXY_LIST))
         except Exception as e:
+            logger.exception('')
             self.msgbox(str(e))
         else:
             self.msgbox('Список прокси обновлен', title='Выполнено')
@@ -197,11 +211,29 @@ class MainWidget(QWidget):
 
     def get_html(self, url, searchText=None):
         QApplication.setOverrideCursor(Qt.WaitCursor)
-        try:
-            content = get_from_opds(url, searchText)
-        finally:
-            QApplication.restoreOverrideCursor()
-        data = xml_parser.parser(fromstr=content)
+        self._loop = QEventLoop()
+        query = QUrlQuery()
+        query.setQueryItems([('searchType', 'authors'), ('searchTerm', f'{{{searchText}}}')])
+        url_ = QUrl('http://flibusta.is')
+        url_.setPath(url)
+        if url == '/opds/search':
+            url_.setQuery(query)
+        request = QNetworkRequest(url_)
+        request.setAttribute(QNetworkRequest.FollowRedirectsAttribute, True)
+        self.qnam.get(request)
+        self._timer.timeout.connect(self._loop.quit)
+        self._timer.start(20000)
+        self._loop.exec_()
+        QApplication.restoreOverrideCursor()
+
+        # с использованием requests
+        # QApplication.setOverrideCursor(Qt.WaitCursor)
+        # try:
+        #     content = get_from_opds(url, searchText)
+        # finally:
+        #     QApplication.restoreOverrideCursor()
+
+        data = xml_parser.parser(fromstr=self._htmlData)
         html = make_html_page(data)
         return html
 
@@ -245,7 +277,7 @@ class MainWidget(QWidget):
         try:
             html = self.get_html(link.val)
         except (RequestErr, xml_parser.XMLError) as e:
-            # print(e)
+            logger.exception('')
             self.msgbox(str(e))
             return
         self.setHtml(html)

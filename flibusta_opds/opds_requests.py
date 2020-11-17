@@ -46,7 +46,7 @@ def get_from_opds(url, searchText=None):
     if not searchText:
         params = None
     else:
-        params = dict(searchTerm=searchText)
+        params = dict(searchType='authors', searchTerm='{{{}}}'.format(searchText))
 
     if CURRENT_PROXY:
         try:
