@@ -5,7 +5,6 @@ import os
 from os import path
 
 from PyQt5.QtCore import pyqtSignal, QObject
-from PyQt5 import QtCore
 
 BASE_DIR = path.dirname(__file__) + '/'
 
@@ -28,11 +27,9 @@ except Exception:
 
 
 class Signals(QObject):
-    # прогресс скачивания
-    progress = pyqtSignal('qint64', 'qint64')
     # соединение с прокси
     connect_to_proxy = pyqtSignal()
-    change_proxy = pyqtSignal(QtCore.QVariant)
+    change_proxy = pyqtSignal()
 
 
 signals = Signals()

@@ -11,8 +11,6 @@ class RequestErr(Exception):
 
 logger = applogger.get_logger(__name__, __file__)
 
-PROXIES = []
-
 # URL = 'https://flibusta.appspot.com/'
 URL = 'http://flibusta.is/'
 
@@ -31,8 +29,8 @@ URL = 'http://flibusta.is/'
 
 
 def generate_proxies():
-    PROXIES.clear()
-    PROXIES.extend([{'http': proxy, 'https': proxy} for proxy in PROXY_LIST])
+    proxies = [{'http': proxy, 'https': proxy} for proxy in PROXY_LIST]
+    return proxies
 
 
 # noinspection PyUnboundLocalVariable
@@ -43,8 +41,7 @@ def get_from_opds(url, searchText=None):
     загрузка файла.
     """
     user_agent = generate_user_agent(os='linux', navigator='chrome')
-    if not PROXIES:
-        generate_proxies()
+    proxies = generate_proxies()
 
     if not searchText:
         params = None
@@ -61,16 +58,16 @@ def get_from_opds(url, searchText=None):
             res.raise_for_status()
             return res.content
         except (exceptions.ConnectionError, exceptions.ConnectTimeout, exceptions.HTTPError, exceptions.ReadTimeout):
-            signals.change_proxy.emit(None)
+            # signals.change_proxy.emit(None)
             logger.exception('')
             raise RequestErr
     else:
-        for proxy in PROXIES:
+        for proxy in proxies:
             try:
                 res = request('get', URL + url, proxies=proxy, headers={'user-agent': user_agent}, params=params,
                               stream=True, timeout=(10, 30), verify=False)
                 res.raise_for_status()
-                signals.change_proxy.emit(PROXY_LIST.copy())
+                CURRENT_PROXY.clear()
                 CURRENT_PROXY.update(proxy)
                 signals.connect_to_proxy.emit()
                 return res.content

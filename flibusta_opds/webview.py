@@ -5,16 +5,15 @@ import os
 import sys
 import traceback
 
+from applogger import applogger
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtNetwork import *
 from PyQt5.QtWebEngineWidgets import *
 from PyQt5.QtWidgets import *
-from applogger import applogger
 from requests import exceptions
 
-from . import (BASE_DIR, CURRENT_PROXY, PROXY_LIST, opds_requests, signals,
-               xml_parser)
+from . import BASE_DIR, CURRENT_PROXY, PROXY_LIST, signals, xml_parser
 from .get_proxy import get_proxy_list
 from .history import History
 from .make_html import make_html_page
@@ -76,7 +75,6 @@ class WebEnginePage(QWebEnginePage):
     def on_downloadRequested(self, download: QWebEngineDownloadItem):
         # todo:
         #   переделать обработку сигналов
-        #   Переделать диалог сохранения файла. НЕ УСТАНАВЛИВАЕТ КАТАЛОГ ЗАГРУЗКИ ПО-УМОЛЧАНИЮ!
         file, _ = QFileDialog.getSaveFileName(
             None, '',
             os.path.join(download.downloadDirectory(), download.downloadFileName()),
@@ -88,11 +86,10 @@ class WebEnginePage(QWebEnginePage):
         download.finished.connect(lambda: self.download_completed(download.state()))
         download.accept()
         self.fileName.emit(download.downloadFileName())
-        download.downloadProgress.connect(self.downloadProgres.emit())
+        download.downloadProgress.connect(self.downloadProgres.emit)
 
     @pyqtSlot()
     def download_completed(self, state):
-        state = self.downloadItem.state()
         if state == QWebEngineDownloadItem.DownloadInterrupted:
             QMessageBox.critical(None, 'Download interrupted', f'{self.download.interruptReasonString()}')
         else:
@@ -139,8 +136,8 @@ class MainWidget(QWidget):
     # noinspection PyUnresolvedReferences
     def loadUI(self):
         self.setWindowIcon(QIcon(os.path.join(os.path.dirname(__file__), './res/favicon.ico')))
-        self.page = WebEnginePage(self)
-        self.ui.webView.setPage(self.page)
+        self.webPage = WebEnginePage(self)
+        self.ui.webView.setPage(self.webPage)
         self.ui.backBtn.setDisabled(True)
         self.ui.nextBtn.setDisabled(True)
         self.ui.progressBar.setFormat('%v Kb')
@@ -182,20 +179,20 @@ class MainWidget(QWidget):
         self.setProxyBtn.clicked.connect(self.setPoxyBtn_clicked)
         # signals.connect_to_proxy получаем при удачном соединении с прокси
         signals.connect_to_proxy.connect(self.set_proxy)
-        self.page.downloadProgres.connect(self.setDownloadProgress)
+        self.webPage.downloadProgres.connect(self.setDownloadProgress)
         self.ui.webView.titleChanged.connect(self.set_back_forward_btns_status)
         # signals.file_name получаем название скачиваемого файла
-        self.page.fileName.connect(self.ui.label.setText)
+        self.webPage.fileName.connect(self.ui.label.setText)
         signals.change_proxy.connect(self.change_app_proxies)
         self.getProxyBtn.clicked.connect(self.get_proxy)
         self.ui.searchBtn.clicked.connect(self.search_on_opds)
         self.torBtn.clicked.connect(self.torBtn_clicked)
-        # self.page.opdsDataDownloaded.connect(self.opdsXmlDownloaded)
+        # self.webPage.opdsDataDownloaded.connect(self.opdsXmlDownloaded)
         self.show()
 
     @pyqtSlot()
     def opdsXmlDownloaded(self):
-        data = self.page.getOpdsData()
+        data = self.webPage.getOpdsData()
         print(data.decode())
 
     @pyqtSlot()
@@ -227,27 +224,21 @@ class MainWidget(QWidget):
         self.history.add('/opds/search')
 
     @pyqtSlot()
-    def change_app_proxies(self, proxy_list=None):
+    def change_app_proxies(self):
         """Установка списка прокси в выпадающий список"""
-        if not proxy_list:
-            try:
-                PROXY_LIST.remove(CURRENT_PROXY['http'])
-            except Exception:
-                pass
-        else:
-            PROXY_LIST.clear()
-            PROXY_LIST.extend(proxy_list)
+        PROXY_LIST.remove(CURRENT_PROXY['http'])
         CURRENT_PROXY.clear()
         self.proxy_label.setText('Прокси: ')
         self.proxy_cbx.setModel(QStringListModel(PROXY_LIST))
-        opds_requests.PROXIES.clear()
 
     @pyqtSlot()
     def get_proxy(self):
         """Палучаем новый список прокси и устанавливаем его"""
         QApplication.setOverrideCursor(Qt.WaitCursor)
         try:
-            self.change_app_proxies(get_proxy_list())
+            PROXY_LIST.clear()
+            PROXY_LIST.extend(get_proxy_list())
+            self.proxy_cbx.setModel(QStringListModel(PROXY_LIST))
         except Exception as e:
             self.msgbox(str(e))
         else:
@@ -273,13 +264,12 @@ class MainWidget(QWidget):
         """Обработка нажатия кнопки установки прокси"""
         CURRENT_PROXY['http'] = self.proxy_cbx.currentText()
         PROXY_LIST.append(self.proxy_cbx.currentText())
-        opds_requests.PROXIES.clear()
         self.set_proxy()
 
     @pyqtSlot()
     def set_back_forward_btns_status(self):
         """Установка активности кнопок вперед/назад в зависимости от истории посещений"""
-        self.ui.backBtn.setEnabled((self.history.last.prev is not None) or (self.page.history().canGoBack()))
+        self.ui.backBtn.setEnabled((self.history.last.prev is not None) or (self.webPage.history().canGoBack()))
         self.ui.nextBtn.setEnabled(self.history.last.next is not None)
 
     def customEvent(self, e):
@@ -329,8 +319,8 @@ class MainWidget(QWidget):
 
         # если история в QWebEnginePage на текущей странице не пуста, то используем эту историю для навигации.
         # иначе загружаем данные с opds
-        if self.page.history().canGoBack():
-            self.page.history().back()
+        if self.webPage.history().canGoBack():
+            self.webPage.history().back()
             return
 
         link = self.history.previous()
