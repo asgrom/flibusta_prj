@@ -17,9 +17,8 @@ from . import BASE_DIR, CURRENT_PROXY, PROXY_LIST, signals, xml_parser
 from .get_proxy import get_proxy_list
 from .history import History
 from .make_html import make_html_page
-from .opds_requests import RequestErr, get_from_opds
+from .webenginepage import MyEvent, WebEnginePage
 from .webviewwidget import Ui_Form
-from .webenginepage import WebEnginePage, MyEvent
 
 logger = applogger.get_logger(__name__, __file__)
 
@@ -29,7 +28,7 @@ def uncaught_exception(ex_cls, val, tb):
     text += ''.join(traceback.format_tb(tb))
     logger.error(text)
     QMessageBox.critical(None, '', 'Critical error')
-    sys.exit()
+    qApp.quit()
 
 
 sys.excepthook = uncaught_exception
@@ -225,6 +224,8 @@ class MainWidget(QWidget):
         self._timer.start(20000)
         self._loop.exec_()
         QApplication.restoreOverrideCursor()
+        if not self._htmlData:
+            return
 
         # с использованием requests
         # QApplication.setOverrideCursor(Qt.WaitCursor)
@@ -241,7 +242,7 @@ class MainWidget(QWidget):
     def main_page_btn_clicked(self):
         try:
             html = self.get_html('/opds')
-        except (RequestErr, xml_parser.XMLError, exceptions.HTTPError) as e:
+        except (xml_parser.XMLError, exceptions.HTTPError) as e:
             logger.exception('')
             self.msgbox(str(e))
             return
@@ -256,7 +257,7 @@ class MainWidget(QWidget):
         """
         try:
             html = self.get_html(url)
-        except (RequestErr, xml_parser.XMLError, exceptions.HTTPError) as e:
+        except (xml_parser.XMLError, exceptions.HTTPError) as e:
             logger.exception('')
             self.msgbox(str(e))
             return
@@ -276,7 +277,7 @@ class MainWidget(QWidget):
         link = self.history.previous()
         try:
             html = self.get_html(link.val)
-        except (RequestErr, xml_parser.XMLError) as e:
+        except (xml_parser.XMLError) as e:
             logger.exception('')
             self.msgbox(str(e))
             return
