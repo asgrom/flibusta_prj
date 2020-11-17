@@ -54,7 +54,8 @@ def get_from_opds(url, searchText=None):
     if CURRENT_PROXY:
         try:
             res = request('get', URL + url,
-                          proxies={'http': CURRENT_PROXY['http'], 'https': CURRENT_PROXY['http']},
+                          proxies={'http': '://'.join(['http', CURRENT_PROXY['http']]),
+                                   'https': '://'.join(['http', CURRENT_PROXY['http']])},
                           headers={'user-agent': user_agent}, params=params, stream=True, timeout=(10, 30),
                           verify=False)
             res.raise_for_status()

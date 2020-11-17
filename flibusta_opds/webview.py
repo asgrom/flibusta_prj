@@ -1,15 +1,16 @@
+#!/usr/bin/env /home/alexandr/venv/qvenv/bin/python
 # todo:
 #   просмотреть возбуждение исключений raise
 import os
 import sys
 import traceback
 
-from applogger import applogger
-from PyQt5 import QtCore, QtGui, QtWebEngineWidgets, QtWidgets
 from PyQt5.QtCore import *
-from PyQt5.QtNetwork import QNetworkProxy
-from PyQt5.QtWebEngineWidgets import QWebEnginePage
+from PyQt5.QtGui import *
+from PyQt5.QtNetwork import *
+from PyQt5.QtWebEngineWidgets import *
 from PyQt5.QtWidgets import *
+from applogger import applogger
 from requests import exceptions
 
 from . import (BASE_DIR, CURRENT_PROXY, PROXY_LIST, opds_requests, signals,
@@ -21,6 +22,8 @@ from .opds_requests import RequestErr, get_from_opds
 from .webviewwidget import Ui_Form
 
 logger = applogger.get_logger(__name__, __file__)
+
+URL = 'http://flibusta.is'
 
 
 def uncaught_exception(ex_cls, val, tb):
@@ -34,16 +37,16 @@ def uncaught_exception(ex_cls, val, tb):
 sys.excepthook = uncaught_exception
 
 
-class MyEvent(QtCore.QEvent):
+class MyEvent(QEvent):
     """Класс события
 
     Событие будет генерироваться при клике на ссылках. Будет использаватья вместо сигнал urlChanged
     """
 
-    idType = QtCore.QEvent.registerEventType()
+    idType = QEvent.registerEventType()
 
     def __init__(self, data):
-        QtCore.QEvent.__init__(self, MyEvent.idType)
+        QEvent.__init__(self, MyEvent.idType)
         self.data = data
 
     def get_data(self):
@@ -56,46 +59,68 @@ class WebEnginePage(QWebEnginePage):
     Перегружаем функцию acceptNavigationRequest чтобы перехватывать запрашиваемые урлы. При перехвате возбуждаем событие
     и обрабатываем урл.
     """
+    opdsDataDownloaded = pyqtSignal()
+    fileName = pyqtSignal(str)
+    downloadProgres = pyqtSignal(int, int)
 
     def __init__(self, *args, **kwargs):
         super(WebEnginePage, self).__init__(*args, **kwargs)
+        self.qnam = QNetworkAccessManager()
+        self.qnam.finished.connect(self._downloadFinished)
+        self._opdsData = None
+        self._reply = None  # type: QNetworkReply
         # сигнал генерируется при запросе на скачивание файла
         self.profile().downloadRequested.connect(self.on_downloadRequested)
 
-    @QtCore.pyqtSlot(QtWebEngineWidgets.QWebEngineDownloadItem)
-    def on_downloadRequested(self, download: QtWebEngineWidgets.QWebEngineDownloadItem):
-        self.downloadItem = download
-        self.file, _ = QFileDialog.getSaveFileName(None, '', self.downloadItem.path(), 'All (*)')
-        if not self.file:
+    @pyqtSlot(QWebEngineDownloadItem)
+    def on_downloadRequested(self, download: QWebEngineDownloadItem):
+        # todo:
+        #   переделать обработку сигналов
+        #   Переделать диалог сохранения файла. НЕ УСТАНАВЛИВАЕТ КАТАЛОГ ЗАГРУЗКИ ПО-УМОЛЧАНИЮ!
+        file, _ = QFileDialog.getSaveFileName(
+            None, '',
+            os.path.join(download.downloadDirectory(), download.downloadFileName()),
+            'All (*)'
+        )
+        if not file:
             return
-        self.downloadItem.setPath(self.file)
-        self.downloadItem.finished.connect(self.download_completed)
-        self.downloadItem.accept()
-        self.downloadItem.downloadProgress.connect(self.download_progress)
-        self.downloadItem.downloadProgress.connect(lambda rec, tot: signals.progress.emit(int(rec / 1024), int(tot / 1024)))
-
-    @pyqtSlot('qint64', 'qint64')
-    def download_progress(self, received, total):
-        signals.file_name.emit('{0}\t{1} Kb'.format(
-            os.path.basename(self.file), str(int(received / 1024))))
+        download.setDownloadFileName(file)
+        download.finished.connect(lambda: self.download_completed(download.state()))
+        download.accept()
+        self.fileName.emit(download.downloadFileName())
+        download.downloadProgress.connect(self.downloadProgres.emit())
 
     @pyqtSlot()
-    def download_completed(self):
+    def download_completed(self, state):
         state = self.downloadItem.state()
-        if state == QtWebEngineWidgets.QWebEngineDownloadItem.DownloadInterrupted:
-            QMessageBox.critical(self.parent(), 'Download interrupted', f'{self.download.interruptReasonString()}')
+        if state == QWebEngineDownloadItem.DownloadInterrupted:
+            QMessageBox.critical(None, 'Download interrupted', f'{self.download.interruptReasonString()}')
         else:
-            QMessageBox.information(self.parent(), '', 'Download completed')
+            QMessageBox.information(None, '', 'Download completed')
 
     def acceptNavigationRequest(self, url: QUrl, _type, isMainFrame):
         """При запросе урла со схемой file возбуждает событие и запрещает загрузку этого урла"""
         if url.scheme() == 'file':
-            QtCore.QCoreApplication.sendEvent(self.parent(), MyEvent(url.path()))
+            request = QNetworkRequest(QUrl(URL + url.toLocalFile()))
+            request.setAttribute(QNetworkRequest.RedirectPolicyAttribute, True)
+            self.qnam.get(request)
+            QCoreApplication.sendEvent(self.parent(), MyEvent(url.path()))
             return False
         return super(WebEnginePage, self).acceptNavigationRequest(url, _type, isMainFrame)
 
+    def _downloadFinished(self, reply: QNetworkReply):
+        if reply.error():
+            logger.critical(f'Error download content\n{reply.errorString()}')
+            return
+        self._opdsData = reply.readAll()
+        reply.deleteLater()
+        self.opdsDataDownloaded.emit()
 
-class MainWidget(QtWidgets.QWidget):
+    def getOpdsData(self) -> bytes:
+        return bytes(self._opdsData)
+
+
+class MainWidget(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.history = History()
@@ -113,7 +138,7 @@ class MainWidget(QtWidgets.QWidget):
 
     # noinspection PyUnresolvedReferences
     def loadUI(self):
-        self.setWindowIcon(QtGui.QIcon('./res/favicon.ico'))
+        self.setWindowIcon(QIcon(os.path.join(os.path.dirname(__file__), './res/favicon.ico')))
         self.page = WebEnginePage(self)
         self.ui.webView.setPage(self.page)
         self.ui.backBtn.setDisabled(True)
@@ -123,22 +148,22 @@ class MainWidget(QtWidgets.QWidget):
         ################################################################################################################
         # ComboBox с прокси серверами                                                                                  #
         ################################################################################################################
-        self.proxy_cbx = QtWidgets.QComboBox(self)
+        self.proxy_cbx = QComboBox(self)
         self.proxy_cbx.setInsertPolicy(self.proxy_cbx.InsertAtTop)
         self.proxy_cbx.setEditable(True)
-        self.proxy_cbx.setSizeAdjustPolicy(QtWidgets.QComboBox.AdjustToContents)
-        self.proxy_cbx.setModel(QtCore.QStringListModel(PROXY_LIST))
-        validator = QtGui.QRegExpValidator(QtCore.QRegExp(
+        self.proxy_cbx.setSizeAdjustPolicy(QComboBox.AdjustToContents)
+        self.proxy_cbx.setModel(QStringListModel(PROXY_LIST))
+        validator = QRegExpValidator(QRegExp(
             r'[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}:\d{1,5}'))
         self.proxy_cbx.setValidator(validator)
 
         ################################################################################################################
-        self.proxy_label = QtWidgets.QLabel(f'Прокси {self.proxy.hostName()} : {self.proxy.port()}')
-        self.setProxyBtn = QtWidgets.QPushButton('Установить прокси')
-        self.getProxyBtn = QtWidgets.QPushButton('Получить список прокси')
-        self.torBtn = QtWidgets.QPushButton('Tor')
+        self.proxy_label = QLabel(f'Прокси {self.proxy.hostName()} : {self.proxy.port()}')
+        self.setProxyBtn = QPushButton('Установить прокси')
+        self.getProxyBtn = QPushButton('Получить список прокси')
+        self.torBtn = QPushButton('Tor')
 
-        hbox = QtWidgets.QHBoxLayout()
+        hbox = QHBoxLayout()
         hbox.addWidget(self.torBtn)
         hbox.addWidget(self.getProxyBtn)
         hbox.addStretch()
@@ -146,7 +171,7 @@ class MainWidget(QtWidgets.QWidget):
         hbox.addWidget(self.proxy_cbx)
         hbox.addWidget(self.setProxyBtn)
         self.ui.verticalLayout.insertLayout(0, hbox)
-        self.ui.search_le.setAlignment(QtCore.Qt.AlignLeft)
+        self.ui.search_le.setAlignment(Qt.AlignLeft)
 
         #################################################################
         #   Обработка сигналов                                          #
@@ -157,15 +182,21 @@ class MainWidget(QtWidgets.QWidget):
         self.setProxyBtn.clicked.connect(self.setPoxyBtn_clicked)
         # signals.connect_to_proxy получаем при удачном соединении с прокси
         signals.connect_to_proxy.connect(self.set_proxy)
-        signals.progress.connect(self.mod_progressbar)
+        self.page.downloadProgres.connect(self.setDownloadProgress)
         self.ui.webView.titleChanged.connect(self.set_back_forward_btns_status)
         # signals.file_name получаем название скачиваемого файла
-        signals.file_name.connect(self.ui.label.setText)
+        self.page.fileName.connect(self.ui.label.setText)
         signals.change_proxy.connect(self.change_app_proxies)
         self.getProxyBtn.clicked.connect(self.get_proxy)
         self.ui.searchBtn.clicked.connect(self.search_on_opds)
         self.torBtn.clicked.connect(self.torBtn_clicked)
+        # self.page.opdsDataDownloaded.connect(self.opdsXmlDownloaded)
         self.show()
+
+    @pyqtSlot()
+    def opdsXmlDownloaded(self):
+        data = self.page.getOpdsData()
+        print(data.decode())
 
     @pyqtSlot()
     def torBtn_clicked(self):
@@ -173,8 +204,10 @@ class MainWidget(QtWidgets.QWidget):
         CURRENT_PROXY.update(http=self.tor, https=self.tor)
         signals.connect_to_proxy.emit()
 
-    @pyqtSlot('qint64', 'qint64')
-    def mod_progressbar(self, recieved, total):
+    @pyqtSlot(int, int)
+    def setDownloadProgress(self, recieved, total):
+        recieved = int(recieved / 1024)
+        total = int(total / 1024)
         """Формат прогрессбара при скачивании файла со страницы сайта"""
         if self.ui.progressBar.maximum() != total:
             self.ui.progressBar.setMaximum(total)
@@ -182,14 +215,14 @@ class MainWidget(QtWidgets.QWidget):
 
     @pyqtSlot()
     def search_on_opds(self):
-        QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+        QApplication.setOverrideCursor(Qt.WaitCursor)
         try:
             html = self.get_html('/opds/search', searchText=self.ui.search_le.text().strip())
         except Exception as e:
             self.msgbox(str(e))
             return
         finally:
-            QtWidgets.QApplication.restoreOverrideCursor()
+            QApplication.restoreOverrideCursor()
         self.setHtml(html)
         self.history.add('/opds/search')
 
@@ -206,13 +239,13 @@ class MainWidget(QtWidgets.QWidget):
             PROXY_LIST.extend(proxy_list)
         CURRENT_PROXY.clear()
         self.proxy_label.setText('Прокси: ')
-        self.proxy_cbx.setModel(QtCore.QStringListModel(PROXY_LIST))
+        self.proxy_cbx.setModel(QStringListModel(PROXY_LIST))
         opds_requests.PROXIES.clear()
 
     @pyqtSlot()
     def get_proxy(self):
         """Палучаем новый список прокси и устанавливаем его"""
-        QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+        QApplication.setOverrideCursor(Qt.WaitCursor)
         try:
             self.change_app_proxies(get_proxy_list())
         except Exception as e:
@@ -220,7 +253,7 @@ class MainWidget(QtWidgets.QWidget):
         else:
             self.msgbox('Список прокси обновлен', title='Выполнено')
         finally:
-            QtWidgets.QApplication.restoreOverrideCursor()
+            QApplication.restoreOverrideCursor()
 
     def setHtml(self, html):
         self.ui.webView.page().setHtml(html, self.baseUrl)
@@ -255,11 +288,11 @@ class MainWidget(QtWidgets.QWidget):
             self.link_clicked(e.data)
 
     def get_html(self, url, searchText=None):
-        QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+        QApplication.setOverrideCursor(Qt.WaitCursor)
         try:
             content = get_from_opds(url, searchText)
         finally:
-            QtWidgets.QApplication.restoreOverrideCursor()
+            QApplication.restoreOverrideCursor()
         data = xml_parser.parser(fromstr=content)
         html = make_html_page(data)
         return html
@@ -318,20 +351,27 @@ class MainWidget(QtWidgets.QWidget):
     @staticmethod
     def msgbox(msg, title=None):
         if not title:
-            msgBox = QtWidgets.QMessageBox(QtWidgets.QMessageBox.Warning, 'Error', msg)
+            msgBox = QMessageBox(QMessageBox.Warning, 'Error', msg)
         else:
-            msgBox = QtWidgets.QMessageBox(QtWidgets.QMessageBox.Warning, title, msg)
+            msgBox = QMessageBox(QMessageBox.Warning, title, msg)
         msgBox.exec_()
 
 
 def main():
+    print(f'Версия Qt {QT_VERSION_STR}')
     os.chdir(os.path.abspath(os.path.dirname(__file__)))
     sys.argv.append('--disable-web-security')
-    app = QtWidgets.QApplication(sys.argv)
-    # with open('css/stylesheet.qss') as f:
-    # app.setStyleSheet(f.read())
+    app = QApplication(sys.argv)
+    # установка таблицы стилей
+    # file = QFile(os.path.join(os.path.dirname(__file__), 'css/stylesheet.qss'))
+    # if file.open(QIODevice.ReadOnly | QIODevice.Text):
+    #     qss = QTextStream(file).readAll()
+    #     file.close()
+    #     app.setStyleSheet(qss)
+
     from qtl18n_ru import localization
     localization.setupRussianLang(app)
+
     win = MainWidget()
     status = app.exec_()
 

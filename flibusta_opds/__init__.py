@@ -32,11 +32,6 @@ class Signals(QObject):
     progress = pyqtSignal('qint64', 'qint64')
     # соединение с прокси
     connect_to_proxy = pyqtSignal()
-    # название скачиваемого файла
-    file_name = pyqtSignal(str)
-    # скачивание завершено. аргумент - код завершения загрузки. 4 - ошибка загрузки, 2 - загрузка завершена.
-    done = pyqtSignal(int)
-    # старт загрузки. аргумент - максимум прогрессбара(размер файла). 0 если размер файла невозможно получить.
     change_proxy = pyqtSignal(QtCore.QVariant)
 
 
