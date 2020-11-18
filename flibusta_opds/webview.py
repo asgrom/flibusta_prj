@@ -1,4 +1,3 @@
-#!/usr/bin/env /home/alexandr/venv/qvenv/bin/python
 # todo:
 #   просмотреть возбуждение исключений raise
 import os
@@ -40,8 +39,6 @@ class MainWidget(QWidget):
         self.history = History()
         self.baseUrl = QUrl.fromLocalFile(BASE_DIR)
         self.qnam = QNetworkAccessManager()
-        self._timer = QTimer()
-        self._timer.setSingleShot(True)
         self._htmlData: bytes = None  # контент страницы
         self.ui = Ui_Form()
         self.ui.setupUi(self)
@@ -56,7 +53,7 @@ class MainWidget(QWidget):
 
     # noinspection PyUnresolvedReferences
     def loadUI(self):
-        self.setWindowIcon(QIcon(os.path.join(os.path.dirname(__file__), './res/favicon.ico')))
+        self.setWindowIcon(QIcon(QPixmap(os.path.join(os.path.dirname(__file__), 'images/flibusta.png'))))
         self.webPage = WebEnginePage(self)
         self.ui.webView.setPage(self.webPage)
         self.ui.backBtn.setDisabled(True)
@@ -127,6 +124,8 @@ class MainWidget(QWidget):
         self.ui.progressBar.setValue(recieved)
 
     def qnamFinished(self, reply: QNetworkReply):
+        # todo:
+        #   при возникновении ошибки загрузки, удалять прокси из списка.
         try:
             if reply.error():
                 logger.error(f'Ошибка загрузки данных с сайта\n{reply.errorString()}')
@@ -137,8 +136,6 @@ class MainWidget(QWidget):
             reply.deleteLater()
         finally:
             reply.deleteLater()
-            if self._timer.isActive():
-                self._timer.stop()
             if self._loop.isRunning():
                 self._loop.quit()
 
@@ -210,7 +207,6 @@ class MainWidget(QWidget):
 
     def get_html(self, url, searchText=None):
         QApplication.setOverrideCursor(Qt.WaitCursor)
-        self._loop = QEventLoop()
         query = QUrlQuery()
         query.setQueryItems([('searchType', 'authors'), ('searchTerm', f'{{{searchText}}}')])
         url_ = QUrl('http://flibusta.is')
@@ -219,9 +215,8 @@ class MainWidget(QWidget):
             url_.setQuery(query)
         request = QNetworkRequest(url_)
         request.setAttribute(QNetworkRequest.FollowRedirectsAttribute, True)
+        self._loop = QEventLoop()
         self.qnam.get(request)
-        self._timer.timeout.connect(self._loop.quit)
-        self._timer.start(20000)
         self._loop.exec_()
         QApplication.restoreOverrideCursor()
         if not self._htmlData:
