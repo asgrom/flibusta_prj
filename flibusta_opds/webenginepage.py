@@ -8,9 +8,6 @@ from PyQt5.QtWidgets import QFileDialog, QMessageBox
 logger = applogger.get_logger(__name__, __file__)
 
 
-URL = 'http://flibusta.is'
-
-
 class MyEvent(QEvent):
     """Класс события
 
@@ -69,6 +66,3 @@ class WebEnginePage(QWebEnginePage):
             QCoreApplication.sendEvent(self.parent(), MyEvent(url.path()))
             return False
         return super(WebEnginePage, self).acceptNavigationRequest(url, _type, isMainFrame)
-
-    def getOpdsData(self) -> bytes:
-        return bytes(self._opdsData)

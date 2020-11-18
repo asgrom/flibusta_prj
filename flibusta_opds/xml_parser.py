@@ -42,6 +42,7 @@ def parser(fromfile=None, fromstr=None):
         return data
     except et.XMLSyntaxError:
         signals.change_proxy.emit()
+        logger.exception('')
         raise XMLError('ОШИБКА ПАРСИНГА СТРАНИЦЫ\nПрокси сервер будет удален из списка.')
 
 
