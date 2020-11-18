@@ -17,7 +17,7 @@ from .get_proxy import get_proxy_list
 from .history import History
 from .make_html import make_html_page
 from .webenginepage import MyEvent, WebEnginePage
-from .webviewwidget import Ui_Form
+from .mainwidget_ui import Ui_Form
 
 logger = applogger.get_logger(__name__, __file__)
 
