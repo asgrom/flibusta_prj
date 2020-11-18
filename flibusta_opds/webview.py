@@ -59,6 +59,15 @@ class MainWidget(QWidget):
         self.ui.backBtn.setDisabled(True)
         self.ui.nextBtn.setDisabled(True)
         self.ui.progressBar.setFormat('%v Kb')
+        self.ui.searchAuthorLedit.setClearButtonEnabled(True)
+        self.ui.searchBookLedit.setClearButtonEnabled(True)
+        qss_file = QFile(':/css/navbtnframe.qss')
+        if qss_file.open(QIODevice.ReadOnly | QIODevice.Text):
+            self.ui.navBtnFrame.setStyleSheet(qss_file.readAll().data().decode())
+            qss_file.close()
+        else:
+            logger.debug(f'Невозможно открыть файл со стилями.\n{qss_file.errorString()}')
+            print(qss_file.errorString())
 
         ################################################################################################################
         # ComboBox с прокси серверами                                                                                  #
@@ -86,7 +95,6 @@ class MainWidget(QWidget):
         hbox.addWidget(self.proxy_cbx)
         hbox.addWidget(self.setProxyBtn)
         self.ui.verticalLayout.insertLayout(0, hbox)
-        self.ui.search_le.setAlignment(Qt.AlignLeft)
 
         #################################################################
         #   Обработка сигналов                                          #
@@ -103,7 +111,7 @@ class MainWidget(QWidget):
         self.webPage.fileName.connect(self.ui.label.setText)
         signals.change_proxy.connect(self.change_app_proxies)
         self.getProxyBtn.clicked.connect(self.get_proxy)
-        self.ui.searchBtn.clicked.connect(self.search_on_opds)
+        self.ui.findAuthorBtn.clicked.connect(self.search_on_opds)
         self.torBtn.clicked.connect(self.torBtn_clicked)
         self.qnam.finished.connect(self.qnamFinished)
         self.show()
@@ -142,7 +150,7 @@ class MainWidget(QWidget):
     @pyqtSlot()
     def search_on_opds(self):
         try:
-            html = self.get_html('/opds/search', searchText=self.ui.search_le.text().strip())
+            html = self.get_html('/opds/search', searchText=self.ui.searchAuthorLedit.text().strip())
         except Exception as e:
             logger.exception('')
             self.msgbox(str(e))

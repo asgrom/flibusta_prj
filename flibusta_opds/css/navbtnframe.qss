@@ -1,0 +1,14 @@
+#navBtnFrame QPushButton {
+	border-style: outset;
+	border-width: 1px;
+	border-color: grey;
+	padding: 4px;
+	border-radius: 10px;
+	min-width: 100px;
+}
+#navBtnFrame QPushButton:hover {
+	background-color: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 beige, stop:1 rgb(215,215,215));
+}
+#navBtnFrame QPushButton:pressed {
+	border-style: inset;
+}

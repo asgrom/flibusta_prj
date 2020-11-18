@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="/">
+    <file>css/navbtnframe.qss</file>
+    <file>images/back.svg</file>
+    <file>images/forward.svg</file>
+    <file>css/style.css</file>
+    <file>css/stylesheet.qss</file>
+    <file>images/favicon.ico</file>
+    <file>images/flibusta.png</file>
+  </qresource>
+</RCC>
