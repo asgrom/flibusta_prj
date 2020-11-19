@@ -111,7 +111,8 @@ class MainWidget(QWidget):
         self.webPage.fileName.connect(self.ui.label.setText)
         signals.change_proxy.connect(self.change_app_proxies)
         self.getProxyBtn.clicked.connect(self.get_proxy)
-        self.ui.findAuthorBtn.clicked.connect(self.search_on_opds)
+        self.ui.findAuthorBtn.clicked.connect(self.searchOnOpds)
+        self.ui.findBookBtn.clicked.connect(self.searchOnOpds)
         self.torBtn.clicked.connect(self.torBtn_clicked)
         self.qnam.finished.connect(self.qnamFinished)
         self.show()
@@ -148,12 +149,19 @@ class MainWidget(QWidget):
                 self._loop.quit()
 
     @pyqtSlot()
-    def search_on_opds(self):
+    def searchOnOpds(self):
+        sender = self.sender().objectName()
+        if sender == 'findBookBtn':
+            text = self.ui.searchBookLedit.text().strip()
+        else:
+            text = self.ui.searchAuthorLedit.text().strip()
         try:
-            html = self.get_html('/opds/search', searchText=self.ui.searchAuthorLedit.text().strip())
+            html = self.get_html(
+                url='/opds/search', searchText=text,
+                searchType='books' if sender == 'findBookBtn' else 'authors')
         except Exception as e:
             logger.exception('')
-            self.msgbox(str(e))
+            QMessageBox.critical(self, '', str(e))
             return
         self.setHtml(html)
         self.history.add('/opds/search')
@@ -213,13 +221,38 @@ class MainWidget(QWidget):
         if e.type() == MyEvent.idType:
             self.link_clicked(e.data)
 
-    def get_html(self, url, searchText=None):
+    def get_html(self, url, searchText=None, searchType=None):
+        """Получает данные с сайта.
+
+        Получаем данные с сайта. Отдаем их парсеру. Распарсенные данные
+        отдаем генератору веб-страниц. Возвращаем готовую страницу.
+
+        Parameters
+        ----------
+        url : str
+            Адрес из opds-каталога сайта.
+        searchText : str, optional
+            Строка, которую будем искать, by default None.
+        searchType : str, optional
+            Может принимать значения: 'books' - поиск книги;
+            'authors' - поиск автора, by default None.
+
+        Returns
+        -------
+        str
+            Сгенерированная html-страница.
+        """
         QApplication.setOverrideCursor(Qt.WaitCursor)
-        query = QUrlQuery()
-        query.setQueryItems([('searchType', 'authors'), ('searchTerm', f'{{{searchText}}}')])
         url_ = QUrl('http://flibusta.is')
         url_.setPath(url)
-        if url == '/opds/search':
+        if searchText and searchType:
+            query = QUrlQuery()
+            if searchType == 'authors':
+                query.setQueryItems([('searchType', 'authors'),
+                                     ('searchTerm', f'{{{searchText}}}')])
+            else:
+                query.setQueryItems([('searchType', 'books'),
+                                     ('searchTerm', f'{{{searchText}}}')])
             url_.setQuery(query)
         request = QNetworkRequest(url_)
         request.setAttribute(QNetworkRequest.FollowRedirectsAttribute, True)
